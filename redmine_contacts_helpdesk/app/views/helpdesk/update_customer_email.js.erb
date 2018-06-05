@@ -1,0 +1,15 @@
+$('#customer_to_email').html('<%= escape_javascript(render :partial => "issues/customer_to_email", :locals => {:contact => @contact, :contact_email => @email}) %>')
+$("#helpdesk_to").val("<%= @email %>");
+$("#helpdesk_to").attr("value", "<%= @email %>")
+$("#helpdesk_to").tagit("removeAll");
+$("#helpdesk_to").tagit({ availableTags: ["<%= @email %>"] });
+$("#helpdesk_to").tagit("createTag", "<%= @email %>");
+
+$("helpdesk_cc").val("<%= (@issue.helpdesk_ticket.cc_addresses - [@email]).join(',') %>")
+$("#helpdesk_cc").tagit("removeAll");
+<% (@issue.helpdesk_ticket.cc_addresses - [@email]).each do |email| %>
+  $("#helpdesk_cc").tagit({ availableTags: ["<%= email %>"] });
+  $("#helpdesk_cc").tagit("createTag", "<%= email %>");
+<% end %>
+
+

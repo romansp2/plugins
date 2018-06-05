@@ -1,0 +1,6 @@
+# English strings go here for Rails i18n
+ru:
+  check_box_all_actions: Все
+  link_issue_block: Заблокировать
+  link_issue_unblock: Разблокировать
+  field_issue_block_unblock: "Блокировка задачи:"

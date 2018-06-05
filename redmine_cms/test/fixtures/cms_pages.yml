@@ -1,0 +1,52 @@
+page_001:
+  id: 1
+  name: page_001
+  title: page 001
+  project_id:
+  visibility: logged
+  keywords: page 1
+  description: description for page 001
+  is_cached: false
+  content: Content for page 001
+  status_id: 1
+  layout_id: 2
+  version: 2
+page_002:
+  id: 2
+  name: page_002
+  title: page 002
+  project_id:
+  visibility: public
+  keywords: page 2
+  description: description for page 002
+  is_cached: false
+  content: v3 for page2
+  status_id: 1
+  layout_id: 1
+  version: 3
+  parent_id: 1
+page_003:
+  id: 3
+  name: page_003
+  title: page 003 (not visibile)
+  project_id:
+  visibility: nil
+  keywords: page 3
+  description: description for page 003
+  is_cached: true
+  content: Content for page 003
+  status_id: 0
+  layout_id: 1
+  parent_id: 2
+page_004:
+  id: 4
+  name: existed_page
+  title: page 004 (for single user)
+  project_id:
+  visibility: 3
+  keywords: page 4
+  description: description for page 004
+  is_cached: true
+  content: Content for page 004
+  layout_id: 2
+  status_id: 1

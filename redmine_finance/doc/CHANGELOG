@@ -1,0 +1,134 @@
+== Redmine Finance plugin changelog
+
+Redmine Finance plugin - accounting plugin for redmine
+Copyright (C) 2011-2016 Kirill Bezrukov
+http://www.redminecrm.com/
+
+== 2016-08-17 v2.1.1
+
+*  New operations import added
+
+== 2016-06-17 v2.1.0
+
+* Operation category hierarchy
+* Operation types income/outcome
+* Fixed reversed comments error
+* New Redmine styles compatibility
+
+== 2015-12-03 v2.0.1
+
+* Fixed major currencies bug
+* Search form on index page was repared
+* Fixed bug with saving custom_field values
+
+== 2015-06-15 v2.0.0
+
+* Redmine 3 support
+* Custom fields fixes for Redmine < 2.5
+* Fixed adding approved operations
+* Chinese translation (zhoutt)
+* Spanish translation (Franco Iacomella)
+
+== 2014-11-10 v1.2.1
+
+* Operations calendar view
+* Custom field styles
+* Add new account link to operations list
+* Fixes with invoice links from project without finance module
+* Invoice links fixes
+* Fixed notification bug
+* Manage planned operations
+
+== 2014-10-02 v1.2.0
+
+* Operations approval
+* Calculate account balance by operations
+* Saving queries
+* Select finance menu item on import
+* Added new permissions for adding operations
+* Fixed edit own operation permission check
+
+== 2014-08-29 v1.1.2
+
+* Show in top and app menu setting fixes
+
+== 2014-05-22 v1.1.1
+
+* Save settings fixes
+
+== 2014-05-03 v1.1.0
+
+* Default currency from CRM plugin
+* Assignee for operation
+
+== 2014-02-25 v1.0.9
+
+* Polish translation (Szymon Anders)
+* Redmine 2.5 support
+
+== 2014-01-10 v1.0.8
+
+* Check for account and category in use
+* Last year added to filters
+
+== 2013-11-15 v1.0.7
+
+* REST API for operations
+* Email notifications for operation comments
+* Fixed recalculation on changing account for the operation
+
+== 2013-10-31 v1.0.6
+
+* Minor enhancements and bug fixes
+* German local fixes from Terence Mill
+
+== 2013-09-20 v1.0.5
+
+* Added Slovak translation by Martin Bucko
+* Fixed bug with PostgreSQL
+
+== 2013-07-03 v1.0.4
+
+* Fixed bug with show operation for light version
+* German translation by Sebastian Kriesmer
+* Cross-project contacts relations
+* Only companies could be operation contacts setting
+
+== 2013-04-10 v1.0.3
+
+* Fixed invoices relations
+
+== 2013-04-05 v1.0.2
+
+* New CRM plugin (3.2.1) support
+
+== 2013-02-26 v1.0.1
+
+* Fixed invoices support
+* Fixed money gem requirements
+
+== 2013-02-25 v1.0.0
+
+* Financial operations
+* Accounts
+* Account watching (email notifications)
+* Comments
+* CSV Import/Export
+* Operation relations
+* Invoices relation
+* Attachments
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

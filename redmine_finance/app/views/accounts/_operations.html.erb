@@ -1,0 +1,44 @@
+<%= form_tag({}) do -%>
+  <%= hidden_field_tag 'back_url', url_for(params) %>
+  <%= hidden_field_tag 'project_id', @project.id if @project %>
+  <div class="autoscroll">
+      <table class="list">
+        <thead>
+        <tr>
+          <th class="checkbox hide-when-print"><%= link_to image_tag('toggle_check.png'), {}, :onclick => 'toggleListSelection(this); return false;',
+                                                             :title => "#{l(:button_check_all)}/#{l(:button_uncheck_all)}" %>
+          </th>
+
+          <th>#</th>
+          <th><%= l(:label_operation_date) %></th>
+          <th><%= l(:label_operation_income) %></th>
+          <th><%= l(:label_operation_expense) %></th>
+          <th><%= l(:label_account_balance) %></th>
+          <th><%= l(:label_operation_category) %></th>
+          <th><%= l(:field_description) %></th>
+          <th><%= l(:label_contact) %></th>
+        </tr>
+        </thead>
+        <% previous_balance = @account.total_amount %>
+        <% @operations.each do |operation| %>
+        <tr style="text-align: center;white-space: nowrap;" class="hascontextmenu operation <%= cycle('odd', 'even') %>  <%= 'income' if operation.is_income? %> <%= 'not-approved' if RedmineFinance.operations_approval? && !operation.is_approved? %> <%= 'planned-operation' if operation.operation_date > Time.now  %>">
+          <td class="checkbox hide-when-print"><%= check_box_tag("ids[]", operation.id, false, :id => nil) %></td>
+          <td class="id"><%= link_to operation.id, operation_path(operation) %></td>
+          <td class="operation_date"><%= link_to format_date(operation.operation_date), operation_path(operation) %></td>
+          <td class="money income" style="text-align:right;"><%= operation.amount_to_s if operation.is_income? %></td>
+          <td class="money expense" style="text-align:right;"><%= operation.amount_to_s unless operation.is_income? %></td>
+          <td class="money balance"><%= price_to_currency(previous_balance, operation.currency) %></td>
+          <td class="category"><%= operation.category  %></td>
+          <td class="description" style="text-align:left;"><small><%= link_to truncate(operation.description, :length => 100), operation_path(operation, :project_id => @project) if operation.description %></small></td>
+          <td class="contact" style="text-align:left;"><%= contact_tag(operation.contact) unless operation.contact.blank? %></td>
+        </tr>
+        <% previous_balance = account_current_balance(previous_balance, operation) %>
+        <% end %>
+        <tr class="total">
+          <th colspan="3" class="money"><%= l(:label_finance_total) %>:</th><th class="money sum"><%=  @account.debit_to_s %></th><th class="money sum"><%=  @account.credit_to_s %></th><th colspan="4"></th>
+        </tr>
+      </table>
+  </div>
+<% end %>
+<%= context_menu url_for( {:controller => "operations", :action => "context_menu"} )%>
+<%= javascript_tag "$('.operation_list tr.operation.planned-operation:last').addClass('last');" %>

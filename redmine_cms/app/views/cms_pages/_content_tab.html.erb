@@ -1,0 +1,9 @@
+<%= text_area_tag 'page[content]', @page.content, :cols => 100, :rows =>  30, :class => 'wiki-edit' %>
+<% unless @page.new_record?  %>
+  <p>
+    <label for="page_version_comment"><%= l(:label_cms_version_comment) %></label>
+    <%= text_field_tag 'page[version_comment]', '', :style => "width: 100%;" %>
+  </p>
+
+<% end %>
+<%= javascript_tag "editor = activateCodeMirror('page_content', '#{@page.filter.class.mine_type}');" %>

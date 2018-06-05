@@ -1,0 +1,57 @@
+<fieldset id="send_letter">
+	<legend><%=l(:letter_to_client, scope: [:redmine_issue_mailer])%></legend>
+
+	<div class="next-prev-links contextual">
+	  <%=link_to l(:close_send_letter, scope: [:redmine_issue_mailer]), '###', onclick: "$('fieldset#send_letter').remove();" %>
+	</div>
+
+	<br>
+	<label for="send_letter_from"><%=l(:send_letter_from, scope: [:redmine_issue_mailer])%></label>
+	
+  <%=select_tag "send_letter[from]", options_from_collection_for_select(@project.issue_mail_server_settings, "id", "user_name"), id: "send_letter_from", form: "issue-form", required: true%>
+  
+  <br>
+  <br>
+  <label for="send_letter_permission_for_to"><%=l(:option_for_entering_the_recipient, scope: [:redmine_issue_mailer])%></label>
+  <%=select_tag "send_letter[permission_for_to]", options_for_select(@permission_for_to_field), id: "send_letter_permission_for_to", form: "issue-form", required: true,  include_blank: true%>
+  <%=("(#{l(:client_email_was_not_found, scope: [:redmine_issue_mailer])})") if( User.current.allowed_to?(:write_letter_to_client, @project) && @client_email.nil?)%>
+  <br>
+	<label for="send_letter_to"><%=l(:send_letter_to, scope: [:redmine_issue_mailer])%></label>
+	<input id="send_letter_to" type="text" form="issue-form" name="send_letter[to]" style="width: 99%" required multiple disabled >
+  <%=select_tag( 'send_letter[email_books_to][]', options_from_collection_for_select( @email_books, 'id', 'name'), multiple: true, style: "width: 99%; display: none;", form: "issue-form" )%>
+	<br>
+	<label for="send_letter_bcc"><%=l(:send_letter_bcc, scope: [:redmine_issue_mailer])%></label>
+	<input id="send_letter_bcc" type="text" form="issue-form" name="send_letter[bcc]" style="width: 99%" multiple disabled>
+    
+    <br>
+	<label for="send_letter_subject"><%=l(:letter_subject, scope: [:redmine_issue_mailer])%></label>
+	<input id="send_letter_subject" type="text" form="issue-form" name="send_letter[subject]" required style="width: 99%">
+
+    <br>
+	<label for="send_letter_body_txt"><%=l(:letter_body_txt, scope: [:redmine_issue_mailer])%></label>
+	<textarea id="send_letter_body_txt" class="wiki-edit" style="min-height: 300px" type="textarea" form="issue-form" name="send_letter[body_txt]" required></textarea>
+    
+	
+    <p><%=l(:email_issue_footer, scope: [:redmine_issue_mailer])%></p>
+    <%unless @footers.blank?%>
+      <div class="next-prev-links contextual">
+	      <%=link_to l(:choose_email_issue_footer, scope: [:redmine_issue_mailer]), '###', onclick: "list_footers_dialog.dialog('open');" %>
+	    </div>
+      <div id="send_letter_footer">
+        <div class="footer footer_<%=@default_footer.id%>">
+          <input id="send_letter_footer" type="hidden" form="issue-form" name="send_letter[footer_id]" value="<%=@default_footer.id%>">
+          <textarea id="send_letter_footer" class="wiki-edit" style="min-height: 300px" type="textarea" readonly>
+            <%=h @default_footer.footer%>
+          </textarea>
+        </div>
+      </div>
+    <%else%>
+      <div id="send_letter_footer">
+        <p>Footer list has not been created</p>
+      </div>
+    <%end%>
+    
+
+    <%=check_box_tag "send_letter[attachments]", '1', false%>
+	  <label for="send_letter_attachments"><%=l(:include_attachments, scope: [:redmine_issue_mailer])%></label>
+</fieldset>

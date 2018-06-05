@@ -1,0 +1,10 @@
+<div id="error">
+  <h2>
+    <%= l('html_block.activerecord.errors.form', count: pluralize(@block.errors.count, "error")), %>
+  </h2>
+  <ul>
+    <% @block.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>

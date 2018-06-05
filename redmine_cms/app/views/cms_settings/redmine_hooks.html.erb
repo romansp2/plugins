@@ -1,0 +1,35 @@
+<% extend CmsPagesHelper %>
+<% extend CmsHelper %>
+
+<% html_title(l(:label_cms_settings)) -%>
+
+<h2><%= l(:label_cms_redmine_hook_plural) %></h2>
+
+<%= form_tag({:controller => :cms_settings, :action => :update, :id => '1'},
+               :method => :put, :id => "cms_settings_form") do %>
+<%= hidden_field_tag :back_url, url_for(params) %>
+<fieldset class="box"><legend>view_layouts_base_html_head</legend>
+<%= text_area_tag 'settings[view_layouts_base_html_head_hook]', @settings["view_layouts_base_html_head_hook"], :class => 'wiki-edit', :rows => 5 %>
+</fieldset>
+
+<fieldset class="box"><legend>view_layouts_base_sidebar</legend>
+<%= text_area_tag 'settings[view_layouts_base_sidebar_hook]', @settings["view_layouts_base_sidebar_hook"], :class => 'wiki-edit', :rows => 5 %>
+</fieldset>
+
+<fieldset class="box"><legend>view_layouts_base_body_bottom</legend>
+<%= text_area_tag 'settings[view_layouts_base_body_bottom_hook]', @settings["view_layouts_base_body_bottom_hook"],:class => 'wiki-edit', :rows => 5 %>
+</fieldset>
+
+
+
+<%= submit_tag l(:button_apply) %>
+<% end %>
+
+<% content_for :sidebar do %>
+  <% render :partial => 'cms_settings/menu' %>
+<% end %>
+
+<% content_for :header_tags do %>
+  <%= code_mirror_tags %>
+  <%= javascript_include_tag 'redmine_cms', :plugin => 'redmine_cms'  %>
+<% end %>

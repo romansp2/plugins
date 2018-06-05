@@ -1,0 +1,17 @@
+<%=form_tag({controller: 'issue_block', action: 'update', project_id: @project.identifier, id: @issue.id }, method: 'put') do%>
+  <%=radio_button_tag('issue_block[block]', "1", @issue.block)%>
+  <%=label_tag('issue_block[block]_1', "Block")%>
+  <br> 
+  <%=radio_button_tag('issue_block[block]', "0", !@issue.block)%>
+  <%=label_tag('issue_block[block]_0', "Unblock")%>
+  <br>
+  <hr>
+  <h3>Rules</h3>
+  <%=radio_button_tag 'block_permissions', "block_all_actions", (@issue.block_all_actions? or @issue.block_permissions.blank?)%> 
+  <%=label_tag(:only_watchers, "Block all actions") %> 
+  <br>  
+  <%=radio_button_tag 'block_permissions', "block_only_watchers", @issue.block_only_watchers?%> 
+  <%=label_tag(:only_watchers, "Only Watchers") %> 
+  <br>  
+  <%=submit_tag "Set"%>
+<%end%>

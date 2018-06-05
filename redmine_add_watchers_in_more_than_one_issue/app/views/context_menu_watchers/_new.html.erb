@@ -1,0 +1,34 @@
+<h3 class="title"><%= l(:permission_add_issue_watchers) %></h3>
+
+<%= form_tag({:controller => 'context_menu_watchers',
+              :action => 'create',
+              :ids => issues,
+              :from => ((params.include?(:from) && params[:from] == "bulk_edit") ? "bulk_edit" : "")},
+              :remote => true,
+              :method => :post,
+              :id => 'new-watcher-form') do %>
+<div style="height: 200px; overflow-y: scroll;">              
+  <ul id="bulk-selection">
+    <%issues.each do |issue| %>
+      <%= content_tag 'li', link_to_issue(issue) %>
+    <%end%>
+  </ul>
+</div>
+
+  <p><%= label_tag 'user_search', l(:label_user_search) %><%= text_field_tag 'user_search', nil %></p>
+  <%= javascript_tag "observeSearchfield('user_search', 'users_for_watcher', '#{ escape_javascript url_for(:controller => 'context_menu_watchers',
+                 :action => 'autocomplete_for_user',
+                 :ids => issues.map(&:id) ) }')" %>
+
+  <div id="users_for_watcher">    
+    <%= principals_check_box_tags 'watcher[user_ids][]', user_watchers %>
+  </div>
+
+  <p class="buttons">
+    <%= submit_tag l(:button_add), :name => nil, :onclick => "hideModal(this);" %>
+    <%= submit_tag l(:button_cancel), :name => nil, :onclick => "hideModal(this);", :type => 'button' %>
+  </p>
+<% end %>
+
+
+ 

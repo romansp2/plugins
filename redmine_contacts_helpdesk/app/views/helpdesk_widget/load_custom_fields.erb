@@ -1,0 +1,6 @@
+<% @issue.editable_custom_field_values.each do |value| %>
+  <% if @enabled_cf && @enabled_cf.include?(value.custom_field_id.to_s) %>
+    <% required = value.custom_field.is_required? %>
+    <p class="custom_field" data-error-key="<%= value.custom_field.name %>" data-require="<%= required %>"><%= custom_field_tag_with_label :issue, value, :required => required %></p>
+  <% end %>
+<% end %>

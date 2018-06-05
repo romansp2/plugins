@@ -1,0 +1,38 @@
+= redmine_create_contacts_with_issue
+
+Description goes here
+      !!! This plugin does not work without redmine_contacts plugin !!!
+
+  redmine:issue:44614
+  Add functional for add contact from form for create new issue
+
+  Installing a plugin
+
+    0. This plugin does not work without redmine_contacts plugin
+  
+    1. Clone from git@gitlab.qazz.pw:a.kondratenko/redmine_create_contacts_with_issue.git
+    
+    2. Tag v_._._ is required
+  
+    3. Copy redmine_create_contacts_with_issue to plugins folder of redmine
+  
+    4. Do not run migrate for this plugin
+  
+    5. Restart app (redmine)
+
+    
+
+  Uninstalling a plugin
+
+    1. Delete folder redmine_create_contacts_with_issue and it is all
+    
+    2. Restart app (redmine)
+
+
+Changelog
+  v0.0.1 - 30 March 2015
+    First releas
+
+  v0.1.0 - 28 December 2016
+    redmine:issue:875382
+    Version for redmine320

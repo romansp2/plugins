@@ -1,0 +1,8 @@
+<%groups.each do |group|%>
+  <li id="<%=group.id%>">
+    <%=h group %>
+    <%if @allow_delete%>
+      <%=link_to image_tag('delete.png'), context_menu_watcher_groups_path(ids: @issues.map(&:id), group_id: group.id), :remote => true, :method => 'delete', :class => "delete" %>
+    <%end%> 
+  </li>
+<%end%>

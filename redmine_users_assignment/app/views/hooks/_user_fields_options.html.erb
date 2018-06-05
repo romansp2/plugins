@@ -1,0 +1,96 @@
+<%unless @copy
+    if @custom_fields.empty?
+      user_custom_fields = []
+      not_required_cfs = []
+    else
+      if @custom_fields.is_a?(Array)
+        user_custom_fields = @custom_fields.select { |cf| cf.field_format == 'user' }
+      else
+        user_custom_fields = @custom_fields.where('field_format' => 'user')
+      end
+
+      if user_custom_fields.empty?
+        not_required_cfs = []
+      else
+        if user_custom_fields.is_a?(Array)
+          not_required_cfs = user_custom_fields.select { |ucf| !ucf.is_required } # user_not_required_custom_fields
+        else
+          not_required_cfs = user_custom_fields.where(is_required: 0) # user_not_required_custom_fields
+        end
+
+      end
+    end
+
+    nil_fields = { assigned: [] }
+    not_required_cfs.each do |f|
+      nil_fields[f.id] = []
+    end
+
+    @issues.each do |i|
+      nil_fields[:assigned].push(i.id) if i.assigned_to.nil?
+      not_required_cfs.each do |f|
+        nil_fields[f.id].push(i.id) if i.custom_value_for(f).nil? || i.custom_value_for(f).value.blank?
+      end
+    end %>
+
+  <script>
+    $(document).ready(function(){
+      var modal = $('#ajax-modal');
+      var select_assigned = $('#issue_assigned_to_id');
+      select_assigned.find('option[value="none"]', this).after('<option value="author"><%= l(:field_author)%></option><%=
+      user_custom_fields.map{ |cf| content_tag('option', cf['name'], :value => 'custom_' + cf['id'].to_s) }.sum %>');
+      select_assigned.change(function(){
+        <% not_required_cfs.each do |f| %>
+          <% if nil_fields[f.id].any? %>
+            if ($(this).val() == 'custom_<%= f.id %>'){
+              modal.html('<%= escape_javascript(
+                    render :partial => 'hooks/warning', :locals => {
+                      issue_ids: nil_fields[f.id],
+                      changed_field: "issue_assigned_to_id",
+                      nil_field_label: f.name }) %>');
+              showModal('ajax-modal', '600px');
+              modal.attr('style', 'min-height: none');
+            }
+          <% end %>
+        <% end %>
+      });
+
+      <% user_custom_fields.each do |cf| %>
+        var select = $('#issue_custom_field_values_<%= cf[:id] %>');
+        select.change(function(){
+
+          <% if nil_fields[:assigned].any? %>
+            if ($(this).val() == 'assigned'){
+              modal.html('<%= escape_javascript(
+                render :partial => 'hooks/warning', :locals => {
+                  issue_ids: nil_fields[:assigned],
+                  changed_field: "issue_custom_field_values_#{ cf[:id] }",
+                  nil_field_label: 'Назначена' }) %>');
+              showModal('ajax-modal', '600px');
+              modal.attr('style', 'min-height: none');
+            }
+          <% end %>
+          <% not_required_cfs.each do |f| %>
+            <% if nil_fields[f.id].any? %>
+              if ($(this).val() == 'custom_<%= f.id %>'){
+                modal.html('<%= escape_javascript(
+                render :partial => 'hooks/warning', :locals => {
+                  issue_ids: nil_fields[f.id],
+                  changed_field: "issue_custom_field_values_#{ cf.id }",
+                  nil_field_label: f.name }) %>');
+                showModal('ajax-modal', '600px');
+                modal.attr('style', 'min-height: none');
+              }
+            <% end %>
+          <% end %>
+        });
+        var option = select.find('option[value="__none__"]', this);
+        if (option.length == 0) {
+          option = select.find('option[value=""]', this);
+        }
+        option.after('<option value="author"><%= l(:field_author)%></option><option value="assigned"><%= l(:field_assigned_to)%></option><%=
+        (user_custom_fields - [cf]).map{ |c| content_tag('option', c['name'], :value => 'custom_' + c['id'].to_s) }.sum %>');
+      <% end %>
+    });
+  </script>
+<% end %>

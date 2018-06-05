@@ -1,0 +1,22 @@
+<%=project_menu_settings(@project, selected = issue_mailer_standard_fields_path)%>
+<br><br><br>
+
+<table class="list">
+  <thead>
+  	<tr>
+  	  <th><%=l(:field_assigned_to)%></th>
+  	</tr>
+  </thead>
+  <tbody>
+  	<tr>
+  	  <td><%=@field.try(:assigned_to).try(:name)%></td>
+  	</tr>
+  </tbody>
+</table>
+
+<%if @field.nil?%>
+  <%=link_to "New", new_issue_mailer_standard_field_path(project_id: @project.id)%>
+<%else%>
+  <%=link_to "Edit", edit_issue_mailer_standard_field_path(id: @field.id, project_id: @project.id)%>
+<%end%>
+

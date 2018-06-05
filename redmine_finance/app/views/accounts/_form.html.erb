@@ -1,0 +1,34 @@
+<%= error_messages_for 'account' %>
+
+<div class="box tabular">
+
+  <p class="name"><%= f.text_field :name, :size => 80, :required => true %></p>
+  <p><%= f.select :currency, collection_for_currencies_select(ContactsSetting.default_currency, ContactsSetting.major_currencies), :label => l(:label_account_currency), :include_blank => false, :required => true  %>
+  </p>
+
+  <p><%= f.select :assigned_to_id, (@project.assignable_users.collect {|m| [m.name, m.id]}), :include_blank => true, :label => l(:field_assigned_to) %></p>
+  <% custom_field_values = @account.custom_field_values %>
+  <div class="splitcontent">
+    <div class="splitcontentleft">
+    <% i = 0 %>
+    <% split_on = (custom_field_values.size / 2.0).ceil - 1 %>
+    <% custom_field_values.each do |value| %>
+      <p><%= custom_field_tag_with_label :account, value, :required => value.custom_field.is_required? %></p>
+    <% if i == split_on -%>
+    </div><div class="splitcontentright">
+    <% end -%>
+    <% i += 1 -%>
+    <% end -%>
+    </div>
+  </div>
+
+<p><%= f.text_area :description, :cols => 60, :rows => 5, :class => 'wiki-edit' %><%# wikitoolbar_for 'account_description' %></p>
+
+
+</div>
+<fieldset><legend><%= l(:label_attachment_plural) %></legend>
+<p><%= render :partial => 'attachments/form', :locals => {:container => @account} %></p>
+</fieldset>
+<br>
+
+

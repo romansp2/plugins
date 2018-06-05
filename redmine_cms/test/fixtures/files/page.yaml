@@ -1,0 +1,35 @@
+---
+name: imported_page
+title: Imported page
+content:
+filter_id: ''
+status_id: 1
+visibility: public
+is_cached: false
+parent_name:
+layout_name: layout_1
+parts:
+- name: imported_page_part
+  part_type:
+  content: part_body
+  filter_id: ''
+  is_cached: false
+  description: Test part
+  position: 1
+  status_id: 1
+  page_name: imported_page
+fields:
+- name: imported_page_field
+  content: ''
+  page_name: imported_page
+attachments:
+- container_type: CmsPage
+  filename: test.vcf
+  content_type: text/vcard
+  description: ''
+  page_name: imported_page
+  file_content: |
+    QkVHSU46VkNBUkQKVkVSU0lPTjozLjAKTjpUZXN0O1Rlc3Q7OzsKRk46VGVz
+    dCBUZXN0CkFEUjtUWVBFPXByZWY6Ozs7Ozs7ClRJVExFOgpPUkc6Ck5PVEU6
+    ClRFTDorNy0oOTI3KTk3MDY2LTY2CkVNQUlMOnRlc3RAdGVzdC5jb20KRU5E
+    OlZDQVJECg==

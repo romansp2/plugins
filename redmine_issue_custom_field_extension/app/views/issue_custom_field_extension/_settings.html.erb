@@ -1,0 +1,19 @@
+<h1>Settings</h1>
+<table>
+  <tbody>
+    <tr>
+      <th><h3>Use Sidekiq</h3></th>
+      <td>
+        <%=check_box_tag 'settings[use_sidekiq]', true, (settings['use_sidekiq'] || false)%>
+      </td>
+    </tr>
+    <tr>
+    </tr>
+  </tbody>
+</table>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+  	$("div#settings").append("<%=escape_javascript( render :partial => 'issue_custom_field_extension/index')%>")
+  })
+</script>

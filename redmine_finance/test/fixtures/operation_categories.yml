@@ -1,0 +1,21 @@
+category_1:
+  id: 1
+  name: 'Category 1'
+  parent_id: nil
+  code: 111
+  lft: 9
+  rgt: 12
+category_2:
+  id: 2
+  name: 'Category 2'
+  parent_id: nil
+  code: 222
+  lft: 3
+  rgt: 8
+category_3:
+  id: 3
+  name: 'Category 3'
+  parent_id: 2
+  code: 333
+  lft: 4
+  rgt: 7

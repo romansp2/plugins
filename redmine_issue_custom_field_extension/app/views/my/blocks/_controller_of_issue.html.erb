@@ -1,0 +1,26 @@
+<%custom_field = CustomField.where("type='IssueCustomField' AND field_format='user' AND name = ?", "Контролер").first%>
+
+<%unless custom_field.nil?%>
+  <% issues = Issue.where("issues.id  IN (SELECT issues.id FROM issues LEFT OUTER JOIN custom_values ON custom_values.customized_type='Issue' 
+                                                                              AND custom_values.customized_id=issues.id 
+                                                                              AND custom_values.custom_field_id=#{custom_field.id} 
+                WHERE custom_values.value=#{User.current.id}
+               )").limit(10)%>
+<%end%>
+<h3><%=l(:label_controller_of_issue)%></h3>
+
+<%= render :partial => 'issues/list_simple', :locals => { :issues => (issues || [])  } %>
+
+<%unless custom_field.nil?%>
+  <p class="small">
+  
+    <%= link_to l(:label_issue_view_all), :controller => 'issues',
+                                          :action => 'index',
+                                          :set_filter => 1,
+                                          :f  => ["cf_#{custom_field.id}", ""],
+                                          :op => {"cf_#{custom_field.id}" => "="}, 
+                                          :v  => {"cf_#{custom_field.id}" => [User.current.id]}
+    %>
+  </p>
+<%end%>
+

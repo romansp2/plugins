@@ -1,0 +1,38 @@
+<div class="contextual">
+<%= link_to l(:label_cms_layout_new), new_cms_layout_path, :class => 'icon icon-add' %>
+<%= link_to l(:button_import), cms_import_path(:object_type => CmsLayout.name.underscore), :class => 'icon icon-duplicate' %>
+</div>
+
+<h2><%=l(:label_cms_layout_plural)%></h2>
+
+<div class="autoscroll">
+<% if @cms_layouts.any? %>
+  <table class="list">
+    <thead>
+      <tr>
+        <th><%= l(:label_cms_name) %></th>
+        <th><%= l(:label_cms_content_type) %></th>
+        <th style="width:10%;"> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cms_layouts.each do |cms_layout| -%>
+        <tr class="cms_layout <%= cycle("odd", "even") %>" id="layout_<%= cms_layout.id %>">
+          <td class="name"><%= link_to h(cms_layout.name), edit_cms_layout_path(cms_layout) %></td>
+          <td class="type"><%= cms_layout.content_type.blank? ? "text/html" : cms_layout.content_type  %></td>
+          <td class="buttons">
+            <%= link_to l(:label_history), cms_object_history_path(cms_layout, :object_type => cms_layout.class.name.underscore), :class => 'icon icon-history' if cms_layout.version > 1 %>
+            <%= delete_link cms_layout_path(cms_layout) %>
+          </td>
+        </tr>
+      <% end -%>
+  </tbody>
+</table>
+<% end %>
+</div>
+
+<% content_for :sidebar do %>
+  <% render :partial => 'cms_settings/menu' %>
+<% end %>
+
+<% html_title(l(:label_cms_layout_plural)) -%>

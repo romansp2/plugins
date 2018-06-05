@@ -1,0 +1,25 @@
+<div class="contextual">
+<%= link_to l(:label_checklist_template_category_new), {:controller => "checklist_template_categories", :action => 'new'}, :class => 'icon icon-add' %>
+</div>
+
+<h3><%=l(:label_checklist_template_category_plural)%></h3>
+
+<table class="list">
+  <thead><tr>
+  <th><%=l(:field_checklist_template_category)%></th>
+  <th><%=l(:button_sort)%></th>
+  <th></th>
+  </tr></thead>
+  <tbody>
+<% for category in ChecklistTemplateCategory.ordered  %>
+  <tr class="<%= cycle("odd", "even") %>">
+  <td class="name"><%= category.name %></td>
+  <td align="center" style="width:15%;"><%= reorder_links('category', {:controller => "checklist_template_categories", :action => 'update', :id => category}, :put) %></td>
+  <td class="buttons">
+    <%= link_to l(:button_edit), edit_checklist_template_category_path(category), :class => 'icon icon-edit' %>
+    <%= delete_link checklist_template_category_path(category) %>
+  </td>
+  </tr>
+<% end %>
+  </tbody>
+</table>

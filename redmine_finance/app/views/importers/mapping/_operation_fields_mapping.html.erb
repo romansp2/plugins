@@ -1,0 +1,42 @@
+<div class="splitcontent">
+  <div class="splitcontentleft">
+    <p>
+      <label><%= l(:label_operation_income) %></label>
+      <%= mapping_select_tag @import, 'income', :required => true %>
+    </p>
+    <p>
+      <label><%= l(:label_operation_expense) %></label>
+      <%= mapping_select_tag @import, 'expense', :required => true %>
+    </p>
+    <p>
+      <label><%= l(:label_operation_type) %></label>
+      <%= mapping_select_tag @import, 'category', :required => true %>
+    </p>
+    <p>
+      <label><%= l(:label_operation_account) %></label>
+      <%= mapping_select_tag @import, 'account', :required => true %>
+    </p>
+  </div>
+
+  <div class="splitcontentright">
+    <p>
+      <label><%= l(:label_operation_date) %></label>
+      <%= mapping_select_tag @import, 'operation_date', :required => true %>
+    </p>
+    <p>
+      <label><%= l(:label_operation_description) %></label>
+      <%= mapping_select_tag @import, 'description' %>
+    </p>
+    <p>
+      <label><%= l(:label_operation_contact) %></label>
+      <%= mapping_select_tag @import, 'contact' %>
+    </p>
+
+    <% @custom_fields.each do |field| %>
+      <p>
+        <label><%= field.name %></label>
+        <%= mapping_select_tag @import, "cf_#{field.id}" %>
+      </p>
+    <% end %>
+  </div>
+</div>

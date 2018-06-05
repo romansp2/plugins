@@ -1,0 +1,33 @@
+
+<div class="contextual">
+<%= link_to l(:label_cms_redirect_new), new_cms_redirect_path, :class => 'icon icon-add' %>
+</div>
+
+<h2><%=l(:label_cms_redirect_plural)%></h2>
+
+<div class="autoscroll">
+<table class="list">
+  <thead><tr>
+    <th><%= l(:label_cms_source_path) %></th>
+    <th><%= l(:label_cms_destination_path) %></th>
+    <th></th>
+  </tr></thead>
+  <tbody>
+<% @cms_redirects.each do |cms_redirect| -%>
+  <tr class="cms_redirect project <%= cycle("odd", "even") %>">
+    <td class="name"><%= link_to cms_redirect.source_path, edit_cms_redirect_path(cms_redirect) %></td>
+    <td class="name"><%= cms_redirect.destination_path %></td>
+    <td class="buttons">
+      <%= delete_link cms_redirect_path(cms_redirect, :back_url => cms_redirects_path(params)) %>
+    </td>
+  </tr>
+<% end -%>
+  </tbody>
+</table>
+</div>
+
+<% content_for :sidebar do %>
+  <% render :partial => 'cms_settings/menu' %>
+<% end %>
+
+<% html_title(l(:label_cms_redirect_plural)) -%>

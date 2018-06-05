@@ -1,0 +1,14 @@
+# English strings go here for Rails i18n
+ru:
+  # my_label: "My label"
+  controller_in_issue: Контролур
+  label_controller_of_issue: Контролер
+  icfe_default_value_author_of_issue: Автор Задачи
+  icfe_default_value_assignee: Назначена
+
+  th_custom_field: Настраиваемое поле
+  th_enabled: Включено
+  th_email_notifications: Уведомления по email
+  th_autowatcher: Автонаблюдатель
+  th_default_as: По умолчанию как
+  th_issues_visibility: Видимость задач

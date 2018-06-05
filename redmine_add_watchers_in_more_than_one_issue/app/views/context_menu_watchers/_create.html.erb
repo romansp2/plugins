@@ -1,0 +1,11 @@
+<div style="height: 200px; overflow-y: scroll;">
+  <ul id="bulk-selection">
+    <%@issues.each do |issue| %>
+      <%= content_tag 'li', link_to_issue(issue) %>
+    <%end%>
+  </ul>
+</div>
+<h3><%=l(:rawimtoi_added)%></h3>
+<ul id="watchers">
+  <%=render :partial => 'context_menu_watchers/list_watchers', :locals => {:issues => @issues, :watchers => @added_users} %>
+</ul>

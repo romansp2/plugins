@@ -1,0 +1,68 @@
+<div>
+  <h3>Возможность расширять функционал настраиваемых полей, используемых в задачах и имеющих формат «Пользователь»:</h3>
+  <ul>
+    <li>Пользователи, указанные в поле, получают уведомления по электронной почте при каждом обновлении задачи</li>
+    <li>При сохранении изменений значения поля пользователи, указанные в поле, автоматически добавляются в наблюдатели к задаче</li>
+    <li>Значение поля по умолчанию совпадает с полем "Автор" или "Назначена"</li>
+    <li>Пользователи или группы пользователей, обладающие в данном проекте ролью с правами видимости "Задачи созданные или назначенные пользователю", получают доступ к данной задаче.</li>
+  </ul>
+
+
+
+  <table>
+    <thead>
+      <tr>
+        <td></td>
+      </tr>
+    </thead>
+  </table>
+
+  <h3>В таблице отображаются Настраиваемые поля для задач имеющий формат Пользователь</h3>
+  <p><strong><%=l(:th_enabled)%></strong> - Расширенный функционал включен</p>
+  <p><strong><%=l(:th_email_notifications)%></strong> - Пользователь получает уведомления по email в соответствии с настройками своей учетной записи</p>
+  <p><strong><%=l(:th_autowatcher)%></strong> - Пользователь автоматически добавляется в наблюдатели</p>
+  <p><strong><%=l(:th_default_as)%></strong> - По умолчанию совпадает с указанным полем</p>
+  <p><strong><%=l(:th_issues_visibility)%></strong> - Предоставляет доступ к задаче пользователям с правами видимости "Задачи созданные или назначенные пользователю"
+  </p>
+
+</div>
+
+
+<%custom_fields = CustomField.includes(:issue_custom_field_extension).where("type='IssueCustomField' and field_format='user'")%>
+
+  <%=form_tag(controller: :issue_custom_field_extension, action: :create) do%>
+    <div class="box tabular">
+      <table class="list transitions transitions-always">
+        <tr>
+          <th><%=l(:th_custom_field)%></th>
+          <th><%=l(:th_enabled)%></th>
+          <th><%=l(:th_email_notifications)%></th>
+          <th><%=l(:th_autowatcher)%></th>
+          <th><%=l(:th_default_as)%></th>
+          <th><%=l(:th_issues_visibility)%></th>
+        </tr>
+        <%custom_fields.each do |custom_field|%>
+      	  <tr align="center">
+            <%new_record = (custom_field.issue_custom_field_extension.nil? ? true : false)%>
+      	    <td align="center"><%=custom_field.name%></td>
+            <td align="center">
+              <%=check_box_tag "issue_custom_fields[#{custom_field.id}][extends]", true, (new_record ? false : custom_field.issue_custom_field_extension.extends)%>
+            </td>
+      	    <td align="center">
+              <%=check_box_tag "issue_custom_fields[#{custom_field.id}][notify]", true, (new_record ? false : custom_field.issue_custom_field_extension.notify)%>
+            </td>
+      	    <td align="center">
+              <%=check_box_tag "issue_custom_fields[#{custom_field.id}][add_as_watcher]", true, (new_record ? false : custom_field.issue_custom_field_extension.add_as_watcher)%>
+            </td>
+            <td align="center">
+              <%=select_tag "issue_custom_fields[#{custom_field.id}][default_value]", options_for_select([[l(:icfe_default_value_author_of_issue), 'author'], [l(:icfe_default_value_assignee), 'assignee']], (new_record ? '' : custom_field.issue_custom_field_extension.default_value) ), include_blank: true %>
+            </td>
+            <td align="center">
+              <%=check_box_tag "issue_custom_fields[#{custom_field.id}][visible]", true, (new_record ? false : custom_field.issue_custom_field_extension.visible)%>
+            </td>
+      	  </tr>
+      	<%end%>
+      </table>
+    </div>
+    <%=submit_tag "Apply"%>
+  <%end%>

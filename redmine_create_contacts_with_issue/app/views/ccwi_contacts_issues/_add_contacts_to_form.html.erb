@@ -1,0 +1,3 @@
+<%@contacts.each do |contact|%>
+  <%=hidden_field_tag 'contacts_issue[contact_ids][]', contact.id%>
+<%end%>

@@ -1,0 +1,65 @@
+menu_001:
+  name: first_menu
+  caption: First menu
+  path: /first_menu
+  position: 0
+  status_id: 1
+  visibility: public
+  menu_type: top_menu
+  id: 1
+menu_002:
+  name: second_menu
+  caption: Second menu
+  path: /second_menu
+  position: 0
+  status_id: 1
+  visibility: logged
+  menu_type: top_menu
+  id: 2
+menu_003:
+  name: third_menu
+  caption: Third menu
+  path: /third_menu
+  position: 0
+  status_id: 1
+  visibility: 3
+  menu_type: top_menu
+  id: 3
+menu_004:
+  name: 04_menu
+  caption: 04 menu
+  path: /forth_menu
+  position: 0
+  status_id: 1
+  visibility: public
+  menu_type: top_menu
+  id: 4
+menu_005:
+  name: 05_menu
+  caption: 05 menu
+  path: /fifth_menu
+  position: 0
+  status_id: 1
+  visibility: public
+  menu_type: top_menu
+  id: 5
+  parent_id: 4
+menu_006:
+  name: 06_menu
+  caption: 06 menu
+  path: /sixth_menu
+  position: 0
+  status_id: 1
+  visibility: public
+  menu_type: account_menu
+  id: 6
+menu_007:
+  name: 07_menu
+  caption: 07 menu
+  path: /seventh_menu
+  position: 0
+  status_id: 1
+  visibility: public
+  menu_type: account_menu
+  id: 7
+  parent_id: 6

@@ -1,0 +1,52 @@
+<%=project_menu_settings(@project, selected = issue_mail_server_settings_path)%>
+<br><br><br>
+<table class="list">
+  <thead>
+  	<tr>
+      <th><%=l(:sett_user_name, scope: [:redmine_issue_mailer])%></th>
+     
+        <th><%=l(:sett_password, scope: [:redmine_issue_mailer])%></th>
+    	  <th><%=l(:sett_adress, scope: [:redmine_issue_mailer])%></th>
+        <th><%=l(:sett_domain, scope: [:redmine_issue_mailer])%></th>
+        <th><%=l(:sett_port, scope: [:redmine_issue_mailer])%></th>
+        <th><%=l(:sett_protocol, scope: [:redmine_issue_mailer])%></th>
+        <th><%=l(:sett_authentication, scope: [:redmine_issue_mailer])%></th>
+        
+        <th><%=l(:sett_openssl_verify_mode, scope: [:redmine_issue_mailer])%></th>
+        <th><%=l(:sett_enable_starttls_auto, scope: [:redmine_issue_mailer])%></th>
+        <th><%=l(:sett_ssl, scope: [:redmine_issue_mailer])%></th>
+    	  <th><%=l(:sett_tls, scope: [:redmine_issue_mailer])%></th>
+    	  
+        <th><%=l(:sett_edit, scope: [:redmine_issue_mailer])%></th>
+    	  <th><%=l(:sett_delete, scope: [:redmine_issue_mailer])%></th>
+  	</tr>
+  </thead>
+
+  <tbody>
+    <%@server_settings.each do |sett|%>
+	    <tr>
+	      <td><%=sett.user_name%></td>
+	      	      
+	      <td></td>
+	  	  <td><%=sett.adress%></td>
+	      <td><%=sett.domain%></td>
+	  	  <td><%=sett.port%></td>
+	  	  <td><%=sett.protocol%></td>
+
+	      <td><%=sett.authentication%></td>
+	  	    
+	      <td><%=sett.openssl_verify_mode%></td>
+	      <td><%=sett.enable_starttls_auto%></td>
+	      <td><%=sett.ssl%></td>
+	      <td><%=sett.tls%></td>
+	  	    
+	      <td><%=link_to l(:issue_mail_server_setting_edit, scope: [:redmine_issue_mailer]), edit_issue_mail_server_setting_path(project_id: @project.identifier, id: sett.id)%></td>
+	  	  <td><%=link_to l(:issue_mail_server_setting_delete, scope: [:redmine_issue_mailer]), {controller: "issue_mail_server_settings", action: "destroy", project_id: @project.identifier, id: sett.id}, method: "DELETE", confirm: 'Are you sure?'%></td>
+	    </tr>
+    <%end%>
+  </tbody>
+</table>
+<br>
+
+
+<%=link_to l(:issue_mail_server_setting_new , scope: [:redmine_issue_mailer]), new_issue_mail_server_setting_path(project_id: @project.id) %>

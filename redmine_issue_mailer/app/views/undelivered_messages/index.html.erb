@@ -1,0 +1,18 @@
+<table class="list">
+  <thead>
+  	<tr>
+  	  <th>Message Report ID </th>
+  	  <th>Original Recipient</th>
+  	  <th>Note</th>
+  	</tr>
+  </thead>
+  <tbody>
+    <%@undelivered_messages.each do |undelivered_message|%>
+	  <tr>
+	    <td><%=undelivered_message.message_report_id%></td>
+	    <td><%=undelivered_message.to_original_recipient%></td>
+	    <td><%=undelivered_message.note%></td>
+	  </tr>
+  	<%end%>
+  </tbody>
+</table>

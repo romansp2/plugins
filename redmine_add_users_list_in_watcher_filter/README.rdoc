@@ -1,0 +1,23 @@
+= redmine_add_users_list_in_watcher_filter
+
+Description goes here
+
+
+
+Installing a plugin (http://www.redmine.org/projects/redmine/wiki/Plugins)
+  1. Clone from git@gitlab.qazz.pw:a.kondratenko/redmine_add_users_list_in_watcher_filter.git
+  2. Copy redmine_add_users_list_in_watcher_filter to plugins folder of redmine
+  3. Plugin does not require a migration
+  4. Restart app (redmine)
+
+Uninstalling a plugin (http://www.redmine.org/projects/redmine/wiki/Plugins)
+  1. Plugin did not require a migration
+  2. Remove your plugin from the plugins folder: #{RAILS_ROOT}/plugins
+  3. Restart app (redmine)
+
+
+
+ Changelog
+  v0.0.1 - 22 September 2015
+  redmine:issue:463809
+  Init

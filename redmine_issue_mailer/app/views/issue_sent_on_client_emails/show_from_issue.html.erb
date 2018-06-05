@@ -1,0 +1,61 @@
+<br><br><br>
+<div class="autoscroll">
+  <table class="list">
+    <thead>
+    	<tr>
+    	  <th><%=t(:issue)%></th>
+    	  <th>Journal ID</th>
+    	  <th><%=t(:message_id, scope: [:redmine_issue_mailer])%></th>
+    	  <th><%=t(:from, scope: [:redmine_issue_mailer])%></th>
+    	  <th><%=t(:to, scope: [:redmine_issue_mailer])%></th>
+    	  <th><%=t(:bcc, scope: [:redmine_issue_mailer])%></th>
+    	  <th><%=t(:subject, scope: [:redmine_issue_mailer])%></th>
+    	  <th><%=t(:body, scope: [:redmine_issue_mailer])%></th>
+        <th><%=l(:included_attachments, scope: [:redmine_issue_mailer])%></th>
+        <th><%=t(:deliver, scope: [:redmine_issue_mailer])%></th>
+        <th></th>
+    	</tr>
+    </thead>
+    <tbody>
+  	  <tr>
+  	      <td><%=link_to "##{@letter.issue_id}", {controller: "issues", action: "show", id: @letter.issue_id}%></td>
+  	      <td>
+            <%=link_to("##{@letter.journal_id}", {controller: "issues", action: "show", id: @letter.issue_id, :anchor => "change-#{@letter.journal_id}" })%>
+          </td>
+  	      <td><%=@letter.message_id%></td>
+  	      <td><%=@letter.from%></td>
+  	      <td>
+            <ul>
+              <%(@letter.to || "").split(',').each do |mail|%>
+                <li><%=h mail%></li>
+              <%end%>
+            </ul>
+          </td>
+  	      <td>
+            <ul>
+              <%(@letter.bcc || "").split(',').each do |mail|%>
+                <li><%=h mail%></li>
+              <%end%>
+            </ul>
+          </td>
+  	      <td><%=@letter.subject%></td>
+  	      <td><%=@letter.body%></td>
+          <td><%=@letter.attachments ? 'Да': 'Нет' %></td>
+          <td><%=@letter.deliver ? t(:yes, scope: [:redmine_issue_mailer]) : t(:no, scope: [:redmine_issue_mailer])%></td>
+          <td>
+            <%unless @letter.undelivered_messages.blank?%>
+              <ul>
+                <%@letter.undelivered_messages.each do |undelivered_message|%>
+                  <li>
+                    <%=link_to t(:undelivered_to, mail: undelivered_message.to_original_recipient, scope: [:redmine_issue_mailer]), show_from_issue_undelivered_messages_path(sent_email_id: @letter.id, issue_id: @letter.issue_id)%>
+                  </li>
+                <%end%>
+              </ul>
+            <%end%>
+          </td>
+  	  </tr>
+    </tbody>
+  	
+  </table>
+
+</div>

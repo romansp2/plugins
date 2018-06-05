@@ -1,0 +1,10 @@
+<div class="contextual">
+  <p><%= link_to l(:button_save), cms_export_path(@cms_object.id, :object_type => @cms_object.class.name.underscore, :attachment_content => @cms_export.attachment_content, :format => 'yaml'), :class => 'icon icon-save' %></p>
+</div>
+<h2><%=l(:label_cms_exported_object)%></h2>
+<div class="wiki">
+  <pre>
+    <%= @export_content %>
+  </pre>
+</div>
+

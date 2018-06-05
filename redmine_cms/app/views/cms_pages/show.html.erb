@@ -1,0 +1,5 @@
+<%= render :partial => 'cms_pages/page' %>
+
+<% @page.parts.active.order(:position).each do |page_part| %>
+  <%= content_for(page_part.name.to_sym, @page.render_part(page_part)) unless page_part.name.strip == 'content' %>
+<% end %>

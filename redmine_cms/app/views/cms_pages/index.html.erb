@@ -1,0 +1,50 @@
+<div class="contextual">
+<%= link_to l(:label_cms_page_new), new_cms_page_path, :class => 'icon icon-add' %>
+<%= link_to l(:button_import), cms_import_path(:object_type => CmsPage.name.underscore), :class => 'icon icon-duplicate' %>
+</div>
+
+<h2><%= l(:label_cms_page_plural) %></h2>
+
+<%= form_tag(cms_pages_path, :method => :get) do %>
+<fieldset><legend><%= l(:label_filter_plural) %></legend>
+
+<label for='status_id'><%= l(:label_cms_status) %>:</label>
+<%= select_tag 'status_id', content_tag('option', l(:label_all), :value => '') + options_for_select(cms_statuses_for_select, @status), :class => "small", :onchange => "this.form.submit(); return false;"  %>
+<label for='visibility'><%= l(:label_cms_visibility) %>:</label>
+<%= select_tag 'visibility', content_tag('option') + cms_visibilities_for_select( params[:visibility]), :class => "small", :onchange => "this.form.submit(); return false;"  %>
+
+<% if CmsLayout.present? %>
+<label for='layout_id'><%= l(:label_cms_layout) %>:</label>
+<%= select_tag 'layout_id', content_tag('option') + options_for_select(cms_layouts_for_select(:only_cms => true), params[:layout_id]), :onchange => "this.form.submit(); return false;"  %>
+<% end %>
+
+<label for='name'><%= l(:label_cms_name) %>:</label>
+<%= text_field_tag 'name', params[:name], :size => 30 %>
+
+<script>
+
+  $( "input#name" ).bind('keyup', function() {
+    var s = new RegExp(this.value);
+    $('tr.page').each(function() {
+        if(s.test(this.innerHTML))
+          $(this).show();
+        else
+          $(this).hide();
+    });
+});
+</script>
+<%# submit_tag l(:button_apply), :class => "small", :name => nil %>
+<%= link_to l(:button_clear), cms_pages_path, :class => 'icon icon-reload' %>
+</fieldset>
+<% end %>
+&nbsp;
+
+<div class="autoscroll"  id="cms_pages">
+  <%= render 'pages' %>
+</div>
+
+<% content_for :sidebar do %>
+  <% render :partial => 'cms_settings/menu' %>
+<% end %>
+
+<% html_title(l(:label_cms_page_plural)) -%>

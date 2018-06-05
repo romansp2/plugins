@@ -1,0 +1,66 @@
+<%hot_buttons = @project.hot_buttons.eager_load(:users_field_from_to)%>
+<%project_custom_fields = @project.all_issue_custom_fields.to_a.delete_if{|cf| cf.field_format != 'user'}%>
+
+<style type="text/css">
+  table tbody tr td {text-align: center;}
+  table thead tr th {text-align: center;}
+</style>
+
+<div class="autoscroll">
+  <table class="list issues">
+    <thead>
+    	<tr>
+    	  <th><%=l(:name, scope: [:hot_buttons])%></th>
+        <th><%=l(:field_for_tracker, scope: [:hot_buttons])%></th>
+    	  <th><%=l(:field_role)%></th>
+    	  <th><%=l(:field_tracker)%></th>
+        <th><%=l(:field_status)%></th>
+        <th><%=l(:field_priority)%></th>
+        <th><%=l(:field_category)%></th>
+        <th><%=l(:field_assigned_to)%></th>
+        <%project_custom_fields.each do |project_custom_field|%>
+          <th>
+            <%=project_custom_field.name%>
+          </th>
+        <%end%>
+        <th><%=l(:edit, scope: [:hot_buttons])%></th>
+        <th><%=l(:delete, scope: [:hot_buttons])%></th>
+    	</tr>
+
+    </thead>
+    <tbody>
+      <%hot_buttons.each do |hot_button|%>
+    	  <%hash_custom_fields = {}
+          unless hot_button.users_field_from_to.nil?
+            hash_custom_fields = hot_button.users_field_from_to.hash_custom_fields
+          end
+        %>
+        <tr id="hot_button_record_<%=hot_button.id%>">
+    	    <td><%=hot_button.name%></td>
+          <td><%=hot_button.for_tracker%></td>
+    	    <td><%=hot_button.role%></td>
+          <td><%=hot_button.tracker%></td>
+    	  	<td><%=hot_button.status%></td>
+    	  	<td><%=hot_button.priority%></td>
+          <td><%=hot_button.category%></td>
+          <td><%=hash_custom_fields["assigned"].nil? ? "" : hash_custom_fields["assigned"].name%></td>
+          
+          <%project_custom_fields.each do |project_custom_field|%>
+            <%if hash_custom_fields["#{project_custom_field.id}"].nil? %>
+              <td></td>
+            <%else%>
+              <td><%=h hash_custom_fields["#{project_custom_field.id}"].name%></td>
+            <%end%>
+          <%end%>
+    	  	<td>
+    	  	  <%=link_to l(:edit, scope: [:hot_buttons]), edit_hot_button_path(id: hot_button.id, project_id: @project.identifier)%>
+    	  	</td>
+          <td>
+            <%=link_to l(:delete, scope: [:hot_buttons]), {controller: "hot_buttons", action: "destroy", project_id: @project.identifier, id: hot_button.id}, remote: true, method: "DELETE", remote: true, confirm: l(:confirm_link_delete_hot_button, hot_button: hot_button.name, scope: [:hot_buttons])%>
+          </td>
+    	  </tr>
+    	<%end%>
+    </tbody>
+  </table>
+</div>
+<%= link_to l(:add_hot_button, scope: [:hot_buttons]), new_hot_button_path(project_id: @project.identifier) %>

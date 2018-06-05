@@ -1,0 +1,6 @@
+<% if @project && @project.module_enabled?(:contacts_helpdesk)%>
+  <h3><%= l(:label_helpdesk_reports) %></h3>
+  <%= link_to l(:label_helpdesk_first_response_time), project_helpdesk_reports_path(@project, :report => 'first_response_time') %>
+  <br>
+  <%= link_to l(:label_helpdesk_busiest_time_of_day), project_helpdesk_reports_path(@project, :report => 'busiest_time_of_day') %>
+<% end %>

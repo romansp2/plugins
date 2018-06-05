@@ -1,0 +1,16 @@
+---
+name: imported_layout
+content: imported_layout_body
+content_type: text
+filter_id:
+attachments:
+- container_type: CmsLayout
+  filename: test.vcf
+  content_type: text/vcard
+  description: ''
+  page_name: imported_snippet
+  file_content: |
+    QkVHSU46VkNBUkQKVkVSU0lPTjozLjAKTjpUZXN0O1Rlc3Q7OzsKRk46VGVz
+    dCBUZXN0CkFEUjtUWVBFPXByZWY6Ozs7Ozs7ClRJVExFOgpPUkc6Ck5PVEU6
+    ClRFTDorNy0oOTI3KTk3MDY2LTY2CkVNQUlMOnRlc3RAdGVzdC5jb20KRU5E
+    OlZDQVJECg==

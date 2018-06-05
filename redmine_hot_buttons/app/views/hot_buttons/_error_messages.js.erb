@@ -1,0 +1,10 @@
+<%unless error_messages.empty?%>
+  if ($("div#content div#flash_error").length) {
+    $("div#content div#flash_error").html("<%=h error_messages.join('<br>')%>");
+  } else{
+  	$("div#content").prepend("<div class='flash error' id='flash_error'></div>");
+  	$("div#content div#flash_error").html("<%=h error_messages.join('<br>')%>");
+  }
+<%else%>  
+  $("div#content div#flash_error").remove();
+<%end%>

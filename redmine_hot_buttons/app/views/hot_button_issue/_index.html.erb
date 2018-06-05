@@ -1,0 +1,22 @@
+<ul>
+  <%hot_buttons.each do |hot_button|%>
+    <li>
+      <%=button_to hot_button.name, "###", onclick: "event.preventDefault(); updateIssueFromHotButton('#{hot_button.id}')"%>
+    </li>
+  <%end%>
+  <%if hot_buttons.empty?%>
+    <li><%=l(:hot_button_list_is_empty, scope: [:hot_buttons])%></li>
+  <%end%>
+</ul>
+
+
+<script type="text/javascript">
+  function updateIssueFromHotButton(id) {
+      var url = "/issues/hot_button_update_form/0/?id=<%=@issue.id%>&".replace(/\/0/, ("/" + id) );
+	  $.ajax({
+	    url: url,
+	    type: 'post',
+	    data: $('#issue-form').serialize()
+	  });
+    }
+</script>

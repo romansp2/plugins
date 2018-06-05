@@ -1,0 +1,9 @@
+<h2><%=l(:label_cms_redirect_new)%></h2>
+
+<%= labelled_form_for :cms_redirect, @cms_redirect, :url => { :action => 'create'},
+  :html => { :id => 'cms_redirect-form', :method => :post } do |f| %>
+<%= render :partial => 'form', :locals => { :f => f } %>
+<%= submit_tag l(:button_create) %>
+<% end %>
+
+<% html_title(l(:label_cms_redirect_new)) -%>

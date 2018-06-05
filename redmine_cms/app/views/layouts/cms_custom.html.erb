@@ -1,0 +1,16 @@
+<%
+    @cms_layout = CmsRedmineLayout.find_by_action(params[:controller], params[:action]).try(:layout)
+    @page = CmsPage.new(:content => yield, :layout => @cms_layout)
+    @page.parts.build(:content => content_for(:sidebar), :name => 'sidebar', :status_id => RedmineCms::STATUS_ACTIVE) if content_for(:sidebar)
+    @page.parts.build(:content => content_for(:header_tags), :name => 'header_tags', :status_id => RedmineCms::STATUS_ACTIVE) if content_for(:header_tags)
+    @page.context = @page.initialize_context(@controller)
+    @page.context.registers['flash'] = flash.to_hash if flash
+    @page.context.registers['html_title'] = html_title
+    @page.context.registers['current_language'] = current_language
+    @page.context.registers['view_layouts_base_html_head'] = call_hook(:view_layouts_base_html_head)
+    @page.context.registers['view_layouts_base_content'] = call_hook(:view_layouts_base_content)
+    @page.context.registers['view_layouts_base_body_top'] = call_hook(:view_layouts_base_body_top)
+    @page.context.registers['view_layouts_base_body_bottom'] = call_hook(:view_layouts_base_body_bottom)
+%>
+
+<%= @page.process(@controller) %>

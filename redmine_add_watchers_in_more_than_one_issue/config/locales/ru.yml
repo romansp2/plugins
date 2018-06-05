@@ -1,0 +1,8 @@
+# English strings go here for Rails i18n
+ru:
+  # my_label: "My label"
+  permission_delete_watchers_in_more_than_one_issue: "Массовое удаление наблюдателей"
+  permission_add_watchers_in_more_than_one_issue: "Массовое назначение наблюдателей"
+  warning_list_watchers_from_bulk_edit: "Перечисленные пользователи могут не быть наблюдателями во всех выбранных задачах."  
+  rawimtoi_added: "Добавлены"
+  rawimtoi_watchers: "Наблюдатели"

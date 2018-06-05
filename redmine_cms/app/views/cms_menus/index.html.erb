@@ -1,0 +1,17 @@
+<div class="contextual">
+<%= link_to l(:label_cms_menu_new), new_cms_menu_path, :class => 'icon icon-add' %>
+</div>
+
+<h2><%=l(:label_cms_menu_plural)%></h2>
+
+<div class="autoscroll" id="cms_menus">
+  <%= render :partial => 'cms_menus/cms_menus' %>
+</div>
+
+
+<% content_for :sidebar do %>
+  <% render :partial => 'cms_settings/menu' %>
+<% end %>
+
+
+<% html_title(l(:label_cms_menu_plural)) -%>

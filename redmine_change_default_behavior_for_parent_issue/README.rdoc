@@ -1,0 +1,29 @@
+= redmine_change_default_behavior_for_parent_issue
+
+Description goes here
+
+  Installing a plugin (http://www.redmine.org/projects/redmine/wiki/Plugins)
+
+    1. Clone from git@gitlab.qazz.pw:a.kondratenko/redmine_change_default_behavior_for_parent_issue.git
+
+       Tag v_._._ is required
+  
+    2. Copy redmine_change_default_behavior_for_parent_issue to plugins folder of redmine
+  
+    3. Plugin doesn't require a migration        
+  
+    4. Restart app (redmine)
+
+  Uninstalling a plugin (http://www.redmine.org/projects/redmine/wiki/Plugins)
+
+    1. Remove redmine_change_default_behavior_for_parent_issue plugin from the plugins folder: #{RAILS_ROOT}/plugins
+  
+    3. Restart app (redmine)
+
+Changelog
+  16 Jun 2015
+    redmine:issue:336238 Change default bihavior for parent issue
+
+  21 December 2016
+    redmine:issue:868640
+    Version for redmine320

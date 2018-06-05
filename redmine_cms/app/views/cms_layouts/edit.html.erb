@@ -1,0 +1,29 @@
+<div class="contextual">
+  <%= link_to l(:label_preview), preview_cms_layout_path(@cms_layout), :class => 'icon icon-preview'  %>
+  <%= link_to l(:label_history), cms_object_history_path(@cms_layout, :object_type => @cms_layout.class.name.underscore), :class => 'icon icon-history' if @cms_layout.version > 1 %>
+  <%= link_to l(:button_export), cms_export_path(@cms_layout.id, :object_type => @cms_layout.class.name.underscore), :class => 'icon icon-save' %>
+  <%= link_to l(:button_delete), cms_layout_path(@cms_layout), :confirm => l(:text_are_you_sure), :method => :delete, :class => 'icon icon-del' %>
+</div>
+
+<h2><%= link_to l(:label_cms_layout_plural), cms_layouts_path %> &#187; <%= @cms_layout.name %></h2>
+
+<%= error_messages_for 'cms_layout' %>
+
+<%= labelled_form_for :cms_layout, @cms_layout, :url => { :action => 'update', :id => @cms_layout},
+  :html => { :id => 'cms_layout_form', :multi_part => true, :method => :put } do |f| %>
+
+  <%= render :partial => 'form', :locals => { :f => f } %>
+<% if @cms_layout.attachments.any? %>
+  <fieldset><legend><%= l(:label_attachment_plural) %></legend>
+    <%= link_to_cms_attachments @cms_layout, :thumbnails => true  %>
+  </fieldset><br/>
+<% end %>
+
+<%= submit_tag l(:button_save) %>
+<% end %>
+
+<% content_for :sidebar do %>
+  <% render :partial => 'cms_settings/menu' %>
+<% end %>
+
+<% html_title(@cms_layout.name) -%>

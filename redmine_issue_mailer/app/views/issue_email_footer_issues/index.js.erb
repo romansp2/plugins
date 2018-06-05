@@ -1,0 +1,21 @@
+default_footer_dialog = $("<div id='default_footer'></div>").html("<%=j render partial: 'form', locals: {footers: footers, default_issue_footer: @default_issue_footer}%>");
+
+default_footer_dialog.dialog();
+
+default_footer_dialog.dialog({
+  autoOpen: false,
+  height: 200,
+  width: 500,
+  modal: true,
+  buttons: {
+    "<%=l(:, scope: [:])%>": function() {
+      default_footer_dialog.dialog( "close" );	
+      $(this).dialog('destroy');   
+    }
+  },
+  close: function() {
+  	$(this).dialog('destroy');    
+  }
+});
+
+default_footer_dialog.dialog( "open" );

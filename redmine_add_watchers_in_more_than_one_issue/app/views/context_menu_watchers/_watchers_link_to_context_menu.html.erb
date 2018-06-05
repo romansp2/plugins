@@ -1,0 +1,6 @@
+<%if @can[:edit] -%>
+  <li>
+    <%= context_menu_link l(:rawimtoi_watchers), new_context_menu_watcher_path(ids: issues.map(&:id)), :class => 'icon-edit', :remote => true%>
+  </li>
+<%end%>
+

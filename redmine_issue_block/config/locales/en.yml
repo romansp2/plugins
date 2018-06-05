@@ -1,0 +1,6 @@
+# English strings go here for Rails i18n
+en:
+  check_box_all_actions: All
+  link_issue_block: Block
+  link_issue_unblock: Unblock
+  field_issue_block_unblock: "Blocks Issue:"

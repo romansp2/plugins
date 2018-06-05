@@ -1,0 +1,16 @@
+<h2><%= l(:label_cms_snippet) %>: <%= link_to @cms_snippet.name, edit_cms_snippet_path(@cms_snippet) %></h2>
+<%= @preview_content %>
+
+<% content_for :header_tags do %>
+  <div class="contextual page-edit">
+    <% if params[:version] && @cms_snippet.version != @current_version %>
+       <%= render :partial => 'cms_history/history_context_menu', :object => @cms_snippet %>
+    <% else %>
+      <%= link_to l(:button_edit), edit_cms_snippet_path(@cms_snippet), :class => 'icon icon-edit' %>
+      <hr>
+       <%= link_to l(:label_history), cms_object_history_path(@cms_snippet, :object_type => @cms_snippet.class.name.underscore), :class => 'icon icon-history'%>
+      <hr>
+    <% end %>
+  </div>
+  <%= javascript_tag "$('.contextual.page-edit').draggable();" %>
+<% end if RedmineCms.allow_edit? %>

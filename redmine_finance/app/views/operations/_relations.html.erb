@@ -1,0 +1,28 @@
+<div class="contextual">
+<% if User.current.allowed_to?(:manage_operation_relations, @project) %>
+  <%= toggle_link l(:button_add), 'new-relation-form', {:focus => 'relation_operation_destination_id'} %>
+<% end %>
+</div>
+
+<p><strong><%=l(:label_related_operations)%></strong></p>
+
+<% @relations.each do |relation| %>
+  <p id="relation-<%= relation.id %>" class="icon icon-operation"><%= link_to "#{relation.other_operation(@operation).category.name} ##{relation.other_operation(@operation).id}: #{relation.other_operation(@operation).amount_with_sign} (#{relation.other_operation(@operation).account.name})", relation.other_operation(@operation) %>
+    <span class="contact"><%= relation.other_operation(@operation).contact.name if relation.other_operation(@operation).contact %></span>
+    <%= link_to image_tag('link_break.png'),
+                              {:controller => 'operation_relations', :action => 'destroy', :id => relation},
+                              :remote => true,
+                              :method => :delete,
+                              :data => {:confirm => l(:text_are_you_sure)},
+                              :title => l(:label_relation_delete) if User.current.allowed_to?(:manage_operation_relations, @project) %>
+  </p>
+<% end %>
+
+<%= form_for @relation, {
+                 :as => :relation, :remote => true,
+                 :url => {:controller => 'operation_relations', :action => 'create', :operation_id => @operation},
+                 :method => :post,
+                 :html => {:id => 'new-relation-form', :style => 'display: none;'}
+               } do |f| %>
+<%= render :partial => 'operation_relations/form', :locals => {:f => f}%>
+<% end %>

@@ -1,0 +1,27 @@
+ul.projects ul.progressive-project-menu {
+	padding-left: 0;
+}
+ul.progressive-project-menu li {
+	float:left;
+	margin-right: 10px;
+}
+
+time.progressive-overdue {
+	color: red;
+}
+
+div.child a.project {
+	font-weight: bold;
+}
+
+div#projects-index table.progress {
+       width: 40em;
+}
+
+div.progressive-overview table.progress {
+       width: 80%;
+}
+
+.progressive-project-version {
+       clear: both;
+}

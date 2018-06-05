@@ -1,0 +1,2 @@
+<% select = content_tag('select', content_tag('option') + options_for_select(menus_options_for_select(@cms_menu.valid_parents)), :id => 'cms_menu_parent_id', :name => 'cms_menu[parent_id]') %>
+$('#cms_menu_parent_id').replaceWith('<%= escape_javascript(select) %>');

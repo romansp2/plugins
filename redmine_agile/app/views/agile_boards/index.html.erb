@@ -1,0 +1,51 @@
+<%= render 'index' %>
+<%= javascript_tag do %>
+  var fullScreenState = localStorage.getItem('full-screen-board');
+  if (fullScreenState == "true") {
+    $("html").toggleClass("agile-board-fullscreen");
+  }
+
+  function updateBoard() {
+    if ( $('html').hasClass('agile-board-fullscreen') ) {
+      if ( $('.ui-sortable-helper').length == 0  &&
+        $('textarea:focus').length == 0 && $('.lock:visible').size() == 0 )
+      {
+        var lastScrollPosition = $('.agile-board.autoscroll').scrollTop();
+        $('.lock').show();
+        $.ajax(location.href, {
+          dataType: 'script',
+          contentType: 'text/javascript',
+          success: function(){
+            $(".agile-board.autoscroll").scrollTop(lastScrollPosition);
+          },
+          error: function(){
+            $(".agile-board.autoscroll").scrollTop(lastScrollPosition);
+          },
+          complete: function(){
+            $('.lock').hide();
+          }
+        });
+      }
+    };
+  }
+
+
+  Visibility.every(20 * 1000, function () {
+    updateBoard();
+  });
+
+  Visibility.change(function (e, state) {
+    if (state == 'visible') {
+      updateBoard();
+    }
+  });
+
+  function checkBoardVisibility() {
+    if (Visibility.state() != 'visible') {
+      updateBoard();
+    }
+  }
+
+  setInterval(checkBoardVisibility, 1200000);
+<% end %>
+<%= init_agile_tooltip_info %>

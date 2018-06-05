@@ -1,0 +1,8 @@
+<div id="query_form_content" class="hide-when-print">
+  <fieldset id="filters" class="collapsible">
+    <legend onclick="toggleFieldset(this);">Список уникальных адресов исходящих писем</legend>
+    <div style="display: block;">
+      (<%=unique_emails_list_count%>) <%=h unique_emails_list.join(', ')%>
+    </div>
+  </fieldset>
+</div>

@@ -1,0 +1,41 @@
+<%=project_menu_settings(@project, selected = issue_mailer_custom_fields_path)%>
+<br><br><br>
+
+<%if @custom_field_values.blank?%>
+  <p>Cannot find custom fields</p>
+<%else%>
+
+  <%=form_tag({controller: 'issue_mailer_custom_fields', action: 'update', id: @project.identifier}, method: "PUT", id: "issue-custom-field-form") do%>
+
+    <%= hidden_field_tag(:project_id, @project.identifier) %>
+    <table>
+      <tbody>
+        <%@custom_field_values.each do |custom_value| %>
+  	     <tr>
+  	       <td>
+               <%=custom_field_label_tag(:issue, custom_value, options = {})%>
+  	         <%custom_value.value = @project_mailer_custom_field_value.value["#{custom_value.custom_field.id}"]%>
+  	       </td>
+  	       <td>
+               <%=custom_value.custom_field.format.edit_tag self,
+  			       custom_field_tag_id(:issue, custom_value.custom_field),
+  			       custom_field_tag_name(:issue, custom_value.custom_field),
+  			       custom_value,
+  			       :class => "#{custom_value.custom_field.field_format}_cf",
+  			       form: "issue-custom-field-form"%>
+  	       </td>
+   	     </tr>
+   	 
+        <%end%>
+        <tr>
+          <td></td>
+          <td><%=button_tag "Update"%></td>
+        </tr>
+      </tbody>
+    </table>
+
+  <%end%>
+
+<%end%>
+
+

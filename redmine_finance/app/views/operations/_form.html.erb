@@ -1,0 +1,52 @@
+<%= error_messages_for 'operation' %>
+
+<div class="box tabular attributes">
+
+<div class="splitcontentleft">
+  <p class="type"><%= f.select :income, operation_types_for_select(@operation.is_income?), :label => l(:label_operation_type), :required => true %></p>
+  <p class="category"><%= f.select :category_id, operation_category_tree_options_for_select(operation_categories_for_select, :selected => @operation.category), :label => l(:label_operation_category), :required => true %></p>
+  <p class="account"><%= f.select :account_id, accounts_for_select(@project), :label => l(:label_account), :required => true %></p>
+  <p class="contact">
+    <%= label_tag :operation_contact_id,  l(:label_contact)%>
+    <%= select_contact_tag('operation[contact_id]', @operation.contact, :is_select => Contact.visible.by_project(ContactsSetting.cross_project_contacts? ? nil : @project).count < 50, :include_blank => true, :add_contact => true, :display_field => @operation.contact.blank?, :is_company => RedmineFinance.settings[:finance_filter_companies]) %>
+  </p>
+  <% if RedmineFinance.operations_approval? && User.current.allowed_to?(:approve_operations, @project) %>
+  <p><%= f.check_box :is_approved, :label => l(:label_finance_is_approved) %></p>
+  <% end %>
+</div>
+
+<div class="splitcontentright">
+  <p><%= f.text_field :operation_date, :size => 12, :required => true, :value => @operation.operation_date.to_date, :label => l(:label_operation_date) %><%= text_field_tag "operation_time", @operation.operation_time, :size => 5 %><%= calendar_for('operation_operation_date') %> </p>
+  <p>
+    <%= f.text_field :amount, :label => l(:label_operation_amount), :size => 10, :required => true %>
+  </p>
+  <p class="object-select"><%= f.select :assigned_to_id, (@project.assignable_users.collect {|m| [m.name, m.id]}), :include_blank => true, :label => l(:field_assigned_to) %></p>
+</div>
+
+<div style="clear:both;"> </div>
+<% custom_field_values = @operation.custom_field_values %>
+<div class="splitcontent">
+  <div class="splitcontentleft">
+  <% i = 0 %>
+  <% split_on = (custom_field_values.size / 2.0).ceil - 1 %>
+  <% custom_field_values.each do |value| %>
+    <p><%= custom_field_tag_with_label :operation, value, :required => value.custom_field.is_required? %></p>
+  <% if i == split_on -%>
+  </div><div class="splitcontentright">
+  <% end -%>
+  <% i += 1 -%>
+  <% end -%>
+  </div>
+</div>
+<%= call_hook(:edit_operations_form_details_bottom, { :operation => @operation, :form => f }) %>
+
+<p><%= f.text_area :description, :cols => 60, :rows => 5, :class => 'wiki-edit' %><%= wikitoolbar_for 'operation_description' %></p>
+
+</div>
+<fieldset><legend><%= l(:label_attachment_plural) %></legend>
+<p><%= render :partial => 'attachments/form', :locals => {:container => @operation} %></p>
+</fieldset>
+<br>
+
+
+

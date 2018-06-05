@@ -1,0 +1,7 @@
+$("#dialog_add_contacts").html("<%= escape_javascript(render :partial => 'ccwi_contacts_issues/new', :locals => {:project => @project, :contacts => @contacts}) %>");
+
+$("#dialog_add_contacts").dialog({
+   width: 400,
+   resizable: true,
+   modal: true
+});

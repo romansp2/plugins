@@ -1,0 +1,18 @@
+<div class="contextual add-to-table">
+  <%= link_to_add_page_fields l(:label_cms_add_field), @f, :fields, :class => 'icon icon-add' %>
+</div>
+
+<table class="list page-fields" id="commit-keywords">
+  <thead>
+    <tr>
+      <th><%= l(:label_cms_name) %></th>
+      <th><%= l(:label_cms_field_value) %></th>
+      <th class="buttons"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="display: none;"/>
+<%= @f.fields_for :fields do |builder| %>
+  <%= render :partial => 'page_field_form', :locals => {:f => builder, :page => @page} %>
+<% end %>
+</table>

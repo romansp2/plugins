@@ -1,0 +1,10 @@
+<% if @copy_from && !@copy_from.attachments.any? && !@copy_from.leaf? %>
+  <script type="text/javascript">
+
+	$(document).ready(function () {
+       $('<p><label for="copy_attachments"><%= l(:label_copy_attachments) %></label><%= check_box_tag 'copy_attachments', '1', @copy_attachments%></p>').insertAfter("div#all_attributes");
+	});
+  </script>
+<% end %>
+
+

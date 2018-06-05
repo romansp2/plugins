@@ -1,0 +1,20 @@
+$(document).ready(function () {
+	// body...
+	$("form#issue-form div#all_attributes").append('<input name="hot_button_id" type="hidden" value="<%= @hot_button.id %>" form="issue-form"/>');
+	
+  	if ($("#issue_tracker_id option[value=<%=@hot_button.tracker.id%>]").length && $('#issue_tracker_id :selected').val() != "<%=@hot_button.tracker.id%>"){
+      //tracker
+	  $('#issue_tracker_id :selected').removeAttr('selected')
+	  $("#issue_tracker_id option[value=<%=@hot_button.tracker.id%>]").prop('selected', true);
+	  $('#issue_tracker_id').change();
+      //
+    } else {
+  	    $('#issue_tracker_id').change();
+	}
+
+	if ($("div#update").length && $("div#update").css('display') == 'none') {
+	  //alert("click")
+	  $("a[href$='/issues/<%=@issue.id%>/edit']").click();
+	}
+})
+

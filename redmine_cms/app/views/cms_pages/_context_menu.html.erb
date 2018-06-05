@@ -1,0 +1,23 @@
+<% if RedmineCms.allow_edit? %>
+  <div class="contextual page-edit">
+    <% if params[:version] && @page.version != @current_version %>
+       <%= render :partial => 'cms_history/history_context_menu', :object => @page %>
+    <% else %>
+      <%= link_to l(:button_edit), edit_cms_page_path(@page), :class => 'icon icon-edit' %>
+
+      <% if @page.parts.active.any? %>
+        <ul class="parts-edit">
+          <% @page.parts.active.each do |part| %>
+            <li><%= link_to part.description.blank? ? part.name : part.description, edit_cms_part_path(part), :class => 'icon icon-bullet-arrow-right' %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+      <hr>
+       <%= link_to l(:label_history), cms_object_history_path(@page.id, :object_type => @page.class.name.underscore), :class => 'icon icon-history'%>
+      <hr>
+      <%= link_to l(:label_cms_refresh_cache), expire_cache_cms_page_path(@page), :class => 'icon icon-reload' %>
+    <% end %>
+  </div>
+  <%= javascript_tag "$('.contextual.page-edit').draggable();" %>
+<% end %>

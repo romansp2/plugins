@@ -1,0 +1,33 @@
+<tr class="metrics">
+  <td colspan="<%= @collector.columns.count / 2 %>">
+    <p><%= l(:label_helpdesk_average_first_response_time) %></p>
+    <div class="num"><%= helpdesk_time_label(@collector.average_response_time) %></div>
+    <div class="change" title="<%= process_deviation(@collector.previous_average_response_time, @collector.average_response_time) %>">
+      <%= mirror_progress_in_percents(@collector.average_response_time_progress) %>
+    </div>
+  </td>
+  <td colspan="<%= @collector.columns.count / 2 %>">
+    <p><%= l(:label_helpdesk_average_time_to_close) %></p>
+    <div class="num"><%= helpdesk_time_label(@collector.average_close_time) %></div>
+    <div class="change" title="<%= process_deviation(@collector.previous_average_close_time, @collector.average_close_time) %>">
+      <%= mirror_progress_in_percents(@collector.average_close_time_progress) %>
+    </div>
+    </td>
+</tr>
+<tr class="metrics">
+  <td colspan="<%= @collector.columns.count / 2 %>">
+    <p><%= l(:label_helpdesk_average_responses_count) %></p>
+    <div class="num"><%= @collector.average_response_count %></div>
+    <div class="change" title="<%= process_deviation(@collector.previous_average_response_count, @collector.average_response_count, false) %>">
+      <%= progress_in_percents(@collector.average_response_count_progress) %>
+    </div>
+  </td>
+  <td colspan="<%= @collector.columns.count / 2 %>">
+    <p><%= l(:label_helpdesk_total_replies) %></p>
+    <div class="num"><%= @collector.total_response_count %></div>
+    <div class="change" title="<%= process_deviation(@collector.previous_total_response_count, @collector.total_response_count, false) %>">
+      <%= progress_in_percents(@collector.total_response_count_progress) %>
+    </div>
+    </td>
+  </td>
+</tr>

@@ -1,0 +1,9 @@
+<div class="history-link">
+  <%= link_to(("\xc2\xab " + l(:label_previous)), send("preview_#{history_context_menu.class.name.underscore}_path", history_context_menu, :version => history_context_menu.previous_version.version)) + " - " if history_context_menu.previous_version %>
+  <%= "#{l(:label_version)} #{history_context_menu.version}/#{link_to @current_version, send("preview_#{history_context_menu.class.name.underscore}_path", history_context_menu)}".html_safe %>
+   <%= '('.html_safe + link_to(l(:label_diff), cms_object_diff_path(history_context_menu.id, :object_type => history_context_menu.class.name.underscore,
+                :version => history_context_menu.version)) + ')'.html_safe if history_context_menu.previous_version %>
+  <%= (" - " + link_to((l(:label_next) + " \xc2\xbb"), send("preview_#{history_context_menu.class.name.underscore}_path", history_context_menu, :version => history_context_menu.next_version.version))).html_safe if history_context_menu.next_version %>
+</div>
+<hr>
+<%= link_to l(:button_rollback), send("edit_#{history_context_menu.class.name.underscore}_path", history_context_menu, :version => params[:version]), :class => 'icon icon-cancel' %>

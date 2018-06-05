@@ -1,0 +1,34 @@
+<table class="list">
+  <thead>
+  	<tr>
+  	  <th><%=t(:project)%></th>
+  	  <th><%=t(:issue)%></th>
+  	  <th>Journal ID</th>
+  	  <th><%=t(:message_id, scope: [:redmine_issue_mailer])%></th>
+  	  <th><%=t(:from, scope: [:redmine_issue_mailer])%></th>
+  	  <th><%=t(:to, scope: [:redmine_issue_mailer])%></th>
+  	  <th><%=t(:cc, scope: [:redmine_issue_mailer])%></th>
+  	  <th><%=t(:subject, scope: [:redmine_issue_mailer])%></th>
+
+  	</tr>
+  </thead>
+  <tbody>
+    <%@email.each do |email|%>
+	  <tr>
+	    <td><%=h email.project.name%></td>
+	    <td><%=link_to "##{email.issue_id}", {controller: "issues", action: "show", id: email.issue_id}%></td>
+	    <td>
+	      <%=link_to("##{email.journal_id}", {controller: "issues", action: "show", id: email.issue_id, :anchor => "change-#{email.journal_id}" })%>
+
+	    </td>
+
+	    <td><%=h email.message_id%></td>
+	    <td><%=h email.from%></td>
+	    <td><%=h email.to%></td>
+	    <td><%=h email.cc%></td>
+	    <td><%=h email.subject%></td>
+	  </tr>
+  	<%end%>
+  </tbody>
+</table>
+

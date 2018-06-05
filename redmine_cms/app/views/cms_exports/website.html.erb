@@ -1,0 +1,12 @@
+<h2><%=l(:label_cms_website_exports_new)%></h2>
+
+<%= form_tag cms_export_website_path do %>
+  <div class="box tabular">
+    <%= hidden_field_tag :object_type, 'website' %>
+    <p>
+      <%= label_tag l(:label_cms_exports_attachment_content)%>
+      <%= check_box_tag :attachment_content %>
+    </p>
+  </div>
+  <%= submit_tag l(:button_export) %>
+<% end %>

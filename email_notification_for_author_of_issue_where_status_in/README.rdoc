@@ -1,0 +1,63 @@
+= email_notification_for_controllers
+
+This plugin send email notification for author of issue where status in check or close
+
+You must set this statuses in settings of plugins
+
+You can send notifications manually:
+
+  cd /home/user/path_to_you_app
+
+  bundle exec rake redmine:email_notification_for_author:of_issue_where_status_in RAILS_ENV=production
+
+
+It is good idea to add the task to cron:
+
+  * * * * * root cd /home/user/path_to_you_app && bundle exec rake redmine:email_notification_for_author:of_issue_where_status_in RAILS_ENV=production
+
+Learn more about cron at http://en.wikipedia.org/wiki/Cron
+
+
+ Установка 
+	1. Клонировать плагин из репозитория. 
+	   git clone git@gitlab.qazz.pw:a.kondratenko/email_notification_for_author_of_issue_where_status_in.git
+
+	2. Копировать папку email_notification_for_author_of_issue_where_status_in в папку plugins приложения redmine. Запускать миграции не надо
+
+	3. Перезапустить сервер
+
+	4. Для запуска рассылки
+	   Перед запуском рассылки необходимо войти в настройки плагина и выставить значения статусов Готовых для проверки и Готовых для закрытия
+
+	   Запускать рассылку (task) лучше в период с наименьшей нагрузкой на сервер
+	    
+	     bundle exec rake redmine:email_notification_for_author:of_issue_where_status_in RAILS_ENV=production
+
+
+	  It is good idea to add the task to cron (Learn more about cron at http://en.wikipedia.org/wiki/Cron):
+
+	  * *    * * *    root cd /home/user/path_to_you_app && bundle exec rake redmine:email_notification_for_author:of_issue_where_status_in RAILS_ENV=production &> /tmp/email_notification_for_autho_of_issue_where.log
+
+
+00 06 * * * /bin/sh "cd /var/www/sbx.redmine.devme.in/htdocs && sudo bundle exec rake RAILS_ENV=production redmine:email_notification_for_author:of_issue_where_status_in"
+
+Changelog
+  v0.0.2 - 17 July 2015
+    redmine:issue:430623
+    Add rules for request to DB
+  v0.0.3 - 22 September 2015
+    redmine:issue:474333
+    Add notification for custom fields
+  v0.0.4 - 01 October 2015
+    redmine:issue:474333:comment:15
+    Fix bug in request to DB (param in 'where')
+    Write more info to log file
+    Add exception handler 
+  v0.0.5 - 07 October 2015
+    redmine:issue:comment:19
+    Fix bug in notification for author
+
+  v0.1.0 - 26 December 2016
+    redmine:issue:868654
+    Version for redmine320
+    

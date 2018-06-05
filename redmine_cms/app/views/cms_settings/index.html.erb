@@ -1,0 +1,79 @@
+<% extend CmsPagesHelper %>
+<% extend CmsHelper %>
+
+<% html_title(l(:label_cms_settings)) -%>
+
+<div class="contextual">
+  <%= link_to l(:label_cms_refresh_cache), site_expire_cache_path, :class => 'icon icon-refresh' %>
+  <%= link_to l(:label_cms_export_website), cms_export_website_path, :class => 'icon icon-save' %>
+  <%= link_to l(:label_cms_import_website), cms_import_website_path, :class => 'icon icon-duplicate' %>
+</div>
+
+<h2><%= l(:label_cms_settings) %></h2>
+
+<%= form_tag({:controller => :cms_settings, :action => :update, :id => '1', :tab => 'general'},
+               :method => :put, :id => "cms_settings_form") do %>
+<div class="box tabular">
+  <p>
+    <label for="use_localization"><%= l(:label_cms_use_localization) %></label>
+    <%= hidden_field_tag 'settings[use_localization]', 0 %>
+    <%= check_box_tag 'settings[use_localization]', 1, RedmineCms.use_localization?, :id => 'use_localization' %>
+  </p>
+
+  <p>
+    <label><%= l(:label_cms_edit_permissions) %></label>
+    <%= select_tag 'settings[edit_permissions]', cms_visibilities_for_select(@settings["edit_permissions"] || "admin", :only_groups => true, :admin => true)  %>
+  </p>
+
+  <p>
+    <label><%= l(:label_cms_redmine_top_menu) %></label>
+    <%= hidden_field_tag 'settings[show_home]', 0 %>
+    <label class="block"><%= check_box_tag 'settings[show_home]', 1, @settings["show_home"].to_i > 0 %><%= l(:label_home) %></label>
+    <%= hidden_field_tag 'settings[show_projects]', 0 %>
+    <label class="block"><%= check_box_tag 'settings[show_projects]', 1, @settings["show_projects"].to_i > 0 %><%= l(:label_project_plural) %></label>
+    <%= hidden_field_tag 'settings[show_help]', 0 %>
+    <label class="block"><%= check_box_tag 'settings[show_help]', 1, @settings["show_help"].to_i > 0 %><%= l(:label_help) %></label>
+  </p>
+
+  <p>
+    <label><%= l(:label_cms_cache_expires_in) %></label>
+    <%= text_field_tag 'settings[cache_expires_in]', RedmineCms.cache_expires_in, :size => 5 %> <%= l(:label_cms_minute_plural) %>
+  </p>
+
+  <p>
+    <label><%= l(:label_cms_default_layout) %></label>
+    <%= select_tag 'settings[default_layout]', options_for_select(cms_layouts_for_select, @settings["default_layout"]) %>
+  </p>
+
+  <% if CmsPage.any? %>
+  <p>
+    <label><%= l(:label_cms_landing_page) %></label>
+    <%= select_tag 'settings[landing_page]', options_for_select(pages_options_for_select(CmsPage.all), @settings["landing_page"]), :include_blank => true %>
+  </p>
+
+  <p>
+    <label><%= l(:label_cms_error_page) %></label>
+    <%= select_tag 'settings[error_page]', options_for_select(pages_options_for_select(CmsPage.all), @settings["error_page"]), :include_blank => true %>
+  </p>
+
+  <% end %>
+
+  <p>
+    <label><%= l(:label_cms_default_fields) %></label>
+    <%= text_field_tag 'settings[default_fields]', @settings["default_fields"] %>
+    <br>
+    <em class="info"><%= l(:text_comma_separated) %></em>
+  </p>
+
+</div>
+<%= submit_tag l(:button_apply) %>
+<% end %>
+
+<% content_for :sidebar do %>
+  <% render :partial => 'cms_settings/menu' %>
+<% end %>
+
+<% content_for :header_tags do %>
+  <%= code_mirror_tags %>
+  <%= javascript_include_tag 'redmine_cms', :plugin => 'redmine_cms'  %>
+<% end %>

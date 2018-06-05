@@ -1,0 +1,23 @@
+<% if @snippets.any? %>
+  <table class="list">
+    <thead>
+      <tr>
+        <th><%= l(:label_cms_name) %></th>
+        <th><%= l(:label_cms_description) %></th>
+        <th style="width:10%;"> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @snippets.each do |snippet| -%>
+        <tr class="snippet <%= cycle("odd", "even") %>" id="snippet_<%= snippet.id %>">
+          <td class="name"><%= link_to h(snippet.name), edit_cms_snippet_path(snippet) %></td>
+          <td class="name"><%= snippet.description %></td>
+          <td class="buttons">
+            <%= link_to l(:label_history), cms_object_history_path(snippet, :object_type => snippet.class.name.underscore), :class => 'icon icon-history' if snippet.version > 1 %>
+            <%= delete_link cms_snippet_path(snippet) if User.current.admin? %>
+          </td>
+        </tr>
+      <% end -%>
+  </tbody>
+</table>
+<% end %>

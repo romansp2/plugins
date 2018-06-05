@@ -1,0 +1,16 @@
+<% @contacts.each do |contact| %>
+  <li id="contact_<%=contact.id%>">
+    <%=hidden_field_tag 'contacts_issue[contact_ids][]', contact.id%>
+    <%= contact_tag(contact) %>
+    <%= "(#{contact.job_title}) " unless contact.job_title.blank? %>
+    <%= link_to(image_tag('delete.png'), ccwi_contacts_issue_path(project_id: @project.identifier, 
+                                                                  contacts_issue: {contact_ids: @contact_ids },
+                                                                  id: contact.id), 
+                                                                  remote: true, 
+                                                                  method: :delete, 
+                                                                  confirm: l(:text_are_you_sure), 
+                                                                  :class  => "delete", 
+                                                                  title: l(:button_delete) ) %>
+
+  </li>
+<% end %>

@@ -1,0 +1,8 @@
+<div class="contextual add-to-table">
+  <%= link_to l(:label_cms_part_new), new_cms_part_path(:page_id => @page.id), :class => 'icon icon-add' %>
+</div>
+
+<div id="cms_page_parts">
+  <%= render :partial => "cms_parts/parts" %>
+</div>
+

@@ -1,0 +1,8 @@
+# English strings go here for Rails i18n
+ru:
+  # my_label: "My label"
+  permission_delete_watcher_groups_in_more_than_one_issue: "Массовое удаление Групп Наблюдателей"
+  permission_add_watcher_groups_in_more_than_one_issue: "Массовое назначение Групп Наблюдателей"
+  warning_list_watcher_groups_from_bulk_edit: "Перечисленные группы пользователей могут не быть наблюдателями во всех выбранных задачах."  
+  rawimtoi_added: "Добавлены"
+  rawimtoi_watcher_groups: "Группы Наблюдателей"

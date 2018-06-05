@@ -1,0 +1,4 @@
+<%@added_groups.each do |group|%>
+  $("ul#watcher_groups li#<%=group.id%>").remove();
+<%end%>
+$("ul#watcher_groups").append("<%= escape_javascript(render :partial => 'context_menu_watcher_groups/list_groups', :locals => {:watcheds => @watcheds, :groups => @added_groups}) %>");

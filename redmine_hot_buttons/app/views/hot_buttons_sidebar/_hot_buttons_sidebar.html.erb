@@ -1,0 +1,18 @@
+<%if !@issue.nil? && !@issue.new_record?%>
+  <style type="text/css">
+     div#hot_buttons {padding-bottom: 10px;}
+     form.button_to input[type=submit] {width: 100%;}
+  </style>
+
+  <div id="hot_buttons">
+    <p>
+      <div class="contextual">
+        <%=link_to l(:link_hot_buttons_list_open, scope: [:hot_buttons]), hot_button_issue_index_path(project_id: @project.identifier, id: @issue.id), remote: true%>
+        <%=link_to l(:link_hot_buttons_list_close, scope: [:hot_buttons]), '###', onclick: "document.getElementById('hot_buttons_list').innerHTML='';"%>
+      </div>
+      <h3><%=l(:field_hot_buttons_list, scope: [:hot_buttons])%></h3>
+    </p>
+    <div id="hot_buttons_list">
+    </div>
+  </div>
+<%end%>

@@ -1,0 +1,33 @@
+Информация по созданию и добавлению новой валюты:
+@option priority [Numeric] a numerical value you can use to sort/group
+  the currency list
+@option iso_code [String] the international 3-letter code as defined
+  by the ISO 4217 standard
+@option iso_numeric [Integer] the international 3-digit code as
+  defined by the ISO 4217 standard
+@option name [String] the currency name
+@option symbol [String] the currency symbol (UTF-8 encoded)
+@option subunit [String] the name of the fractional monetary unit
+@option subunit_to_unit [Numeric] the proportion between the unit and
+  the subunit
+@option separator [String] character between the whole and fraction
+  amounts
+@option delimiter [String] character between each thousands place
+
+btc = {
+  priority: 100,
+  iso_code: 'BTC',
+  name: 'Bitcoin',
+  symbol: 'BTC',
+  alternate_symbols: [],
+  subunit: 'Satoshi',
+  subunit_to_unit: 100_000_000,
+  symbol_first: false,
+  html_entity: '',
+  decimal_mark: '.',
+  thousands_separator: ',',
+  iso_numeric: '',
+  smallest_denomination: 1
+}
+RedmineCrm::Currency.register(btc)  # Регистрация новой валюты
+RedmineCrm::Currency.new(:btc)      # Создание новой валюты

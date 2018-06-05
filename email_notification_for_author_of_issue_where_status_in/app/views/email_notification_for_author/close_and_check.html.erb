@@ -1,0 +1,67 @@
+<p><%=l(:head_of_letter)%></p>
+<%url_for_arr = {}%>
+<%@close_in_projects.each do |close_in_project| %>
+    <%i = 0%>
+    <h2><%= "Project: #{close_in_project.name}" %></h2>
+    <ul>
+      <% close_in_project.issues.each do |issue| %>
+          <li>
+            <%= link_to "Tracker: #{issue.tracker} Status: #{issue.status.name} ##{issue.id}: #{issue.subject}", issue_url(issue) %>
+          </li>
+          <%if i != 1%>
+            <%i = 1%>
+            <%url_for_arr[issue.status_id] = []
+              url_for_arr[issue.status_id] << "#{issue.status.name}" 
+              url_for_arr[issue.status_id] << url_for(:only_path=>false,
+                                                      :controller =>     'issues', 
+                                                      :action =>         'index',
+                                                      :set_filter =>     1, 
+                                                      :assigned_to_id => @user.id, 
+                                                      :f =>              [:status_id, ""], 
+                                                      :op =>             {:status_id => "="}, 
+                                                      :v =>              {:status_id =>[issue.status_id], :author_id =>[@user.id]}, 
+                                                      :group_by =>       "")
+              %>
+          <%end%>
+      <%end%>
+    </ul>
+<%end%>
+
+<%@check_in_projects.each do |check_in_project| %>
+    <%i = 0%>
+    <h2><%= "Project: #{check_in_project.name}" %></h2>
+    <ul>
+      <% check_in_project.issues.each do |issue| %>
+          <li>
+            <%= link_to "Tracker: #{issue.tracker} Status: #{issue.status.name} ##{issue.id}: #{issue.subject}", issue_url(issue) %>
+          </li>
+          <%if i != 1%>
+            <%i = 1%>
+            <%url_for_arr[issue.status_id] = []
+              url_for_arr[issue.status_id] << "#{issue.status.name}" 
+              url_for_arr[issue.status_id] << url_for(:only_path=>false,
+                                                      :controller =>     'issues', 
+                                                      :action =>         'index',
+                                                      :set_filter =>     1, 
+                                                      :assigned_to_id => @user.id, 
+                                                      :f =>              [:status_id, ""], 
+                                                      :op =>             {:status_id => "="}, 
+                                                      :v =>              {:status_id =>[issue.status_id], :author_id =>[@user.id]}, 
+                                                      :group_by =>       "")
+              %>
+          <%end%>
+      <%end%>
+    </ul>
+<%end%>
+
+<br>
+<br>
+<br>
+<ul>
+  <%url_for_arr.each do |key, link|%>
+    <li>
+      <%=link_to "#{link.first}", link.last%>
+    </li>
+  <%end%>
+</ul>
+

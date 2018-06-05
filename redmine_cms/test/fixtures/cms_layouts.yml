@@ -1,0 +1,10 @@
+layout_001:
+  id: 1
+  name: layout_1
+  content: 'Layout 1 body'
+  content_type: 'text/html'
+layout_002:
+  id: 2
+  name: layout_2
+  content: 'Layout 2 body'
+  content_type: 'text/plain'

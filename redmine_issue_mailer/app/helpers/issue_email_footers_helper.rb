@@ -1,0 +1,2 @@
+module IssueEmailFootersHelper
+end

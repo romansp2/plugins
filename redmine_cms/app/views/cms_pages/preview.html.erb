@@ -1,0 +1,56 @@
+<div id="cms-top-menu">
+  <ul>
+    <li><%= link_to l(:button_edit), send("edit_#{@cms_object.class.name.underscore}_path", @cms_object, :reset_preview => true) %></li>
+
+    <% if @cms_object.respond_to?(:parts) && @cms_object.parts.active.any? %>
+    <li>
+      <%= link_to l(:label_cms_part_edit_plural), "" %>
+      <ul class="menu-children">
+        <% @cms_object.parts.active.each do |part| %>
+          <li><%= link_to part.description.blank? ? part.name : part.description, edit_cms_part_path(part, :reset_preview => true) %>
+          </li>
+        <% end %>
+      </ul>
+    </li>
+    <% end %>
+    <li><%= link_to l(:label_history), cms_object_history_path(@cms_object.id, :object_type => @cms_object.class.name.underscore) %>
+      <ul class="menu-children">
+        <% if @cms_object.versions %>
+          <li>
+            <%= link_to(("\xc2\xab " + l(:label_previous)), send("preview_#{@cms_object.class.name.underscore}_path", @cms_object, :version => @cms_object.previous_version.version)) if @cms_object.previous_version %>
+            <%= " #{@cms_object.version}#{'/' + link_to(@current_version, send("preview_#{@cms_object.class.name.underscore}_path", @cms_object)) if @cms_object.next_version } ".html_safe %>
+            <%= link_to((l(:label_next) + " \xc2\xbb"), send("preview_#{@cms_object.class.name.underscore}_path", @cms_object, :version => @cms_object.next_version.version)) if @cms_object.next_version %>
+          </li>
+        <% end %>
+
+        <% if @current_version && @cms_object.version != @current_version %>
+          <li><%= link_to(l(:label_cms_diff_with_current), cms_object_diff_path(@cms_object.id, :object_type => @cms_object.class.name.underscore, :version => @cms_object.version, :version_from => @current_version))  %></li>
+          <li><%= link_to l(:button_rollback), send("edit_#{@cms_object.class.name.underscore}_path", @cms_object, :version => params[:version]), :class => 'icon icon-cancel' %></li>
+        <% end %>
+      </ul>
+
+    </li>
+    <% if @cms_object.respond_to?(:expire_cache) %>
+    <li><%= link_to l(:label_cms_refresh_cache), expire_cache_cms_page_path(@cms_object) %></li>
+    <% end %>
+    <li>|</li>
+    <li><%= link_to l(:label_cms), cms_settings_path %>
+      <ul class="menu-children">
+        <li><%= link_to l(:label_cms_page_plural), cms_pages_path, :class => "icon icon-page #{'selected' if params[:controller] == 'cms_pages'}" %></li>
+        <li><%= link_to l(:label_cms_snippet_plural), cms_snippets_path, :class => "icon icon-snippet #{'selected' if params[:controller] == 'cms_snipets'}" %></li>
+        <li><%= link_to l(:label_cms_menu_plural), cms_menus_path, :class => "icon icon-menu #{'selected' if params[:controller] == 'cms_menus'}" %></li>
+        <li><%= link_to l(:label_cms_layout_plural), cms_layouts_path, :class => "icon icon-layout #{'selected' if params[:controller] == 'cms_layouts'}" %></li>
+        <li><%= link_to l(:label_cms_redmine_layout_plural), cms_redmine_layouts_path, :class => "icon icon-redmine-layout #{'selected' if params[:controller] == 'cms_redmine_layouts'}" %></li>
+        <li><%= link_to l(:label_cms_redmine_hook_plural), redmine_hooks_cms_settings_path, :class => "icon icon-redmine-hooks #{'selected' if params[:controller] == 'cms_settings' && params[:action] == 'redmine_hooks'}" %></li>
+        <li><%= link_to l(:label_cms_redirect_plural), cms_redirects_path, :class => "icon icon-redirect #{'selected' if params[:controller] == 'cms_redirects'}" %></li>
+        <li><%= link_to l(:label_cms_asset_plural), cms_assets_path, :class => "icon icon-package #{'selected' if params[:controller] == 'cms_assets'}" %></li>
+        <li><%= link_to l(:label_cms_variable_plural), cms_variables_path, :class => "icon icon-vars #{'selected' if params[:controller] == 'cms_variables'}" %></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<iframe src="<%= url_for params.merge(:action => 'show') %>" scrollbars="auto" name="preview"  height="100%" width="100%">
+</iframe>
+
+<% html_title("#{l(:label_cms_preview)} - #{@cms_object.name}") -%>

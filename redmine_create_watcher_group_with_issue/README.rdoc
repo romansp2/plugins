@@ -1,0 +1,37 @@
+= redmine_create_watcher_group_with_issue
+
+Description goes here
+
+Плагин дает возможность добавлять группы наблюдателей при создании задачи
+
+  Installing a plugin (http://www.redmine.org/projects/redmine/wiki/Plugins)
+    
+    1. Clone from git@gitlab.qazz.pw:a.kondratenko/redmine_create_watcher_group_with_issue.git
+  
+    2. Tag v_._._ is required
+    
+    3. Copy redmine_create_watcher_group_with_issue to plugins folder of redmine
+    
+    4. Plugin does not require a migration
+    
+    5. Restart app (redmine)
+
+  Uninstalling a plugin (http://www.redmine.org/projects/redmine/wiki/Plugins)
+    
+    1. Remove your plugin from the plugins folder: #{RAILS_ROOT}/plugins
+  
+    2. Restart app (redmine)
+
+  Changelog
+
+  v0.0.1 - 26 August 2015
+    redmine:issue:431934 
+    First release
+  v0.0.2 - 15 September 2015
+    redmine:issue:467967
+    Fix bug double groups menu
+
+  v0.1.0 - 27 December 2016
+    redmine:issue:868636
+    Version for redmine320
+

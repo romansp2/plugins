@@ -1,0 +1,94 @@
+# encoding: utf-8
+# Simplified Chinese strings go here for Rails i18n
+# Author: zhoutt
+# Based on file: en.yml
+
+zh:
+  label_finance: 財務
+  label_finance_plural: 財務
+  label_finance_thousands_delimiter: 千位分隔符
+  label_finance_decimal_separator: 十進制分隔符
+  label_finance_default_currency: 默認貨幣
+  project_module_finance: 財務
+
+  label_account: 賬戶
+  label_account_plural: 賬戶
+  label_account_debit: 借記
+  label_account_credit: 信用
+  label_account_new: 新建賬戶
+  label_account_edit: 編輯賬戶
+  label_account_balance: 余額
+  label_account_currency: 貨幣
+
+  field_account: 賬戶
+  field_account_currency: 貨幣
+
+  label_operation: 運算
+  label_operation_plural: 運算
+  label_operation_edit: 編輯運算
+  label_operation_new: 新建運算
+  label_operation_date: 日期
+  label_operation_income: 收入
+  label_operation_expense: 支出
+  label_operation_category: 分類
+  label_operation_amount: 總額
+
+  field_operation_category: 分類
+  field_operation_date: 運算日期
+  field_operation_amount: 總額
+
+  label_operation_category_plural: 運算類別
+  label_operation_category_new: 新建運算類別
+  label_operation_category_is_income: 是 收入
+
+  label_finance_show_in_top_menu: 在頂部菜單中顯示
+  label_finance_show_in_app_menu: 在app程序菜單
+
+  permission_view_finances: 瀏覽財務
+  permission_edit_operations: 編輯運算
+  permission_edit_own_operations: 編輯自己的運算
+  permission_delete_operations: 刪除運算
+  permission_comment_operations: 評論運算
+  permission_import_operations: 導入運算
+  permission_edit_accounts: 編輯賬戶
+  permission_delete_accounts: 刪除賬戶
+  permission_manage_operation_invoices: 管理運算類發票
+  permission_manage_operation_relations: 管理運算關系
+
+  label_related_operations: 規章制度性業務
+  text_account_updated: "賬戶 %{name} 已經由 %{author}更新."
+  text_account_amount_changed: "數量變化 %{old} to %{new}"
+  label_finance_account_updated: 財務賬戶更新
+  label_finance_total: 總額
+
+  #1.0.3
+  permission_delete_operation_comments: 刪除評論
+
+  #1.0.4
+  label_finance_cross_project_contacts: 允許跨項目聯系人關系
+  label_finance_filter_companies: 過濾公司
+
+  #1.0.7
+  label_finance_operation_comment_added: 在財務運算中添加注釋
+
+  #1.0.8
+  label_finance_can_not_delete_account: "這個帳戶包含運算，并不能被刪除."
+  label_finance_can_not_delete_category: "該運算類別正在使用，不能被刪除."
+
+  #1.2.0
+  permission_add_operations: 新建操作
+  label_finance_is_approved: 批準
+  label_finance_operations_approval: 批準操作
+  label_finance_disapproved: 駁回
+  permission_approve_operations: 批準操作
+  label_finance_disapproved_income: 駁回收入
+  label_finance_disapproved_expense: 駁回支出
+  label_operation_type: 操作類型
+  label_finance_approve: 批準
+  label_finance_disapprove: 駁回
+
+  #1.2.1
+  permission_manage_public_operations_queries: 管理公共查詢
+  permission_save_operations_queries: 保存查詢
+  text_finance_planned_operation_changed: 更改計劃運算
+  text_finance_account_amount_has_not_changed: 賬戶數目未改變

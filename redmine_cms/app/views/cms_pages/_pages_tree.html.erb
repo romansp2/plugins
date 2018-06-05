@@ -1,0 +1,11 @@
+<% if RedmineCms.allow_edit? %>
+<div class="contextual">
+<%= link_to l(:button_add), new_cms_page_path(:page => {:parent_id => @page}) %>
+</div>
+<% end %>
+
+<h3><%= l(:label_cms_page_plural) %></h3>
+<% page_tree(CmsPage.visible.order(:parent_id)) do |page, level| -%>
+  <%= link_to content_tag(:span, page.name), edit_cms_page_path(page), :class => "#{'selected ' if @page.id == page.id}page #{level > 0 ? "idnt idnt-#{level}" : nil }" %>
+  <br>
+<% end -%>

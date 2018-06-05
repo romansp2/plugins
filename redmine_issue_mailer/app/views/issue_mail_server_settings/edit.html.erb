@@ -1,0 +1,4 @@
+<%=link_to l(:issue_mail_settings , scope: [:redmine_issue_mailer]), issue_mail_settings_path(project_id: @project.identifier)%>
+<%=link_to l(:issue_mail_server_settings , scope: [:redmine_issue_mailer]), issue_mail_server_settings_path(project_id: @project.identifier)%>
+<br><br><br>
+<%=render :partial => "form", locals: {project: @project, server_setting: @server_setting}%>

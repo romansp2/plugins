@@ -1,0 +1,33 @@
+<%= form_tag({:controller => "cms_settings", :action => "save", :project_id => @project, :tab => "project_tab"}, :method => :post, :class => "tabular") do %>
+  <div class="tabular box">
+    <p>
+      <label><%= l(:label_cms_landing_page) %></label>
+      <%= text_field_tag "cms_settings[landing_page]",  RedmineCms.get_project_settings("landing_page", @project.id), :size => 60 %>
+    </p>
+
+    <p>
+      <label><%= l(:label_cms_show_activity_tab) %></label>
+        <%= hidden_field_tag('cms_settings[project_tab_show_activity]', 0) %>
+        <%= check_box_tag "cms_settings[project_tab_show_activity]", 1, RedmineCms.get_project_settings("project_tab_show_activity", @project.id).to_i > 0 %>
+    </p>
+
+
+    <% pages = CmsPage.all %>
+    <% 10.times do |n| %>
+    <p>
+      <label><%= l(:label_project_tab_caption, :index => n + 1) %></label>
+      <%= text_field_tag "cms_settings[project_tab_#{n + 1}_caption]",  RedmineCms.get_project_settings("project_tab_#{n + 1}_caption", @project.id) %>
+      <em><%= l(:label_project_tab_page) %></em>
+      <%= select_tag "cms_settings[project_tab_#{n + 1}_page]", options_for_select(pages_name_options_for_select(pages), RedmineCms.get_project_settings("project_tab_#{n + 1}_page", @project.id)), :include_blank => true  %>
+    </p>
+    <% end %>
+    <p>
+      <label><%= l(:label_project_tab_caption, :index => "last") %></label>
+      <%= text_field_tag "cms_settings[project_tab_last_caption]",  RedmineCms.get_project_settings("project_tab_last_caption", @project.id) %>
+      <em><%= l(:label_project_tab_page) %></em>
+      <%= select_tag "cms_settings[project_tab_last_page]", options_for_select(pages_name_options_for_select(pages), RedmineCms.get_project_settings("project_tab_last_page", @project.id)), :include_blank => true  %>
+    </p>
+  </div>
+  <%= submit_tag l(:button_save) %>
+<% end %>
+

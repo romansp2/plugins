@@ -1,0 +1,24 @@
+<h1><%= l('html_block.header.index') %></h1>
+
+<table>
+  <tr>
+    <th><%= l('html_block.label.content') %></th>
+    <th><%= l('html_block.label.address') %></th>
+    <th><%= l('html_block.label.link') %></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @blocks.each do |block| %>
+    <tr>
+      <td><%= block.text %></td>
+      <td><%= block.address %></td>
+      <td><%= block.link_type %></td>
+      <td><%= link_to l('button_edit'), edit_block_path(block) %></td>
+      <td><%= link_to l('button_delete'), block_path(block),
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+<p> <%= link_to l('html_block.button.create'), new_block_path %> </p>

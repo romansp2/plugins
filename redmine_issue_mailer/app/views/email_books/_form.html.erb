@@ -1,0 +1,13 @@
+<%=form_for email_book do |f|%>
+  <%=hidden_field_tag(:project_id, email_book.project.identifier) %>
+
+  <p><%=f.label :name %></p>
+  <p><%=f.text_field  :name, required: true%><p>
+
+  <p><%=f.label :email %></p>
+  <p><%=f.email_field :email, required: true%></p>
+
+
+  <%=f.submit%>
+
+<%end%>

@@ -1,0 +1,441 @@
+/**************************************************************/
+/*                   TOP MENU
+/**************************************************************/
+
+#top-menu > ul > li {
+  height: 20px;
+}
+
+#top-menu li ul.menu-children {
+  display: none;
+  position: absolute;
+  clear: both;
+  top: 20px;
+  border: 1px solid #e4e4e4;
+  background-color: #fff;
+  color: #505050;
+  max-width: 230px;
+}
+
+#top-menu ul.menu-children > li {
+  padding: 5px;
+  float: none;
+  display: block;
+  border-bottom: 1px solid #e4e4e4;
+  margin: 0 6px;
+}
+
+#top-menu ul.menu-children > li:last-child {
+  border-bottom: 0px;
+}
+
+#top-menu ul.menu-children > li a {
+  color: inherit;
+}
+
+#top-menu li:hover ul.menu-children {
+  display: block;
+  z-index: 1000;
+}
+
+#top-menu #account.cms > ul > li {
+  height: 20px;
+  position: relative;
+}
+
+#top-menu #account li:last-child > ul.menu-children {
+  right: 0px;
+  left: auto;
+}
+
+#top-menu div#account img.gravatar {
+  margin-right: 5px;
+  padding: 0px;
+  position: relative;
+  top: -2px;
+}
+
+/**************************************************************/
+/*                   FOOTER MENU
+/**************************************************************/
+#footer ul {
+  position: relative;
+  float: left;
+  padding-left: 0px;
+  list-style: none;
+}
+
+div#footer ul li {
+  display: inline;
+  padding-right: 10px;
+}
+
+div#footer p {
+  text-align: right;
+}
+
+
+/**********************************************************************/
+/* TAGS
+/**********************************************************************/
+.cms-page-tags-edit ul.tagit li.tagit-choice:hover, ul.tagit li.tagit-choice.remove {
+  background-color: #E5E5E5;
+  text-decoration: none;
+  color: black;
+}
+
+.cms-page-tags-edit ul.tagit {
+  border: 1px solid #D7D7D7;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  -khtml-border-radius: 0px;
+  border-radius: 0px;
+  background: white;
+  padding: 0px;
+  margin-top: 0px;
+}
+
+.cms-page-tags-edit ul.tagit li.tagit-choice {
+  font-weight: normal;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  font-size: 11px;
+  color: inherit;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  background-color: #F7F7F7;
+  margin: 1px;
+}
+
+.cms-page-tags-edit ul.tagit li.tagit-choice {
+  font-weight: normal;
+  font-size: 11px;
+  color: inherit;
+}
+
+.cms-page-tags-edit ul.tagit li.tagit-choice a.tagit-close {
+  text-decoration: none;
+}
+
+.cms-page-tags-edit ul.tagit li.tagit-choice .tagit-close .text-icon {
+  display: inline;
+  line-height: 16px;
+}
+
+.cms-page-tags-edit ul.tagit li.tagit-choice .ui-icon {
+  display: none;
+}
+
+.cms-page-tags-edit ul.tagit li.tagit-new {
+  padding: 0px;
+}
+
+.cms-page-tags-edit ul.tagit li.tagit-new input {
+  font-size: 11px;
+  background: white;
+  margin-bottom: 2px;
+  margin-left: 2px;
+  width: 200px;
+}
+
+.tag_list {
+  margin-top: 5px;
+  display: inline-block;
+}
+
+span.tag-label-color {
+  background-color: #759FCF;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  padding: 2px 4px;
+  display: inline-block;
+  font-size: 10px;
+  margin: 0px 0px 5px 2px;
+}
+
+span.tag-label-color:hover {
+  background-color: #9DB9D5;
+}
+
+span.tag-label-color a, span.tag-label-color > span {
+  text-decoration: none;
+  font-family: Verdana, sans-serif;
+  font-weight: normal;
+  color: white;
+}
+
+#sidebar ul.page-tags  {
+  list-style: none;
+  padding: 0px;
+}
+
+#sidebar ul.page-tags  span.count {
+  color: gray;
+}
+
+
+/**************************************************************/
+/*                   FEATURE
+/**************************************************************/
+div.feature {
+  padding: 20px;
+  border-bottom: 1px solid #AAA;
+}
+
+div.feature .feature-content {
+  padding-left: 52%;
+  min-height: 250px;
+  position: relative;
+}
+
+.feature .feature-content img {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  border: 1px solid #CCC;
+}
+
+div.feature.left .feature-content {
+  padding-left: 0px;
+  padding-right: 52%;
+}
+
+div.feature.left .feature-content img {
+  right: 0px;
+  left: auto;
+}
+
+/**************************************************************/
+/*                   PRICING TABLE
+/**************************************************************/
+
+div.wiki .pricingtable {
+  width: 100%;
+}
+
+div.wiki table.pricingtable {
+  text-align: center;
+}
+
+div.wiki table.pricingtable, div.wiki table.pricingtable th, div.wiki table.pricingtable td {
+  border: none;
+}
+
+div.wiki table.pricingtable th, div.wiki table.pricingtable td {
+  padding: 10px;
+}
+
+div.wiki table.pricingtable .divider td, div.wiki table.pricingtable .divider th {
+  padding: 2px;
+}
+div.wiki table.pricingtable .divider, div.wiki table.pricingtable .divider .optimal  {
+  background: #CCC;
+}
+
+div.wiki  table.pricingtable td:first-child {
+  text-align: left;
+  white-space: nowrap;
+}
+
+div.wiki table.pricingtable .price, div.wiki table.pricingtable th.product  {
+  font-size: 25px;
+  padding: 10px;
+  display: block;
+}
+
+div.wiki table.pricingtable .optimal {
+  background: #EBEBEB;
+}
+
+div.wiki table.pricingtable tr:nth-child(even) {
+  background: #F1F1F1;
+}
+
+div.wiki table.pricingtable tr:nth-child(even) .optimal {
+  background: #DBDBDB;
+}
+
+div.wiki table.pricingtable .buttons td {
+  padding-bottom: 20px;
+}
+
+div.wiki table.pricingtable .header th {
+  padding-top: 20px;
+}
+
+div.wiki table.pricingtable .price span {
+  font-size: 14px;
+  font-weight: normal;
+  color: #999;
+}
+
+/**************************************************************/
+/*                   TOOLS
+/**************************************************************/
+#header div.contextual.page-edit a {
+  color: #333;
+}
+
+/**************************************************************/
+/*                   BUTTONS
+/**************************************************************/
+
+a.button, button.button, strong.button, div.button {
+  background-color: #628DB6;
+  color: white;
+}
+
+a.button:hover {
+  text-decoration: none;
+}
+
+.button span {
+  font-size: 12px;
+}
+
+/**************************************************************/
+/*                   PAGE
+/**************************************************************/
+
+.wiki.page .wiki-anchor {
+  display: none;
+}
+
+.contextual.page-edit {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  margin-top: 0px;
+  padding: 10px 20px;
+  background-color: rgba(41, 51, 58, 0.80);
+  color: white;
+  font-size: 14px;
+  border: 1px solid white;
+  z-index: 10000;
+}
+
+.contextual.page-edit a {
+  color: white;
+  font-weight: bold;
+}
+
+.contextual.page-edit ul.parts-edit li {
+  padding-left: 10px;
+  list-style-type: none;
+}
+
+.contextual.page-edit ul.parts-edit {
+  display: none;
+}
+
+.contextual.page-edit:hover ul.parts-edit {
+  display: inline;
+}
+
+div.page-title {
+  text-align: center;
+}
+
+div.splitcontent.page-content {margin-bottom: 5px;}
+
+.contextual.add-to-table {margin-bottom: 5px;}
+div#tab-content-page_parts.tab-content {min-height: 20px;}
+
+.tabular div#tab-content-content div.attachments p {
+  padding: 0px;
+  min-height: 0px;
+}
+
+.page-fields tr.page-field td.name {width: 20%;}
+.page-fields tr.page-field td.name input,
+.page-fields tr.page-field td.content input { width: 85%;}
+
+#sidebar .page.idnt span {background: url(../../../images/bullet_arrow_right.png) no-repeat 0 50%; padding-left: 16px;}
+#sidebar .page.idnt-1 {padding-left: 0.5em;}
+#sidebar .page.idnt-2 {padding-left: 2em;}
+#sidebar .page.idnt-3 {padding-left: 3.5em;}
+#sidebar .page.idnt-4 {padding-left: 5em;}
+#sidebar .page.idnt-5 {padding-left: 6.5em;}
+#sidebar .page.idnt-6 {padding-left: 8em;}
+#sidebar .page.idnt-7 {padding-left: 9.5em;}
+#sidebar .page.idnt-8 {padding-left: 11em;}
+#sidebar .page.idnt-9 {padding-left: 12.5em;}
+
+.tabs.part-tabs li:first-child { margin-right: 10px !important; }
+
+/**************************************************************/
+/*                   PART
+/**************************************************************/
+
+.tabs.part-tabs .locked {
+  font-weight: normal;
+  font-style: italic;
+}
+
+/**************************************************************/
+/*                   CODEMIRROR
+/**************************************************************/
+
+.CodeMirror {
+  padding: 2px;
+  border: 1px solid #D7D7D7;
+  height: auto !important;
+}
+
+.CodeMirror-scroll {
+  overflow-y: hidden;
+  overflow-x: auto !important;
+}
+
+.CodeMirror.CodeMirror-fullscreen {
+  display: block;
+  position: fixed !important;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100% !important;
+  z-index: 9999;
+  font-size: 14px;
+}
+
+.CodeMirror-lines {
+  min-height: 100px;
+}
+
+.CodeMirror .cm-liquid-variable,
+.CodeMirror .cm-liquid-tag {
+  color: #0ca;
+}
+
+/**************************************************************/
+/*                   SETTINGS
+/**************************************************************/
+#cms-settings-menu a {
+  line-height: 1.7em;
+}
+#cms-settings-menu a.selected {
+  padding-left: 20px !important;
+}
+
+#content .tabs ul {
+  width: 10000px;
+}
+/**************************************************************/
+/*                   ICONS
+/**************************************************************/
+#admin-menu a.cms { background-image: url(../images/sitemap_color.png);}
+
+.icon-refresh {background-image: url(../images/arrow_refresh.png);}
+.icon-bullet-arrow-right {background-image: url(../../../images/bullet_arrow_right.png);}
+
+.icon-preview {background-image: url(../images/page_white_magnify.png);}
+.icon-menu {background-image: url(../images/sitemap.png);}
+.icon-page {background-image: url(../images/page_white_world.png);}
+.icon-layout {background-image: url(../images/layout_content.png);}
+.icon-redirect {background-image: url(../images/arrow_switch.png);}
+.icon-vars {background-image: url(../images/page_white_actionscript.png);}
+.icon-settings {background-image: url(../../../images/changeset.png);}
+.icon-root-page {background-image: url(../images/world.png);}
+.icon-snippet {background-image: url(../images/page_code.png);}
+.icon-redmine-layout {background-image: url(../images/layout_link.png);}
+.icon-redmine-hooks {background-image: url(../images/page_white_code.png);}

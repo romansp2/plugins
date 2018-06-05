@@ -1,0 +1,31 @@
+
+<div class="contextual">
+<%= link_to l(:label_cms_redmine_layout_new), new_cms_redmine_layout_path, :class => 'icon icon-add' %>
+</div>
+
+<h2><%=l(:label_cms_redmine_layout_plural)%></h2>
+
+<div class="autoscroll">
+<table class="list">
+  <thead><tr>
+    <th><%= l(:label_cms_redmine_action) %></th>
+    <th><%= l(:label_cms_layout) %></th>
+    <th></th>
+  </tr></thead>
+  <tbody>
+<% @cms_redmine_layouts.each do |cms_redmine_layout| -%>
+  <tr class="cms_redmine_layout project <%= cycle("odd", "even") %>">
+    <td class="name"><%= link_to cms_redmine_layout.redmine_action, edit_cms_redmine_layout_path(cms_redmine_layout) %></td>
+    <td class="name"><%= cms_redmine_layout.layout.name if cms_redmine_layout.layout %></td>
+    <td class="buttons">
+      <%= delete_link cms_redmine_layout_path(cms_redmine_layout, :back_url => cms_redmine_layouts_path(params)) %>
+    </td>
+  </tr>
+<% end -%>
+  </tbody>
+</table>
+</div>
+
+<% content_for :sidebar do %>
+  <% render :partial => 'cms_settings/menu' %>
+<% end %>

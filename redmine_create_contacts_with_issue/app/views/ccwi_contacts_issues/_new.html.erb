@@ -1,0 +1,29 @@
+<h3 class="title"><%= l(:label_crm_add_contact_plural) %></h3>
+
+<%= form_tag({:controller => 'ccwi_contacts_issues',
+              :action => 'add_contacts',
+              :project_id => project.identifier},              
+              :remote => true,
+              :method => :post,
+              :id => 'ccwi_add_contact_form') do %>
+
+  <p><%= label_tag 'contact_search', l(:label_crm_search_for_contact) %>:<%= text_field_tag 'contact_search', nil, :placeholder => l(:label_crm_contact_search) %></p>
+  <%= javascript_tag "observeSearchfield('contact_search', 'contacts_for_issue', '#{escape_javascript url_for(:controller => 'ccwi_contacts_issues',
+    :action => 'autocomplete_for_contact', :project_id => project, :contacts_issue => {contact_ids: contacts.map(&:id)}, :cross_project_contacts => ContactsSetting.cross_project_contacts? ? '1' : '0')}')" %>
+
+  <div id="contacts_for_issue">
+    <%= contacts_check_box_tags 'contacts_issue[contact_ids][]', Contact.includes(:avatar).by_project(ContactsSetting.cross_project_contacts? ? nil : project).visible.first(100) - contacts%>
+    <%contacts.each do |contact|%>
+      <%=hidden_field_tag 'contacts_issue[contact_ids][]', contact.id%>
+    <%end%>
+  </div>
+
+  <p class="buttons">
+    <%= submit_tag l(:button_add), :name => nil, :onclick => "hideModal(this);" %>
+    <%= submit_tag l(:button_cancel), :name => nil, :onclick => "hideModal(this);", :type => 'button' %>
+  </p>
+<% end %>
+
+<% content_for :header_tags do %>
+  <%= javascript_include_tag :contacts, :plugin => 'redmine_contacts'  %>
+<% end %>

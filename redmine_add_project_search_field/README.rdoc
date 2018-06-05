@@ -1,0 +1,33 @@
+= redmine_add_project_search_field
+
+Description goes here
+
+Применяет js библиотеку select2 ко всем выпадающим спискам с селекторами перечисленными в настройках плагина
+
+Настройка плагина
+  Необходимо войти в настройки плагина и в текстовом поле перечислить через запятую селекторы выпадающих списков в иерархии страницы
+
+  Пример 
+     div#quick-search select, select#issue_assigned_to_id, select.user_cf, select#issue_project_id
+
+Установка
+	0. Перед установкой плагина должен быть установлен 'Redmine Select2 plugin' плагин (https://gitlab.qazz.pw/a.kondratenko/redmine_base_select2.git)
+	1. Клонировать плагин из репозитория. (Необходим коммит с меткой v).  git@gitlab.qazz.pw:a.kondratenko/redmine_add_project_search_field.git
+	2. Копировать папку redmine_add_project_search_field в папку plugins приложения (redmine).
+	3. Запускать миграции не надо.
+	4. Перезапустить сервер
+
+
+Changelog
+  v0.0.1 - 06 January 2016
+    redmine:issue:429057
+  v0.0.2 - 14 January 2016
+    redmine:issue:559444:comment:3
+    Fix bug in locales/ru.yml
+  v0.0.3 - 22 February 2016
+    redmine:issue:567202
+    Use selecte2 (plugin redmine_base_select2 integrate js librery named select2)
+  v0.0.4 - 16 March 2016
+    redmine:issue:600076
+    redmine:issue:604644
+    Fix bug in edit issue form in projects select tag

@@ -1,0 +1,24 @@
+<div class="contextual">
+  <%= link_to l(:label_history), cms_object_history_path(@cms_object, :object_type => @cms_object.class.name.underscore),
+            :class => 'icon icon-history' %>
+</div>
+<%= cms_title [@cms_object.name, send("preview_#{@cms_object.class.name.underscore}_path", @cms_object, :version => nil)],
+      [l(:label_history), cms_object_history_path(@cms_object.id, :object_type => @cms_object.class.name.underscore)],
+      "#{l(:label_version)} #{@diff.version_to.version}" %>
+
+<p>
+<%= l(:label_version) %> <%= link_to @diff.version_from.version, send("preview_#{@cms_object.class.name.underscore}_path", @cms_object, :version => @diff.version_from.version) %>
+<em>(<%= @diff.version_from.author ?
+             @diff.version_from.author.name : l(:label_user_anonymous)
+      %>, <%= format_time(@diff.version_from.updated_at) %>)</em>
+&#8594;
+<%= l(:label_version) %> <%= link_to @diff.version_to.version, send("preview_#{@cms_object.class.name.underscore}_path", @cms_object, :version => @diff.version_to.version)
+                          %>/<%= @cms_object.version %>
+<em>(<%= @diff.version_to.author ?
+             link_to_user(@diff.version_to.author.name) : l(:label_user_anonymous)
+      %>, <%= format_time(@diff.version_to.updated_at) %>)</em>
+</p>
+
+<div class="text-diff">
+  <%= simple_format_without_paragraph @diff.to_html %>
+</div>

@@ -1,0 +1,5 @@
+# English strings go here for Rails i18n
+ru:
+  # my_label: "My label"
+  email_for_author_subject: "Reminder: Поставленные вами задачи готовы"
+  head_of_letter: "Задачи, поставленные вами, которые готовы для проверки или для закрытия:"

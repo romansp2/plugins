@@ -1,0 +1,21 @@
+<%=render(:partial => 'error_messages', locals: {:error_messages => @error_messages})%>
+
+<%partial_name = (@hot_button.nil? ? "new" : "edit")%>
+
+$("thead#thead-hot-buttons-form").html("<%=escape_javascript( render partial: 'thead_hot_button', locals: {issue:                @issue, 
+                                                                                                           custom_fields_split:  @custom_fields_split})%>");
+
+
+$("tbody#tbody-hot-buttons-form").html("<%=escape_javascript( render partial: partial_name, locals: { project:              @project,
+																                                      issue:                @issue, 
+																                                      roles:                @roles, 
+																                                      role:                 @role,
+																                                      trackers:             @trackers,
+																                                      for_tracker_id:       @for_tracker_id,
+																                                      allowed_statuses:     @allowed_statuses,
+																                                      disabled_core_fields: @disabled_core_fields,
+																                                      priorities:           @priorities,
+		                                                                                              custom_fields_split:  @custom_fields_split,
+		                                                                                              custom_fields_split_selected: @custom_fields_split_selected
+		                                                                                            }   
+		                                                    )%>");

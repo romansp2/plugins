@@ -1,0 +1,4 @@
+<span class='search_for_watchers template-wrapper'>
+  <%= link_to l(:label_add_checklists_from_template), 'javascript:void(0)', :id => 'template-link' %>
+</span>
+<%= select :checklist, :template, template_options_for_select(@project), {}, :style => 'display: none' %>

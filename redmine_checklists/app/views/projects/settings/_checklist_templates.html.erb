@@ -1,0 +1,32 @@
+<% @checklist_templates = ChecklistTemplate.visible.in_project_and_global(@project).order("#{ChecklistTemplate.table_name}.name") %>
+<% if @checklist_templates %>
+  <table class="list">
+    <thead>
+      <tr>
+        <th><%= l(:field_name) %></th>
+        <th><%= "#{l(:field_visible)} #{l(:label_visibility_public)}" %></th>
+        <th><%= l(:field_is_for_all) %></th>
+        <th></th>
+        </tr>
+    </thead>
+    <tbody>
+      <% @checklist_templates.each do |checklist_template| %>
+        <tr class="checklist-template <%= cycle 'odd', 'even' %>">
+          <td class="name"><%= checklist_template.name  %></td>
+          <td class="tick"><%= checked_image checklist_template.is_public? %></td>
+          <td class="tick"><%= checked_image checklist_template.project.blank? %></td>
+          <td class="buttons">
+            <% if User.current.admin? || User.current == checklist_template.user || User.current.allowed_to?(:manage_checklist_templates, checklist_template.project) %>
+              <%= link_to l(:button_edit), edit_project_checklist_template_path(@project, checklist_template), :class => 'icon icon-edit' %>
+              <%= delete_link checklist_template_path(checklist_template, :project_id => @project) %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p class="nodata"><%= l(:label_no_data) %></p>
+<% end %>
+
+<p><%= link_to l(:label_checklist_new_checklist_template), new_project_checklist_template_path(@project), :class => 'icon icon-add' if User.current.allowed_to?(:manage_checklist_templates, @project) %></p>

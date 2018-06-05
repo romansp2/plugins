@@ -1,0 +1,6 @@
+<%= error_messages_for 'cms_redmine_layout' %>
+
+<div class="box tabular">
+<p><%= f.text_field :redmine_action, :size => 100, :required => true, :label => l(:label_cms_redmine_action)  %></p>
+<p><%= f.select :cms_layout_id, cms_layouts_for_select(:only_cms => true), :required => true, :label => l(:label_cms_layout) %></p>
+</div>

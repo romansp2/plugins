@@ -1,0 +1,11 @@
+<%= error_messages_for 'relation' %>
+
+<p>
+<%= l(:label_operation) %> #<%= f.text_field :destination_id, :size => 10 %>
+<%= submit_tag l(:button_add) %>
+<%= link_to_function l(:button_cancel), '$("#new-relation-form").hide();'%>
+</p>
+
+<%= javascript_tag "observeAutocompleteField('relation_destination_id', '#{escape_javascript auto_complete_operations_path(:project_id => @project)}')" %>
+
+<%= javascript_tag "setPredecessorFieldsVisibility();" %>

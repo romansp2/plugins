@@ -1,0 +1,198 @@
+# English strings go here for Rails i18n
+zh:
+  label_helpdesk: 支持中心
+  label_helpdesk_auto_answer_template: 自动回复邮件模板
+  text_helpdesk_answer_macros: 可用的宏 %{macro}
+  label_is_send_mail: 发送备忘
+  label_send_auto_answer: 发送自动回复
+  label_received_from: 接受自
+  label_sent_to: 发送到
+  project_module_contacts_helpdesk: 支持中心
+  permission_send_response: 给联系人发送回应
+  permission_edit_helpdesk_settings: 编辑支持中心设置
+  label_not_create_contacts: 联系人白名单
+  field_created_contact_tags: 添加标签后创建
+  label_helpdesk_save_as_attachment: 保存邮件附件
+
+#1.0.2
+  label_helpdesk_assign_author: 设置发件人为问题的作者
+
+#1.0.3
+  label_helpdesk_answered_status: 回答工单状态
+  label_helpdesk_reopen_status: 重新打开工单状态
+  label_helpdesk_tracker: 工单追踪
+  label_helpdesk_assigned_to: 分配工单给
+  label_helpdesk_lifetime: 工单生命周期
+  label_helpdesk_server_settings: 邮件服务器设置
+  label_helpdesk_protocol: 协议
+  label_helpdesk_host: 主机
+  label_helpdesk_port: 端口
+  label_helpdesk_username: 用户名
+  label_helpdesk_password: 密码
+  label_helpdesk_ssl: SSL
+  label_helpdesk_imap_folder: IMAP 文件夹
+  label_helpdesk_move_on_success: 移动成功
+  label_helpdesk_move_on_failure: 移动失败
+  label_helpdesk_apop: APOP
+  label_helpdesk_delete_unprocessed: 删除未处理的邮件
+  label_helpdesk_first_answer_template: 模板
+  label_helpdesk_test_connection: 测试连接
+  label_helpdesk_get_mail: 获取邮件
+  label_helpdesk_get_mail_success: "已处理 %{count} 邮件(s)"
+  label_helpdesk_css: 邮件样式 (CSS)
+  label_helpdesk_original: 原
+
+#1.0.4
+  label_helpdesk_blacklist: 邮件黑名单
+  label_helpdesk_contact_activity: 联系人活动
+  permission_view_helpdesk_tickets: 查看支持中心工单
+  label_helpdesk_last_message: 最后的信息
+  label_helpdesk_enable_modules: 联系人和问题模块应该在这个项目启用
+  label_helpdesk_contact: 支持中心联系人
+  label_helpdesk_show_contact_card: 显示客户档案
+
+#2.0.0
+  label_helpdesk_send_note_by_default: 默认发送备忘
+  label_helpdesk_ticket_attributes: 工单属性
+  label_helpdesk_to_address: 邮寄地址
+  label_helpdesk_from_address: 寄信地址
+  label_helpdesk_ticket_date: 工单日期
+  label_helpdesk_customer: 客户
+  label_helpdesk_from: 来自
+  label_helpdesk_cc: 抄送
+  label_helpdesk_bcc: 密件抄送
+  label_helpdesk_ticket_plural: 支持中心工单
+  label_helpdesk_template: 支持中心模板
+  label_helpdesk_general: 通用
+  permission_edit_helpdesk_tickets: 编辑工单信息
+
+#2.1.0
+  label_helpdesk_ticket: 支持中心工单
+  label_helpdesk_spam: 垃圾邮件
+  label_helpdesk_add_cc: 添加抄送/密送
+  label_helpdesk_add_contact_notes: 首先添加电子邮件作为联系人备注
+  text_helpdesk_customer_count: "%{count} 客户(s)"
+  text_helpdesk_ticket_count: "%{count} 工单(s)"
+  label_helpdesk_tickets_report: 支持中心工单报告
+  label_helpdesk_staff_report: 支持中心工作人员报告
+  label_helpdesk_tickets_email: 电子邮件
+  label_helpdesk_tickets_phone: 电话
+  label_helpdesk_tickets_web: 网站
+  label_helpdesk_tickets_twitter: 微博
+  label_helpdesk_ticket_source: 工单源
+  label_helpdesk_ticket_time: 工单时间
+  label_helpdesk_save_cc: 保存CC为联系人
+  permission_view_helpdesk_reports: 查看报告
+
+#2.1.2
+  label_helpdesk_answer_template: 回答模板
+
+#2.1.3
+  label_helpdesk_previous_tickets: 过往工单
+  label_helpdesk_public_tickets: 启用公开工单
+  label_helpdesk_public_title: 公开工单标题
+  label_helpdesk_settings_public: 公开工单
+  label_helpdesk_public_comments: 允许添加注释
+  label_helpdesk_public_show_spent_time: 显示所花费的时间
+  label_helpdesk_public_link: 公开链接
+
+#2.1.4
+  label_helpdesk_ticket_new: 新工单
+  label_helpdesk_report_plural: 支持中心报告
+
+#2.2.0
+  label_helpdesk_contact_company: 支持中心公司
+  label_helpdesk_canned_response_plural: 标准化回应
+  label_helpdesk_new_canned_response: 新标准化回应
+  label_helpdesk_canned_response: 标准化回应
+  permission_manage_public_canned_responses: 管理公开的标准化回应
+  permission_manage_canned_responses: 管理标准化回应
+
+#2.2.1
+  my_helpdesk_tickets: 我的支持中心工单
+  label_helpdesk_view_all_tickets: 查看所有工单
+
+#2.2.3
+  label_helpdesk_tickets_conversation: 会话
+
+#2.2.4
+  label_helpdesk_required_custom_fields_error: 联系人不应该有必要的自定义字段
+
+#2.2.6
+  label_helpdesk_last_message_date: 更新工单
+  label_helpdesk_ago: "%{value} 之前"
+
+#2.2.8
+  label_helpdesk_to: 到
+  label_helpdesk_send_as: 发送
+  label_helpdesk_not_send: "(不发送)"
+  label_helpdesk_send_as_notification: 发送通知
+  label_helpdesk_send_as_message: 发送初始信息
+
+#2.2.9
+  label_helpdesk_incoming_mail_server: 接收邮件服务器
+  label_helpdesk_outgoing_mail_server: 发送邮件服务器
+  label_helpdesk_smtp_use_default_settings: 使用默认设置
+  label_helpdesk_smtp_server: SMTP服务器
+  label_helpdesk_smtp_tls: TLS加密
+  label_helpdesk_authentication: 身份验证方法
+  label_helpdesk_authentication_plain: 明文
+  label_helpdesk_authentication_login: 登录
+  label_helpdesk_authentication_cram_md5: MD5 质询-响应
+  label_helpdesk_smtp_domain: 域
+
+ #2.2.10
+  label_helpdesk_email_sending_problems: 电子邮件发送问题
+
+ #2.3.0
+  label_helpdesk_ticket_reaction_time: 反应时间
+  label_helpdesk_ticket_first_response_time: 首次响应时间
+  label_helpdesk_ticket_resolve_time: 解决时间
+  label_helpdesk_ticket_last_response_time: 等待响应时间
+  field_helpdesk_ticket: 支持中心工单
+  text_helpdesk_to_address_cant_be_blank: 地址不能为空
+  text_helpdesk_message_body_cant_be_blank: 消息信息不能为空
+  text_helpdesk_from_address_cant_be_blank: 来自地址不能为空
+
+ #2.4.0
+  label_helpdesk_vote: 投票
+  label_helpdesk_vote_settings: 允许投票
+  label_helpdesk_vote_comment_settings: 允许评论投票
+  label_helpdesk_mark: 请给我们的工作打分!
+  label_helpdesk_mark_awesome: 挺不错
+  label_helpdesk_mark_justok: 还凑合
+  label_helpdesk_mark_notgood: 不太行
+  label_helpdesk_vote_comment_placeholder: 发表评论
+  label_helpdesk_submit: 提交
+  label_helpdesk_vote_thank: 感谢您的投票!
+  label_helpdesk_close_page: 关闭页面
+  label_helpdesk_contact_vote: 联系人投票
+  label_helpdesk_vote_comment: 投票评论
+
+  field_vote: 投票
+  field_vote_comment: 投票评论
+
+  # 3.0.2
+  label_helpdesk_assign_contact_user: 分配联系人用户
+  label_helpdesk_create_private_tickets: 创建私有工单
+  label_helpdesk_all: 所有
+
+  label_helpdesk_widget: 小工具
+  label_helpdesk_widget_enable:  开启小工具
+  label_helpdesk_widget_available_projects: 可用项目
+  label_helpdesk_widget_no_available_projects: 你应该至少有一个项目启用桌面小工具模块用以激活小工具
+  label_helpdesk_widget_custom_fields: 可自定义字段
+  label_helpdesk_widget_activation_message: 下面的代码需要添加在页面上用以激活小工具
+
+  label_helpdesk_widget_name: 你的名字
+  label_helpdesk_widget_email: 邮件地址
+  label_helpdesk_widget_subject: 主题
+  label_helpdesk_widget_description: 工单描述
+  label_helpdesk_widget_create_ticket: 创建工单
+  label_helpdesk_widget_file_large: '抱歉, 太长了!'
+  label_helpdesk_widget_ticket_created: 工单已创建
+  label_helpdesk_widget_ticket_errors: "不能添加信息 "
+  label_helpdesk_widget_ticket_error_details: 细节
+  label_helpdesk_widget_ticket_error_description: 描述不能为空
+
+  field_contact_first_name: 用户名

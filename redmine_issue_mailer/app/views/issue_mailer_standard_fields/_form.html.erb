@@ -1,0 +1,8 @@
+<%=form_for field do |f|%>
+  <%= hidden_field_tag(:project_id, project.identifier) %>
+  <p>
+    <%= f.select :assigned_to_id, principals_options_for_select(project.assignable_users, field.assigned_to), :include_blank => true%>
+  </p>
+
+  <%=f.button%>
+<%end%>

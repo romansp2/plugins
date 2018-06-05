@@ -1,0 +1,29 @@
+<div class="contextual">
+  <%= link_to l(:label_preview), preview_cms_snippet_path(@cms_snippet), :class => 'icon icon-preview'  %>
+  <%= link_to l(:label_history), cms_object_history_path(@cms_snippet, :object_type => @cms_snippet.class.name.underscore), :class => 'icon icon-history' if @cms_snippet.version > 1 %>
+  <%= link_to l(:button_export), cms_export_path(@cms_snippet.id, :object_type => @cms_snippet.class.name.underscore), :class => 'icon icon-save' %>
+  <%= delete_link cms_snippet_path(@cms_snippet) if User.current.admin? %>
+</div>
+
+<h2><%= link_to l(:label_cms_snippet_plural), cms_snippets_path %> &#187; <%= @cms_snippet.name %></h2>
+
+<%= error_messages_for 'cms_snippet' %>
+
+<%= labelled_form_for :cms_snippet, @cms_snippet, :url => { :action => 'update', :id => @cms_snippet},
+  :html => { :id => 'cms_snippet_form', :multi_part => true, :method => :put } do |f| %>
+
+<%= render :partial => 'form', :locals => { :f => f } %>
+<% if @cms_snippet.attachments.any? %>
+  <fieldset><legend><%= l(:label_attachment_plural) %></legend>
+    <%= link_to_cms_attachments @cms_snippet, :thumbnails => true  %>
+  </fieldset><br/>
+<% end %>
+
+<%= submit_tag l(:button_save) %>
+<% end %>
+
+<% content_for :sidebar do %>
+  <% render :partial => 'cms_settings/menu' %>
+<% end %>
+
+<% html_title(l(:label_cms_snippet_edit)) -%>

@@ -1,0 +1,2 @@
+module IssueEmailFromClientsHelper
+end

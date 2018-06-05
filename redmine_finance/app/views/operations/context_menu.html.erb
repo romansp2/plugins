@@ -1,0 +1,25 @@
+<ul>
+	<% if @operation %>
+		<li><%= context_menu_link l(:button_edit), {:controller => 'operations', :action => 'edit', :id => @operation},
+		        :class => 'icon-edit', :disabled => !@can[:edit] %></li>
+    <li><%= context_menu_link l(:button_duplicate), {:controller => 'operations', :action => 'new', :project_id => @project, :copy_from => @operation},
+          :class => 'icon-duplicate', :disabled => !@can[:edit] %></li>
+
+    <% if RedmineFinance.operations_approval? && User.current.allowed_to?(:approve_operations, @project) %>
+  	<li><%= context_menu_link @operation.is_approved? ? l(:label_finance_disapprove) : l(:label_finance_approve), {:controller => 'operations', :action => 'update', :id => @operation, :project_id => @project, :back_url => @back, :operation => {:is_approved => !@operation.is_approved?}}, :method => :put,
+	        :class => 'icon icon-checked', :disabled => !@can[:approve] %></li>
+    <% end %>
+  <% elsif RedmineFinance.operations_approval? && User.current.allowed_to?(:approve_operations, @project, :global => true) %>
+    <li class="folder">
+      <a href="#" class="submenu"><%= l(:label_finance_approve) %></a>
+      <ul>
+          <li><%= context_menu_link l(:label_finance_approve), bulk_update_operations_path(:ids => @operations.collect(&:id), :operation => {:is_approved => true}, :back_url => @back), :method => :post, :disabled => !@can[:approve] %></li>
+          <li><%= context_menu_link l(:label_finance_disapprove), bulk_update_operations_path(:ids => @operations.collect(&:id), :operation => {:is_approved => false}, :back_url => @back), :method => :post, :disabled => !@can[:approve] %></li>
+      </ul>
+    </li>
+  <% end %>
+   	<li><%= context_menu_link l(:button_delete), {:controller => 'operations', :action => 'bulk_destroy', :ids => @operations.collect(&:id), :project_id => @project, :back_url => @back},
+                            :method => :delete, :confirm => l(:text_are_you_sure), :class => 'icon-del', :disabled => !@can[:delete] %></li>
+
+</ul>
+

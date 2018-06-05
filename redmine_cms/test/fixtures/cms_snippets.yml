@@ -1,0 +1,12 @@
+snippet_001:
+  id: 1
+  name: snippet_001
+  description: description for snippet 001
+  content: Content for snippet 001
+  version: 1
+snippet_002:
+  id: 2
+  name: snippet_001
+  description: description for snippet 001
+  content: Content for snippet 002 v2
+  version: 2

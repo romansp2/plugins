@@ -1,0 +1,32 @@
+<style type="text/css">
+  table tbody tr td {text-align: center;}
+  table thead tr th {text-align: center;}
+</style>
+
+<%=link_to "List of Buttons", hot_buttons_path(project_id: @project.identifier)%>
+
+<div id="table_of_new_edit_hot_button" class="autoscroll">
+  <table class="list issues">
+    <thead id="thead-hot-buttons-form">
+    	<%=render partial: 'thead_hot_button', locals: {issue:                @issue, 
+                                                      custom_fields_split:  @custom_fields_split} %>
+    </thead>                                                        
+    <tbody id="tbody-hot-buttons-form">
+      <%=render partial: 'new', locals: { project:              @project,
+                                          issue:                @issue, 
+                                          roles:                @roles, 
+                                          role:                 @role,
+                                          trackers:             @trackers,
+                                          for_tracker_id:       @for_tracker_id,
+                                          disabled_core_fields: @disabled_core_fields,
+                                          allowed_statuses:     @allowed_statuses,
+                                          priorities:           @priorities,
+                                          custom_fields_split:  @custom_fields_split,
+                                          custom_fields_split_selected: @custom_fields_split_selected
+                                          }   %>
+    </tbody>
+  </table>
+</div>
+<% content_for :header_tags do %>
+   <%=javascript_include_tag 'hot_buttons_new_edit_update', :plugin => 'redmine_hot_buttons' %>
+<% end %>

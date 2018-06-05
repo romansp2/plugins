@@ -1,0 +1,18 @@
+api.operation do
+    api.id @operation.id
+    api.is_income @operation.is_income?
+    api.is_approved @operation.is_approved
+    api.amount @operation.amount if @operation.amount
+    api.currency @operation.currency if @operation.currency
+    api.operation_date @operation.operation_date
+    api.description @operation.description
+    api.category(:id => @operation.category_id, :name => @operation.category.name, :full_name => @operation.category.full_name) unless @operation.category.blank?
+    api.account(:id => @operation.account_id, :name => @operation.account.name) unless @operation.account.blank?
+    api.contact(:id => @operation.contact_id, :name => @operation.contact.name) unless @operation.contact.blank?
+    api.author(:id => @operation.author_id, :name => @operation.author.name) unless @operation.author.nil?
+    render_api_custom_values @operation.custom_field_values, api
+    api.created_at @operation.created_at
+    api.updated_at @operation.updated_at
+end
+
+call_hook(:api_operation_show, :operation => @operation)

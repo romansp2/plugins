@@ -1,0 +1,56 @@
+<style>
+  .select2-container .select2-selection--single {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    height: 21px;
+    user-select: none;
+    -webkit-user-select: none; }
+
+  /* line 131 */
+  .select2-container--default .select2-selection--single .select2-selection__rendered {
+      color: #444;
+      line-height: 19px; }
+      
+  /* line 139 */
+  .select2-container--default .select2-selection--single .select2-selection__arrow {
+      height: 21px;
+      position: absolute;
+      top: 1px;
+      right: 1px;
+      width: 20px; }
+
+</style>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+  	selectors_select2();
+  }).bind("ajaxComplete", function(){
+     selectors_select2();
+  });
+
+
+  function selectors_select2 (argument) {
+    <%begin%>
+      <%(Setting.plugin_redmine_add_project_search_field['selectors'] || "").split(',').each do |selector|%>
+        try {
+          $("<%=h selector%>").select2();
+        }
+        catch(err) {
+          window.console.log(err.message);
+        }
+      <%end%>
+      <%Hash[(Setting.plugin_redmine_add_project_search_field['selectors_styles'] || "").split(",").collect{|x| x.strip.split("=>")}].each_pair do |selector, style|%>
+        try {
+          $("<%=h selector%>").attr("style", "<%="#{style}"%>");
+        }
+        catch(err) {
+          window.console.log(err.message);
+        }
+      <%end%>
+    <%rescue Exception => e%>
+  
+    <%end%>
+  }
+</script>
+

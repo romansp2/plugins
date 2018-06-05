@@ -1,0 +1,2 @@
+module HotButtonIssueHelper
+end

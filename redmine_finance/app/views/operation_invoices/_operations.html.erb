@@ -1,0 +1,29 @@
+<% operations = Operation.visible.eager_load(:operation_objects).where(:operation_objects => {
+    :operationable_id => @invoice.id, 
+    :operationable_type => @invoice.class.name}) %>
+
+<% if operations.any? %>    
+
+<hr/>
+<div id="operations">
+  <p><strong><%=l(:label_operation_plural)%></strong></p>
+  <% operations.each do |operation| %>
+    <p class="icon icon-operation"><%= link_to "#{operation.category.name} ##{operation.id}: #{operation.amount_with_sign} (#{operation.account.name})", operation_path(operation) %>
+      <span class="contact"><%= operation.contact.name if operation.contact %></span>
+      <%= link_to image_tag('link_break.png'), {:controller => 'operation_invoices', 
+                                            :action => 'destroy',
+                                            :id => @invoice.id, 
+                                            :object_id => @invoice.id,
+                                            :operation_id => operation},
+                                  :method => :delete,
+                                  :data => {:confirm => l(:text_are_you_sure)},
+                                  :title => l(:label_relation_delete) if User.current.allowed_to?(:manage_operation_invoices, @project) %>      
+    </p>
+  <% end %>
+</div>
+
+<% content_for :header_tags do %>
+  <%= stylesheet_link_tag :finance, :plugin => 'redmine_finance' %> 
+<% end %>
+
+<% end %>

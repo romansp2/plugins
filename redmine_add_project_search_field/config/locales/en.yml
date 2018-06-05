@@ -1,0 +1,6 @@
+# English strings go here for Rails i18n
+en:
+  # my_label: "My label"
+  add_project_search_field:
+    field_search_project: Search Project
+

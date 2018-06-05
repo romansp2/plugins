@@ -1,0 +1,21 @@
+# English strings go here for Rails i18n
+en:
+  html_block:
+    blocks: "Blocks"
+    activerecord:
+      errors:
+        create: "An error occurred while creating block!"
+        update: "An error occurred while updating block!"
+        length: "%{count} characters is the maximum allowed in adress"
+        form: "%{count} prohibited this block from being saved:"
+    header:
+      index: "All HTML blocks:"
+      edit: "Edit article:"
+      new: "Create article:"
+    label:
+      content: "Block content"
+      address: "Block address"
+      link: "Link"
+      regexp: "Regular expression"
+    button:
+      create: "Create new block"

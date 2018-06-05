@@ -1,0 +1,6 @@
+<h2><%= link_to l(:label_checklist_template_category_plural), :action =>"plugin", :id => "redmine_checklists", :controller => "settings", :tab => 'checklist_template_categories' %> &#187; <%= @category.name %></h2>
+
+<%= form_tag({:action => 'update', :id => @category}, :class => "tabular edit_checklist_template_category", :method => :put) do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag l(:button_save) %>
+<% end %>

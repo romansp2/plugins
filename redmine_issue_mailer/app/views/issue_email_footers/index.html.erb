@@ -1,0 +1,21 @@
+<%=project_menu_settings(@project, selected = issue_email_footers_path)%>
+<br><br><br>
+
+<table class="list">
+  <thead>
+  	<tr>
+  	  <th>Footer</th>
+  	  <th>Edit/Delete</th>
+  	</tr>
+  </thead>
+  <tbody>
+  	<%@footers.each do |footer|%>
+	  <tr>
+	    <td><pre><%=h footer.footer%></pre></td>
+	  	<td><%=link_to l(:edit_footer, scope: [:redmine_issue_mailer]), edit_issue_email_footer_path(project_id: @project.identifier, id: footer.id)%>/<%=link_to l(:delete_footer, scope: [:redmine_issue_mailer]), {controller: "issue_email_footers", action: "destroy", project_id: @project.identifier, id: footer.id}, data: {:confirm => 'Are you sure?'}, method: "DELETE"%></td>
+	  </tr>
+  	<%end%>
+  </tbody>
+</table>
+
+<%=link_to l(:create_email_footer , scope: [:redmine_issue_mailer]), new_issue_email_footer_path(project_id: @project.identifier)%>

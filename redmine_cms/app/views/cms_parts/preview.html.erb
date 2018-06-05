@@ -1,0 +1,20 @@
+<h2><%= link_to cms_page_path(@part.page), edit_cms_page_url(@part.page, :tab => "page_parts") %>  &#187;  <%=l(:label_cms_part)%>: <%= @part.name + (@part.description.blank? ? '' : " (#{@part.description})") %></h2>
+
+<div class="wiki page part <%= @part.name %>">
+  <%= @preview_content %>
+</div>
+
+<% content_for :header_tags do %>
+  <div class="contextual page-edit">
+    <% if params[:version] && @part.version != @current_version %>
+       <%= render :partial => 'cms_history/history_context_menu', :object => @part %>
+    <% else %>
+      <%= link_to l(:button_edit), edit_cms_part_path(@part), :class => 'icon icon-edit' %>
+      <hr>
+       <%= link_to l(:label_history), cms_object_history_path(@part, :object_type => @part.class.name.underscore), :class => 'icon icon-history'%>
+      <hr>
+      <%= link_to l(:label_cms_refresh_cache), expire_cache_cms_part_path(@part), :class => 'icon icon-reload' %>
+    <% end %>
+  </div>
+  <%= javascript_tag "$('.contextual.page-edit').draggable();" %>
+<% end if RedmineCms.allow_edit? %>

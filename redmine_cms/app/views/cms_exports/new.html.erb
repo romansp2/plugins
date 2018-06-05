@@ -1,0 +1,10 @@
+<h2><%=l(:label_cms_exports_new)%></h2>
+
+<%= labelled_form_for :cms_export, @cms_export, :url => { :action => 'create', :object_type => @cms_export.object_type } do |f| %>
+  <div class="box tabular">
+    <%= f.hidden_field :id %>
+    <%= f.hidden_field :object_type %>
+    <p><%= f.check_box :attachment_content, :label => l(:label_cms_exports_attachment_content) %></p>
+  </div>
+  <%= submit_tag l(:button_export) %>
+<% end %>

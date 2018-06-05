@@ -1,0 +1,14 @@
+# English strings go here for Rails i18n
+en:
+  # my_label: "My label"
+  controller_in_issue: Controller
+  label_controller_of_issue: Controller
+  icfe_default_value_author_of_issue: Author Of Issue
+  icfe_default_value_assignee:   Assignee
+
+  th_custom_field: Custom Field
+  th_enabled: Enabled
+  th_email_notifications: Email notifications
+  th_autowatcher: Autowatcher
+  th_default_as: Default as
+  th_issues_visibility: Issues visibility

@@ -1,0 +1,12 @@
+<%@footers.each do |footer|%>
+  <div class="next-prev-links contextual">
+    <%= link_to l(:choose, scope: [:redmine_issue_mailer]), '###', onclick: "$('div.send_letter_footer input#send_letter_footer').remove(); $('div#send_letter_footer div.footer').replaceWith( $('div#dialog_list_email_footers div.footer_#{footer.id}').clone() ); list_footers_dialog.dialog('close'); $('div#send_letter_footer input#send_letter_footer').attr('form', 'issue-form');" %>   
+  </div>
+  <div class="footer footer_<%=footer.id%>">
+    <input id="send_letter_footer" type="hidden" name="send_letter[footer_id]" value="<%=footer.id%>">
+    <textarea id="send_letter_footer" class="wiki-edit" style="min-height: 300px" type="textarea" readonly>
+      <%=h footer.footer%>
+    </textarea>
+  </div>  
+
+<%end%>

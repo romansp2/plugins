@@ -1,0 +1,32 @@
+<p><%= t :progressive_settings_hint %></p>
+<div class="tabular settings">
+	<p>
+		<%= setting_label(:show_project_menu) %>
+		<%= check_box_tag('settings[show_project_menu]', true, @settings['show_project_menu']) %>
+	</p>
+	<p>
+		<%= setting_label(:show_project_description) %>
+		<%= check_box_tag('settings[show_project_description]', true, @settings['show_project_description']) %>
+	</p>
+	<p>
+		<%= setting_label(:show_project_progress) %>
+		<%= check_box_tag('settings[show_project_progress]', true, @settings['show_project_progress']) %>
+	</p>
+	<p>
+		<%= setting_label(:show_only_for_my_projects) %>
+		<%= check_box_tag('settings[show_only_for_my_projects]', true, @settings['show_only_for_my_projects']) %>
+	</p>
+	<p>
+		<%= setting_label(:show_project_progress_overview) %>
+		<%= select_tag('settings[show_project_progress_overview]',
+			options_for_select([
+				[l(:general_text_No), ''],
+				[l(:progressive_option_left), 'left'],
+				[l(:progressive_option_right), 'right']],
+			@settings['show_project_progress_overview'])) %>
+	</p>
+	<p>
+		<%= setting_label(:show_recent_projects) %>
+		<%= check_box_tag('settings[show_recent_projects]', true, @settings['show_recent_projects']) %>
+	</p>
+</div>

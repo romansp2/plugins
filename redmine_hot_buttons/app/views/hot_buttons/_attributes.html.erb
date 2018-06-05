@@ -1,0 +1,99 @@
+  <td>
+    <%=text_field_tag('issue[subject]', issue.subject,
+                      :required => true,
+                      :form      => identification_of_form)%>
+  </td>
+  <td>
+    <%=select_tag 'issue[project_id]', project_tree_options_for_select(issue.allowed_target_projects, :selected => issue.project),
+                    {:required => true,
+                     :form      => identification_of_form,
+                     :onchange => "updateHotButtonForm('#{escape_javascript url_for( :controller => 'hot_buttons', :action => 'update_form', :format => 'js')}')"}
+                     %>
+  </td>
+  <td>
+    <%if issue.safe_attribute? 'tracker_id' %>
+      <%=select_tag 'issue[for_tracker_id]', 
+                    options_from_collection_for_select( trackers, "id", "name", "#{for_tracker_id}"), 
+                    :include_blank => true,
+                    :form      => identification_of_form
+      %>
+    <%end%>
+  </td>
+  <td>
+    <%=select_tag 'issue[role_id]',
+                  options_from_collection_for_select(roles, "id", "name", "#{role.id unless role.nil?}") , 
+                  :required => true,
+                  :form      => identification_of_form,
+                  :onchange => "updateHotButtonForm('#{escape_javascript url_for( :controller => 'hot_buttons', :action => 'update_form', :format => 'js')}')" %>
+  </td>
+  <td>
+    <%if issue.safe_attribute? 'tracker_id' %>
+      <%=select_tag 'issue[tracker_id]', 
+                    options_from_collection_for_select( trackers, "id", "name", "#{issue.tracker.id unless issue.tracker.nil? }"), 
+                    :required => true,
+                    :form      => identification_of_form,
+                    :onchange => "updateHotButtonForm('#{escape_javascript url_for(:controller => 'hot_buttons', 
+                                                           :action => 'update_form', :format => 'js')}')" %>
+    <%end%>
+  </td>
+  
+  <td>
+    <%if issue.safe_attribute? 'status_id' %>
+      <%=select_tag 'issue[status_id]', 
+                    options_from_collection_for_select(allowed_statuses, 
+                                                       "id", "name", "#{issue.status.id unless issue.status.nil?}"), 
+                    :required => true,
+                    :form     => identification_of_form,
+                    :onchange => "updateHotButtonForm('#{escape_javascript url_for( :controller => 'hot_buttons', :action => 'update_form', :format => 'js')}')" %>
+    <%else%>
+      <%=hidden_field_tag('issue[status_id]', nil, 
+                          :form => identification_of_form)%>
+    
+    <%end%>
+  </td>
+  <td>
+    <%if issue.safe_attribute? 'priority_id' %>
+      <%=select_tag 'issue[priority_id]', 
+                    options_from_collection_for_select(priorities,
+                                                       "id", "name", "#{issue.priority.id unless issue.priority.nil?}"),
+                    :include_blank => true, 
+                    :form     => identification_of_form,
+                    :disabled => !issue.leaf? %>
+    <%else%>
+      <%=hidden_field_tag('issue[priority_id]', nil, 
+                          :form => identification_of_form)%>
+    <%end%>
+  </td>
+  <td>
+    <%if issue.safe_attribute?('category_id') && issue.project.issue_categories.any? %>
+      <%=select_tag 'issue[category_id]', options_for_select(issue.project.issue_categories.collect{|c| [c.name, c.id]}, (issue.category.id unless issue.category.nil?)), 
+        :include_blank => true, 
+        :form          => identification_of_form,
+        :required      => issue.required_attribute?('category_id') %>
+    <%end%>
+  </td>
+
+  <%if issue.safe_attribute? 'custom_field_values' %>
+    <td>
+      <%selected = custom_fields_split_selected["assigned"]%>
+      <%=select_tag 'issue[cf][assigned]', 
+                    options_for_select(custom_fields_split["assigned_to"], selected || "assigned"),
+                    :include_blank => false, 
+                    :form          => identification_of_form
+      %>
+    </td>
+    <%custom_fields_split.delete("assigned_to")%>
+      
+      <%@custom_fields_split.each do |cf, values|%>
+        <%selected = custom_fields_split_selected["#{cf.id}"]%>
+        <td>
+          <%=select_tag "issue[cf][#{cf.id}]",
+                      options_for_select(custom_fields_split[cf], selected || "#{cf.id}"),
+                      :include_blank => false, 
+                      :form          => identification_of_form
+          %>
+        </td>
+      <%end%>
+  <%end%>
+
+

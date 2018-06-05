@@ -1,0 +1,6 @@
+<div class="issue operation <%= event.is_income? ? 'income' : 'expense ' %>" data-id="<%= event.id %>">
+    <%= event.project unless @project && @project == event.project %>
+    <%= link_to event.amount_with_sign, operation_path(event), :class => "icon #{event.is_income? ? 'icon-operation-income' : 'icon-operation-expense '}", :style => "white-space: nowrap;" %>
+    <%= event.category.name unless event.category.blank? %>
+    <span class="contact"><%= event.contact.name if event.contact %></span>
+</div>

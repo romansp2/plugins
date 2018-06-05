@@ -1,0 +1,100 @@
+= redmine_issue_custom_field_extension
+
+Description goes here
+
+
+
+  Uninstalling a plugin (http://www.redmine.org/projects/redmine/wiki/Plugins)
+    
+    1. Plugin required a migration, run the following command to downgrade your database (make a db backup before):
+
+       rake redmine:plugins:migrate NAME=redmine_issue_custom_field_extension VERSION=0 RAILS_ENV=production
+
+    2. Remove your plugin from the plugins folder: #{RAILS_ROOT}/plugins
+    
+    3. Restart app (redmine)
+
+
+  Установка (http://www.redmine.org/projects/redmine/wiki/Plugins)
+
+    1. Клонировать плагин из репозитория (tag v_._._) git@gitlab.qazz.pw:a.kondratenko/redmine_issue_custom_field_extension.git
+  
+    2. Копировать папку redmine_issue_custom_field_extension в папку plugins приложения (redmine)
+  
+    3. bundle install
+  
+    4. Запустить миграции.
+       !!!Перед запуском миграций необходимо сделать резервное копирование БД!!!
+
+       rake redmine:plugins:migrate NAME=redmine_issue_custom_field_extension RAILS_ENV=production 
+
+    5. Настраиваем Sidekiq
+
+        Открываем конфигурационный файл
+         plugins/redmine_and_sidekiq/config/sidekiq.yml
+
+        Добавляем в очередь 'cust_field_ext_mailer_issue_add'
+
+        :queues:
+          - cust_field_ext_mailer_issue_add
+
+       
+        Перезапускаем Sidekiq
+
+  5. Перезапустить сервер
+
+  6. Проверяем происходит ли уведомление пользователей через электронную почту при создании и обновлении задач
+
+  7. Заходим в настройки плагина через web интерфейс и устанавливаем галочку напротив 'Use Sidekiq' и затем нажимаем применить
+
+  8. Проверяем происходит ли уведомление пользователей через электронную почту при создании и обновлении задач
+
+
+
+Go to settings of plugin and set fields that you want to extend
+
+!!! Для ознакомления с правилами установки версий плагина
+!!! Semantic Versioning 2.0.0 http://semver.org/
+
+Changelog
+  v0.0.1 - 21 September 2015
+    redmine:issue:145084 
+    Issue Custom Field Extension
+  v0.0.2 - 29 September 2015
+    Fixed auto select author in custom fields 
+    redmine:issue:404742:comment:17
+
+    Add notification for user that set in custom fields and same time as watcher
+    Add notification for user that set in custom fields
+    Deleted duplications of notification
+    redmine:issue:404742:comment:18
+
+  v0.0.3 - 30 September 2015
+    redmine:issue:497198
+    Custom fields set as author only for new issues
+
+  v0.0.4 - 19 Januar 2016
+    redmine:issue:561990
+    Changed request to DB for list of users
+
+  v0.0.5 - 20 July 2016
+    redmine:issue:714002
+    fix bug up update form
+
+  v0.0.6 - 28 July 2016
+    redmine:issue:731018
+    fix bug
+
+  v0.0.7 - 08 November 2016
+    redmine:issue:819060
+    redmine:issue:816606
+    fix bug
+    method was moved into another plugin (redmine:issue:819068)
+
+  v0.1.0 - 24 November 2016
+    redmine:issue:813674
+    Sidekiq was added
+
+  v1.0.0 - 27 December 2016
+    redmine:issue:856210
+    Version for redmine320

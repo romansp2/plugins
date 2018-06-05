@@ -1,0 +1,7 @@
+<h2><%= link_to l(:label_operation_category_plural), :action =>"plugin", :id => "redmine_finance", :controller => "settings", :tab => 'operation_categories' %> &#187; <%= @category.name %></h2>
+
+<%= labelled_form_for @category, :url => {:action => 'update', :id => @category.id}, :html => { :multipart => true, :method => :put, :id => 'operation_category_form'} do |f| %>
+  <%= render :partial => 'form', :locals => {:f => f} %>
+  <%= submit_tag l(:button_save) %>
+<% end %>
+

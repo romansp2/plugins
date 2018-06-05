@@ -1,0 +1,16 @@
+api.cms_page do
+  api.id @cms_page.id
+  api.name @cms_page.name
+  api.title @cms_page.title
+  api.content @cms_page.content
+  api.filter_id @cms_page.filter_id
+  api.status_id @cms_page.status_id
+  api.visibility @cms_page.visibility
+  api.is_cached @cms_page.is_cached
+  api.parent(:id => @cms_page.parent_id, :name => @cms_page.parent.name) unless @cms_page.parent.nil?
+  api.layout(:id => @cms_page.layout_id, :name => @cms_page.layout.name) unless @cms_page.layout.nil?
+  api.version @cms_page.version
+
+  api.created_at @cms_page.created_at
+  api.updated_at @cms_page.updated_at
+end

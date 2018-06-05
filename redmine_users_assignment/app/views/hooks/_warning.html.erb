@@ -1,0 +1,23 @@
+<h3 class="title"><%= l(:text_are_you_sure) %></h3>
+
+<% if issue_ids.any? %>
+<p>
+  Значение "<%= nil_field_label %>" отсутствует у задач(и)
+  <% issue_ids.each do |id| %>
+    <%= link_to "##{id.to_s}", issue_path(id) %>
+  <% end %>
+</p>
+<% end %>
+
+<%= form_tag do %>
+    <p class="buttons">
+      <%= submit_tag 'Продолжить', :name => nil, :onclick => "hideModal(this);", :type => 'button' %>
+      <%= submit_tag l(:button_cancel), :name => nil, :onclick => "hideModal(this); deselection();", :type => 'button' %>
+    </p>
+<% end %>
+
+<script>
+  function deselection(){
+    $('#<%= changed_field %>').find('option:selected').prop("selected", false);
+  }
+</script>

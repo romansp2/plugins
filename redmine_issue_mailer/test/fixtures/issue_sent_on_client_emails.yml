@@ -1,0 +1,14 @@
+---
+issue_sent_on_client_emails_01:
+  id: 1
+  project_id: 002
+  issue_id: 
+  journal_id:
+  message_id: "redmine.c676a0c2087bbcf8e4aa8c96575cb9cb@smileexpo.ru"
+  from: menager1@somenet.foo
+  to: "alekseykond1sddgfhhsduujn@gmail.com, alekseykond2sddgfhhsduujn@gmail.com, alekseykond3sddgfhhsduujn@gmail.com"
+  bcc: ""
+  cc: ""
+  subject: ""
+  body: ""
+  deliver: 1

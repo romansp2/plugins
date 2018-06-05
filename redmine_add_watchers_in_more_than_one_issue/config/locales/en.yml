@@ -1,0 +1,8 @@
+# English strings go here for Rails i18n
+en:
+  # my_label: "My label"
+  permission_delete_watchers_in_more_than_one_issue: "Delete Watchers from more than one issue"
+  permission_add_watchers_in_more_than_one_issue: "Add Watchers in more than one issue"
+  warning_list_watchers_from_bulk_edit: "Not necessarily all these users are watchers in all the selected tasks."  
+  rawimtoi_added: "Added"
+  rawimtoi_watchers: "Watchers"

@@ -1,0 +1,6 @@
+<%= error_messages_for 'cms_redirect' %>
+
+<div class="box tabular">
+<p><%= f.text_field :source_path, :size => 100, :required => true, :label => l(:label_cms_source_path)  %></p>
+<p><%= f.text_field :destination_path, :size => 100, :required => true, :label => l(:label_cms_destination_path)  %></p>
+</div>

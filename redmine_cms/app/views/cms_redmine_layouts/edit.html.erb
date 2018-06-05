@@ -1,0 +1,13 @@
+<h2><%= link_to l(:label_cms_redmine_layout_plural), cms_redmine_layouts_path %> &#187; <%=l(:label_cms_layout)%></h2>
+
+<%= labelled_form_for :cms_redmine_layout, @cms_redmine_layout, :url => { :action => 'update', :id => @cms_redmine_layout},
+  :html => { :id => 'cms_redmine_layout-form', :method => :put } do |f| %>
+<%= render :partial => 'form', :locals => { :f => f } %>
+<%= submit_tag l(:button_save) %>
+<% end %>
+
+<% content_for :sidebar do %>
+  <% render :partial => 'cms_settings/menu' %>
+<% end %>
+
+<% html_title(l(:label_cms_layout_edit)) -%>

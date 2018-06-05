@@ -1,0 +1,2 @@
+module EmailBooksHelper
+end

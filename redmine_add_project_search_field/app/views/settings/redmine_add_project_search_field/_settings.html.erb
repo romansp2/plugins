@@ -1,0 +1,19 @@
+<table>
+  <tbody>
+    <th colspan="2">Selectors</th>
+    <tr>
+      <th></th>
+      <td style="width: 100%">
+        <%=text_field_tag "settings[selectors]", settings['selectors'], id: "redmine_add_project_search_field", style: "width: 100%"   %>
+      </td>
+    </tr>
+    
+    <th colspan="2">Selectors and styles (form#issue-form.edit_issue span.select2.select2-container.select2-container--default=>width: 100%; , ...)</th>
+    <tr>
+      <th></th>
+      <td style="width: 100%">
+        <%=text_field_tag "settings[selectors_styles]", settings['selectors_styles'], id: "selectors_styles", style: "width: 100%"   %>
+      </td>
+    </tr>
+  </tbody>
+</table>

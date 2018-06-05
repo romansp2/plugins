@@ -1,0 +1,41 @@
+= redmine_add_watchers_in_more_than_one_issue
+
+Description goes here
+
+Plugin adds watchers in more than one issue (redmine:issue:284122)
+
+  Установка
+
+    1. Клонировать плагин из репозитория. (Необходим коммит с меткой v_._._).  git@gitlab.qazz.pw:a.kondratenko/redmine_add_watchers_in_more_than_one_issue.git
+
+    2. Копировать папку redmine_add_watchers_in_more_than_one_issue в папку plugins приложения (redmine).
+  
+    3. Запустить миграции не надо. 
+                 
+    4.  Перезапустить сервер
+
+
+
+Installing a plugin (http://www.redmine.org/projects/redmine/wiki/Plugins)
+
+
+  Uninstalling a plugin (http://www.redmine.org/projects/redmine/wiki/Plugins)
+  
+    1. Remove your plugin from the plugins folder: #{RAILS_ROOT}/plugins
+
+    2. Restart app (redmine)
+
+
+
+ Changelog
+  v0.0.1 - 05 May 2015
+    First release. redmine:issue:284122
+  v0.0.2 - 29 July 2015
+    Add sorted for users list. Add limit 100 users in list
+  v0.0.3 - 15 September 2015
+    redmine:issue:461889
+    Delete limit count of users in list
+
+  v0.1.0 - 20 December 2016
+    redmine:issue:868646
+    Version for redmine320

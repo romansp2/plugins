@@ -1,0 +1,7 @@
+# English strings go here for Rails i18n
+ru:
+  # my_label: "My label"
+  field_change_author_of_issue: Изменить автора задачи
+  link_change_author_of_issue: Изменить
+
+  button_change_author_of_issue: Изменить автора задачи

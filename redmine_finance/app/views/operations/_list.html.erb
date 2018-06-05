@@ -1,0 +1,55 @@
+<%= form_tag({}) do -%>
+<%= hidden_field_tag 'back_url', url_for(params), :id => nil %>
+<div class="autoscroll">
+<table class="list operations issues contacts">
+  <thead>
+    <tr>
+      <th class="checkbox hide-when-print">
+        <%= link_to image_tag('toggle_check.png'), {},
+                              :onclick => 'toggleIssuesSelection(this); return false;',
+                              :title => "#{l(:button_check_all)}/#{l(:button_uncheck_all)}" %>
+      </th>
+      <th>#</th>
+      <% @query.inline_columns.each do |column| %>
+        <%= content_tag('th', column.caption) %>
+      <% end %>
+    </tr>
+  </thead>
+  <% previous_group = false %>
+  <tbody>
+  <% @operations.each do |operation| -%>
+  <% if @query.grouped? && (group = @query.group_by_column.value(operation)) != previous_group %>
+    <% reset_cycle %>
+    <tr class="group open">
+      <td colspan="<%= @query.inline_columns.size + 2 %>">
+        <span class="expander" onclick="toggleRowGroup(this);">&nbsp;</span>
+        <%= group.blank? ? l(:label_none) : column_content(@query.group_by_column, operation) %> <span class="count"><%= @operation_count_by_group[group] %></span>
+        <%= link_to_function("#{l(:button_collapse_all)}/#{l(:button_expand_all)}",
+                             "toggleAllRowGroups(this)", :class => 'toggle-all') %>
+      </td>
+    </tr>
+    <% previous_group = group %>
+  <% end %>
+  <tr id="operation-<%= operation.id %>" class="hascontextmenu operation <%= cycle('odd', 'even') %> <%= 'not-approved' if RedmineFinance.operations_approval? && !operation.is_approved? %> <%= 'planned-operation' if operation.operation_date > Time.now  %>">
+    <td class="checkbox hide-when-print"><%= check_box_tag("ids[]", operation.id, false, :id => nil) %></td>
+    <td class="id"><%= link_to operation.id, operation_path(operation) %></td>
+    <%= raw @query.inline_columns.map {|column| "<td class=\"#{column.css_classes}\">#{column_content(column, operation)}</td>"}.join %>
+  </tr>
+  <% @query.block_columns.each do |column|
+       if (text = column_content(column, operation)) && text.present? -%>
+  <tr class="<%= current_cycle %>">
+    <td colspan="<%= @query.inline_columns.size + 1 %>" class="<%= column.css_classes %>"><%= text %></td>
+  </tr>
+  <% end -%>
+  <% end -%>
+  <% end -%>
+      <tr class="total">
+        <th colspan="3" class="money"><%= l(:label_finance_total) %>:</th><th class="money sum"><%= prices_collection_by_currency(@operations_debit).join('<br>').html_safe %></th><th class="money sum"><%= prices_collection_by_currency(@operations_credit).join('<br>').html_safe %></th><th colspan="<%= @query.inline_columns.size - 4  %>" class="money"><%= l(:label_account_balance) %>:</th><th class="money"><%= operations_balance_to_currency(@operations_debit, @operations_credit) %></th>
+      </tr>
+  </tbody>
+</table>
+</div>
+<% end -%>
+
+
+

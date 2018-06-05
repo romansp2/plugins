@@ -1,0 +1,2 @@
+module WriteLetterToClientsHelper
+end

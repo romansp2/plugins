@@ -1,0 +1,11 @@
+<%custom_field_extends = IssueCustomFieldExtension.where("extends=1 and default_value = 'assignee' ")%>
+<script type="text/javascript"> 
+  $(document).ready(function () {
+    $("select#issue_assigned_to_id").change(function () {
+      <%custom_field_extends.each do |custom_field_extend|%>
+        $("select#issue_custom_field_values_<%=custom_field_extend.custom_field_id%>").val($( this ).val())
+      <%end%>
+    });
+  });
+</script>
+

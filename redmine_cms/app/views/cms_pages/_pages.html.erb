@@ -1,0 +1,29 @@
+<table class="list">
+  <thead><tr>
+    <th></th>
+    <th><%= l(:label_cms_name) %></th>
+    <th><%= l(:label_cms_slug) %></th>
+    <th><%= l(:label_cms_title) %></th>
+    <th><%= l(:label_cms_layout) %></th>
+    <th><%= l(:field_author) %></th>
+    <th><%= l(:field_updated_on) %></th>
+    <th></th>
+  </tr></thead>
+  <tbody>
+    <% page_tree(@pages) do |page, level| -%>
+      <tr class="page project <%= cycle("odd", "even") %> <%= %w(closed active)[page.status_id] %> <%= level > 0 ? "idnt idnt-#{level}" : nil %>">
+      <td class="root"><span class="<%= 'icon icon-root-page' if page.id == RedmineCms.settings["landing_page"].to_i %>"></span></td>
+      <td class="name"><span><%= link_to h(page.name), edit_cms_page_path(page), :title => page.path %></span></td>
+      <td class="slug" style="text-align:left"><span><%= link_to h(page.slug), show_site_page_path(:path => page.path) %></span></td>
+      <td class="name"><%= page.title %></td>
+      <td class="layout"><%= page.layout ? page.layout.name : l(:label_cms_redmine_layout) %></td>
+      <td class="author"><%= page.author %></td>
+      <td class="updated_on"><%= format_date(page.updated_at) %></td>
+        <td class="buttons">
+          <%= cms_change_status_link('page', page) %>
+          <%= delete_link cms_page_path(page) if User.current.admin? %>
+        </td>
+      </tr>
+    <% end -%>
+  </tbody>
+</table>

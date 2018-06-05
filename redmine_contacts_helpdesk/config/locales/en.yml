@@ -1,0 +1,234 @@
+# English strings go here for Rails i18n
+en:
+  label_helpdesk: Helpdesk
+  label_helpdesk_auto_answer_template: Auto answer email template
+  text_helpdesk_answer_macros: Avaliable macros %{macro}
+  label_is_send_mail: Send note
+  label_send_auto_answer: Send auto answer
+  label_received_from: Received from
+  label_sent_to: Sent to
+  project_module_contacts_helpdesk: Helpdesk
+  permission_send_response: Send response to contact
+  permission_edit_helpdesk_settings: Edit hepldesk settings
+  label_not_create_contacts: Contacts whitelist
+  field_created_contact_tags: Add tags to contact
+  label_helpdesk_save_as_attachment: Save emails as attachments
+
+#1.0.2
+  label_helpdesk_assign_author: Set issue author from sender
+
+#1.0.3
+  label_helpdesk_answered_status: Answered ticket status
+  label_helpdesk_reopen_status: Reopen ticket status
+  label_helpdesk_tracker: Ticket tracker
+  label_helpdesk_assigned_to: Assign ticket to
+  label_helpdesk_lifetime: Ticket lifetime
+  label_helpdesk_server_settings: Mail server settings
+  label_helpdesk_protocol: Protocol
+  label_helpdesk_host: Host
+  label_helpdesk_port: Port
+  label_helpdesk_username: User name
+  label_helpdesk_password: Password
+  label_helpdesk_ssl: SSL
+  label_helpdesk_imap_folder: IMAP folder
+  label_helpdesk_move_on_success: Move on success
+  label_helpdesk_move_on_failure: Move on failure
+  label_helpdesk_apop: APOP
+  label_helpdesk_delete_unprocessed: Delete unprocessed messages
+  label_helpdesk_first_answer_template: Template
+  label_helpdesk_test_connection: Test connection
+  label_helpdesk_get_mail: Get mail
+  label_helpdesk_get_mail_success: "Processed %{count} email(s)"
+  label_helpdesk_css: Email stylesheet (CSS)
+  label_helpdesk_original: Original
+
+#1.0.4
+  label_helpdesk_blacklist: Blacklist emails
+  label_helpdesk_contact_activity: Contact activity
+  permission_view_helpdesk_tickets: View helpdesk tickets
+  label_helpdesk_last_message: Last message
+  label_helpdesk_enable_modules: Contacts and Issues modules should be enable for this project
+  label_helpdesk_contact: Helpdesk contact
+  label_helpdesk_show_contact_card: Show customer profiles
+
+#2.0.0
+  label_helpdesk_send_note_by_default: Send note by default
+  label_helpdesk_ticket_attributes: Ticket attributes
+  label_helpdesk_to_address: To address
+  label_helpdesk_from_address: From address
+  label_helpdesk_ticket_date: Ticket date
+  label_helpdesk_customer: Customer
+  label_helpdesk_from: From
+  label_helpdesk_cc: Cc
+  label_helpdesk_bcc: Bcc
+  label_helpdesk_ticket_plural: Helpdesk tickets
+  label_helpdesk_template: Helpdesk template
+  label_helpdesk_general: General
+  permission_edit_helpdesk_tickets: Edit ticket info
+
+#2.1.0
+  label_helpdesk_ticket: Helpdesk ticket
+  label_helpdesk_spam: Junk mail
+  label_helpdesk_add_cc: Add Cc/Bcc
+  label_helpdesk_add_contact_notes: Add first email as contact note
+  text_helpdesk_customer_count: "%{count} customer(s)"
+  text_helpdesk_ticket_count: "%{count} ticket(s)"
+  label_helpdesk_tickets_report: Helpdesk tickets report
+  label_helpdesk_staff_report: Helpdesk staff report
+  label_helpdesk_tickets_email: Email
+  label_helpdesk_tickets_phone: Phone
+  label_helpdesk_tickets_web: Web
+  label_helpdesk_tickets_twitter: Twitter
+  label_helpdesk_ticket_source: Ticket source
+  label_helpdesk_ticket_time: Ticket time
+  label_helpdesk_save_cc: Save CC as contacts
+  permission_view_helpdesk_reports: View reports
+
+#2.1.2
+  label_helpdesk_answer_template: Answer template
+
+#2.1.3
+  label_helpdesk_previous_tickets: Previous tickets
+  label_helpdesk_public_tickets: Enable public tickets
+  label_helpdesk_public_title: Public page title
+  label_helpdesk_settings_public: Public tickets
+  label_helpdesk_public_comments: Allow to add comments
+  label_helpdesk_public_show_spent_time: Show spent time
+  label_helpdesk_public_link: Public link
+
+#2.1.4
+  label_helpdesk_ticket_new: New ticket
+  label_helpdesk_report_plural: Helpdesk reports
+
+#2.2.0
+  label_helpdesk_contact_company: Helpdesk company
+  label_helpdesk_canned_response_plural: Canned responses
+  label_helpdesk_new_canned_response: New canned response
+  label_helpdesk_canned_response: Canned response
+  permission_manage_public_canned_responses: Manage public canned responses
+  permission_manage_canned_responses: Manage canned responses
+
+#2.2.1
+  my_helpdesk_tickets: My helpdesk tickets
+  label_helpdesk_view_all_tickets: View all tickets
+
+#2.2.3
+  label_helpdesk_tickets_conversation: Conversation
+
+#2.2.4
+  label_helpdesk_required_custom_fields_error: Contacts should not have the required custom fields
+
+#2.2.6
+  label_helpdesk_last_message_date: Ticket updated
+  label_helpdesk_ago: "%{value} ago"
+
+#2.2.8
+  label_helpdesk_to: To
+  label_helpdesk_send_as: Send as
+  label_helpdesk_not_send: "(Not send)"
+  label_helpdesk_send_as_notification: Send as notification
+  label_helpdesk_send_as_message: Send as initial message
+
+#2.2.9
+  label_helpdesk_incoming_mail_server: Incoming mail server
+  label_helpdesk_outgoing_mail_server: Outgoing mail server
+  label_helpdesk_smtp_use_default_settings: Use default settings
+  label_helpdesk_smtp_server: SMTP server
+  label_helpdesk_smtp_tls: TLS
+  label_helpdesk_authentication: Authentication method
+  label_helpdesk_authentication_plain: Plain
+  label_helpdesk_authentication_login: Login
+  label_helpdesk_authentication_cram_md5: MD5 Challenge-Response
+  label_helpdesk_smtp_domain: Domain
+
+ #2.2.10
+  label_helpdesk_email_sending_problems: Email sending problems
+
+ #2.3.0
+  label_helpdesk_ticket_reaction_time: Time to reaction
+  label_helpdesk_ticket_first_response_time: Time to first response
+  label_helpdesk_ticket_resolve_time: Time to resolve
+  label_helpdesk_ticket_last_response_time: Wating response
+  field_helpdesk_ticket: Helpdesk ticket
+  text_helpdesk_to_address_cant_be_blank: To address can't be blank
+  text_helpdesk_message_body_cant_be_blank: Message body can't be blank
+  text_helpdesk_from_address_cant_be_blank: From address can't be blank
+
+ #2.4.0
+  label_helpdesk_vote: Vote
+  label_helpdesk_vote_settings: Allow vote
+  label_helpdesk_vote_comment_settings: Allow comment vote
+  label_helpdesk_mark: Please rate our work!
+  label_helpdesk_mark_awesome: Awesome
+  label_helpdesk_mark_justok: Just ok
+  label_helpdesk_mark_notgood: Not good
+  label_helpdesk_vote_comment_placeholder: Leave a comment
+  label_helpdesk_submit: Submit
+  label_helpdesk_vote_thank: Thank you for voting!
+  label_helpdesk_close_page: Close page
+  label_helpdesk_contact_vote: Contact vote
+  label_helpdesk_vote_comment: Vote comment
+
+  field_vote: Vote
+  field_vote_comment: Vote comment
+
+  # 3.0.2
+  label_helpdesk_assign_contact_user: Assign contact user
+  label_helpdesk_create_private_tickets: Create private tickets
+  label_helpdesk_all: All
+
+  label_helpdesk_widget: Widget
+  label_helpdesk_widget_enable:  Enable widget
+  label_helpdesk_widget_available_projects: Avaliable projects
+  label_helpdesk_widget_no_available_projects: You should have at least one project with enabled Helpdesk module for widget activation
+  label_helpdesk_widget_custom_fields: Avaliable custom fields
+  label_helpdesk_widget_activation_message: Below code needs to add on page for widget activation
+
+  label_helpdesk_widget_name: Your name
+  label_helpdesk_widget_email: Email address
+  label_helpdesk_widget_subject: Subject
+  label_helpdesk_widget_description: Ticket description
+  label_helpdesk_widget_create_ticket: Create ticket
+  label_helpdesk_widget_file_large: 'Sorry, too large'
+  label_helpdesk_widget_ticket_created: Ticket was created
+  label_helpdesk_widget_ticket_errors: "Can't add message "
+  label_helpdesk_widget_ticket_error_details: details
+  label_helpdesk_widget_ticket_error_description: Description cannot be empty
+
+  field_contact_first_name: Username
+
+  label_helpdesk_reports: Helpdesk reports
+  label_helpdesk_first_response_time: First response time
+  label_helpdesk_report_names_first_response_time: First response time
+  label_helpdesk_filter_time_interval: Report time interval
+  label_helpdesk_first_response_time_interval_0_1h: '0 - 1h'
+  label_helpdesk_first_response_time_interval_1_2h: '1 - 2h'
+  label_helpdesk_first_response_time_interval_2_4h: '2 - 4h'
+  label_helpdesk_first_response_time_interval_4_8h: '4 - 8h'
+  label_helpdesk_first_response_time_interval_8_12h: '8 - 12h'
+  label_helpdesk_first_response_time_interval_12_24h: '12 - 24h'
+  label_helpdesk_first_response_time_interval_24_48h: '24 - 48h'
+  label_helpdesk_first_response_time_interval_48_0h: 'more 48h'
+  label_helpdesk_average_first_response_time: 'Average first response time'
+  label_helpdesk_average_responses_count: 'Average count of responses to close'
+  label_helpdesk_average_time_to_close: 'Average closing ticket time'
+  label_helpdesk_total_replies: Total replies
+  label_helpdesk_hour: "h"
+  label_helpdesk_minute: "m"
+  label_helpdesk_report_previous: 'Previous'
+  label_helpdesk_report_deviation: 'Deviation'
+
+  label_helpdesk_busiest_time_of_day: Busiest time of day
+  label_helpdesk_report_names_busiest_time_of_day: Busiest time of day
+  label_helpdesk_busiest_time_of_day_interval_15_18h: '15 - 18h'
+  label_helpdesk_busiest_time_of_day_interval_18_21h: '18 - 21h'
+  label_helpdesk_busiest_time_of_day_interval_21_0h: '21 - 0h'
+  label_helpdesk_busiest_time_of_day_interval_0_3h: '0 - 3h'
+  label_helpdesk_busiest_time_of_day_interval_3_7h: '3 - 7h'
+  label_helpdesk_busiest_time_of_day_interval_7_10h: '7 - 10h'
+  label_helpdesk_busiest_time_of_day_interval_10_13h: '10 - 13h'
+  label_helpdesk_busiest_time_of_day_interval_13_15h: '13 - 15h'
+  label_helpdesk_busiest_time_of_day_new_tickets: New tickets
+  label_helpdesk_busiest_time_of_day_new_contacts: New contacts
+  label_helpdesk_number_of_tickets: Tickets count
+  label_helpdesk_open_tickets: Opened tickets

@@ -1,0 +1,15 @@
+---
+issue_mail_server_settings_001:
+  id: 1
+  project_id: 002
+  adress: mail.somenet.foo
+  port: 587
+  authentication: plain
+  domain: somenet.foo
+  user_name: menager1@somenet.foo
+  protocol:	smtp
+  password: ""
+  enable_starttls_auto: 1
+  openssl_verify_mode:	none
+  ssl: 0
+  tls: 0

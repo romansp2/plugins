@@ -1,0 +1,10 @@
+<h2><%=l(:label_cms_imports_new)%></h2>
+
+<%= labelled_form_for :cms_import, @cms_import, :url => { :action => 'create', :object_type => @cms_import.object_type }, :multipart => true do |f| %>
+  <div class="box tabular">
+    <%= f.hidden_field :object_type %>
+    <p><%= f.file_field :file, :label => l(:label_crm_import_file), :accept => "text/yaml" %></p></p>
+    <p><%= f.check_box :rewrite, :label => l(:label_cms_import_rewrite_existed) %></p>
+  </div>
+  <%= submit_tag l(:button_import) %>
+<% end %>

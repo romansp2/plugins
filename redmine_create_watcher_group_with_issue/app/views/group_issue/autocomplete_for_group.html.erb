@@ -1,0 +1,4 @@
+<%=principals_check_box_tags 'groups_issue[group_ids][]', @groups %>
+<%@group_ids.each do |group_id|%>
+  <%=hidden_field_tag 'groups_issue[group_ids][]', group_id%>
+<%end%>

@@ -1,0 +1,18 @@
+<h2><%=l(:label_crm_import_result)%></h2>
+<div class="wiki">
+  <% if @cms_object.errors.empty? %>
+   <%= t(:label_crm_import_success) %>
+   <br>
+   <%= link_to @cms_object.name, edit_cms_page_path(@cms_object) if @cms_object.class.name == 'CmsPage' %>
+   <%= link_to @cms_object.name, edit_cms_snippet_path(@cms_object) if @cms_object.class.name == 'CmsSnippet' %>
+   <%= link_to @cms_object.name, edit_cms_layout_path(@cms_object) if @cms_object.class.name == 'CmsLayout' %>
+  <% else %>
+    <%= t(:label_crm_import_failed) %>
+      <ul>
+      <% @cms_object.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+      </ul>
+  <% end %>
+</div>
+

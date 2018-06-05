@@ -1,0 +1,7 @@
+$("#issue_contacts ul").html("<%= escape_javascript(render :partial => 'ccwi_contacts_issues/add_contacts', :locals => {:project => @project, :contacts => @contacts, :contact_ids => @contact_ids}) %>");
+
+<%@contacts.each do |contact|%>
+  $("form#ccwi_add_contact_form input[type='checkbox']:checked").parent().remove();
+<%end%>
+
+$("div#link_add_contacts").html("<%=escape_javascript(link_to l(:ccwi_add_contact), new_ccwi_contacts_issue_path(project_id: @project.identifier, contacts_issue: {contact_ids: @contact_ids}), remote: true)%>")

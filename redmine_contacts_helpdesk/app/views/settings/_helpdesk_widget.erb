@@ -1,0 +1,44 @@
+<p>
+  <label><%= l(:label_helpdesk_widget_enable) %></label>
+  <%= check_box_tag 'settings[helpdesk_widget_enable]', 1, @settings[:helpdesk_widget_enable] %>
+</p>
+
+<% if @settings[:helpdesk_widget_enable].to_i > 0 %>
+  <p>
+    <label><%= l(:label_helpdesk_widget_available_projects) %></label>
+    <% @helpdesk_projects = Project.visible.has_module('contacts_helpdesk') %>
+    <% if @helpdesk_projects.count > 0 %>
+      <% @helpdesk_projects.each do |project| %>
+        <%= check_box_tag 'settings[helpdesk_widget_available_projects][]', project.id, @settings[:helpdesk_widget_available_projects].try(:include?, project.id.to_s) %>
+        <span><%= project.name %></span>
+        <br>
+      <% end %>
+    <% else %>
+      <span class="error-text"><%= l(:label_helpdesk_widget_no_available_projects) %></span>
+    <% end %>
+  </p>
+
+  <p>
+    <label><%= l(:label_helpdesk_widget_custom_fields) %></label>
+    <% IssueCustomField.visible.each do |cf| %>
+      <%= check_box_tag 'settings[helpdesk_widget_available_custom_fields][]', cf.id, @settings[:helpdesk_widget_available_custom_fields].try(:include?, cf.id.to_s) %>
+      <span><%= cf.name %></span>
+      <br>
+    <% end %>
+  </p>
+
+    <h4><%= l(:label_helpdesk_widget_activation_message) %></h4>
+    <pre style="background-color: #ddd;">
+      <code class="html syntaxhl">
+      <%= Redmine::SyntaxHighlighting.highlight_by_language(
+      "<span>
+        <div id=\"helpdesk_widget\"></div>
+        <script type=\"text/javascript\" src=\"#{Setting.protocol}://#{Setting.host_name}/helpdesk_widget/widget.js\"></script>
+      </span>", "html").html_safe %>
+      </code>
+    </pre>
+  <span>
+    <div id="helpdesk_widget"></div>
+    <script type="text/javascript" src="<%= "#{Setting.protocol}://#{Setting.host_name}" %>/helpdesk_widget/widget.js"></script>
+  </span>
+<% end %>

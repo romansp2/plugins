@@ -1,0 +1,29 @@
+<%if issue.new_record? and User.current.allowed_to?(:add_issue_watchers, project)%>  
+    <div id="issue_groups" style="padding-left: 180px;">
+      <style type="text/css">
+        #issue_groups ul {margin: 0;  padding: 0;}
+        #issue_groups li {list-style-type:none; margin: 0px 2px 0px 0px; padding: 0px 0px 0px 0px;}
+        #issue_groups select {width: 95%; display: block;}
+        #issue_groups a.delete {opacity: 0.4;}
+        #issue_groups a.delete:hover {opacity: 1;}
+        #issue_groups img.gravatar {vertical-align: middle; margin: 0 4px 2px 0;}
+      </style>
+
+      <div class="contextual"></div>
+      
+      <%=label_tag l(:label_issue_watcher_groups, scope: [:redmine_create_watcher_group_with_issue])%>
+      <div id="link_add_groups" style="display: inline-block;">
+        <%=link_to l(:button_add), new_group_issue_path(project_id: @project.identifier, groups_issue: {group_ids: group_ids}), remote: true%>
+      </div>
+      <ul>
+        <%=render partial: "/group_issue/add_groups", :locals => {:project => @project, :groups => groups, :group_ids => group_ids}%>
+      </ul>
+    </div>
+    <div id="dialog_add_groups" style="dispay: none;"></div>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $("p#watchers_form ").nextAll("div#issue_groups").remove();
+        $("div#issue_groups").detach().insertAfter("form#issue-form p#watchers_form");
+      });
+   </script>
+<%end%>

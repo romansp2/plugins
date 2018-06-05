@@ -1,0 +1,2 @@
+var ajax_modal_author = $("#ajax-modal").html("<%= escape_javascript(render :partial => 'issue_block/edit', :locals => {:project => @project, :issue => @issue}) %>");
+ajax_modal_author.dialog({modal: true,  minWidth: 300});

@@ -1,0 +1,44 @@
+<%= error_messages_for 'cms_menu' %>
+
+<div class="box tabular attributes splitcontent">
+  <div class="splitcontentleft">
+    <p><%= f.text_field :name, :size => 30, :required => true, :label => l(:label_cms_menu_name)  %></p>
+    <p><%= f.text_field :caption, :required => true, :label => l(:label_cms_menu_caption), :style => "width: 99%;" %></p>
+    <p><%= f.text_field :path, :required => true, :label => l(:label_cms_menu_path) %></p>
+    <p><%= f.text_field :position, :size => 5, :required => true, :label => l(:label_cms_position) %></p>
+  </div>
+  <div class="splitcontentright">
+    <p><%= f.select :menu_type, options_for_select([["top_menu", "top_menu"], ["account_menu", "account_menu"]],  @cms_menu.menu_type), :label => l(:label_cms_menu_type) %></p>
+    <p><%= f.select :parent_id, menus_options_for_select(@cms_menu.valid_parents), :include_blank => true, :label => :label_cms_menu_parent, :disabled => @cms_menu.menu_type == 'top_menu' %></p>
+    <p><%= f.select :status_id, options_for_select([["Disabled", 0], ["Active", 1]], @cms_menu.status_id), :label => l(:label_cms_menu_status)  %></p>
+
+    <p><%= f.select :visibility, cms_visibilities_for_select(@cms_menu.visibility || "public"), :label => l(:label_cms_visibility)  %></p>
+
+  </div>
+</div>
+
+<script type="text/javascript">
+  function disableParentSelect(node){
+    if ($(node).val() != 'top_menu'){
+        $("#cms_menu_parent_id").val('');
+        $("#cms_menu_parent_id").parent('p').hide();
+      }
+      else{
+        $("#cms_menu_parent_id").parent('p').show();
+        $.ajax({
+            url: '<%= cms_menus_parent_menu_options_path(:id => @cms_menu) %>',
+            type: 'get',
+            data: {
+              menu_type: $(node).val()
+            }
+          });
+      }
+  }
+
+  if ($("#cms_menu_parent_id").length == 1){
+    // disableParentSelect($("#cms_menu_menu_type"));
+    $("#cms_menu_menu_type").change(function(){
+      disableParentSelect(this);
+    });
+  }
+</script>

@@ -1,0 +1,17 @@
+$(document).ready(function () {
+	// body...
+	
+  	if ($("div#update").length && $("div#update").css('display') == 'none') {
+	  //alert("click")
+	  $("a[href$='/issues/<%=@issue.id%>/edit']").click();
+	}
+
+	$('#all_attributes').empty();
+	$('#all_attributes').prepend('<%= escape_javascript(render :partial => 'form') %>');
+
+	<% if User.current.allowed_to?(:log_time, @issue.project) %>
+	  $('#log_time').show();
+	<% else %>
+	  $('#log_time').hide();
+	<% end %>
+})

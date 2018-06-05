@@ -1,0 +1,15 @@
+<table class="list">
+  <thead>
+  	<tr>
+  	  <th>Footer</th>
+  	  <th>Edit/Delete</th>
+  	</tr>
+  </thead>
+  <tbody>
+  	<%@footers.each do |footer|%>
+	  <tr>
+	    <td><pre><%=footer.footer%></pre></td>
+	  </tr>
+  	<%end%>
+  </tbody>
+</table>

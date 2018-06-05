@@ -1,0 +1,4 @@
+<%@added_users.each do |user|%>
+  $("ul#watchers li#<%=user.id%>").remove();
+<%end%>
+$("ul#watchers").append("<%= escape_javascript(render :partial => 'context_menu_watchers/list_watchers', :locals => {:issues => @issues, :watchers => @added_users}) %>");

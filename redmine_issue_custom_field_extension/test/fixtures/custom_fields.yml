@@ -1,0 +1,12 @@
+--- 
+custom_fields_012: 
+  name: Project 1 cf extension
+  regexp: ""
+  is_for_all: true
+  is_filter: true
+  type: IssueCustomField
+  id: 12
+  is_required: false
+  field_format: user
+  editable: true
+  position: 1

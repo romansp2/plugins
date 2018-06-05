@@ -1,0 +1,14 @@
+<% checklist_tabs = [
+  {:name => 'general', :partial => 'settings/checklists/general', :label => :label_general}]
+  checklist_tabs.push({:name => 'checklist_templates',
+                       :partial => 'settings/checklists/templates',
+                       :label => :label_checklist_templates})
+  checklist_tabs.push({:name => 'checklist_template_categories',
+                       :partial => 'settings/checklists/template_categories',
+                       :label => :label_checklist_template_category_plural})
+
+ %>
+
+<%= render_tabs checklist_tabs %>
+
+<% html_title(l(:label_settings), l(:label_checklists)) -%>

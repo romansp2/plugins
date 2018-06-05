@@ -1,0 +1,60 @@
+<%@issue_statuses = IssueStatus.all%>
+<%custom_fields = CustomField.where("type='IssueCustomField' and field_format='user'")%>
+<table>
+  <tbody>
+    <tr>
+      <th>Send email when issue in status for close</th>
+      <td>        
+        Issue Status:<br> <%= select_tag "settings[close]", options_from_collection_for_select(@issue_statuses, "id", "name", settings["close"]), :include_blank => true, id: "author_issue_status_for_close" %>
+      </td>
+    </tr>
+    <tr>
+      <th>Send email when issue in status for check</th>
+      <td>        
+        Issue Status:<br> <%= select_tag "settings[check]", options_from_collection_for_select(@issue_statuses, "id", "name", settings["check"]), :include_blank => true, id: "author_issue_status_for_check" %>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+<h2>Set fields for notification</h2>
+<%settings["close_f"] = {"users_from_field_ids" => [], "author" => []} if settings["close_f"].nil?%>
+<%settings["check_f"] = {"users_from_field_ids" => [], "author" => []} if settings["check_f"].nil?%>
+
+<%settings["close_f"]["users_from_field_ids"] = [] if settings["close_f"]["users_from_field_ids"].nil?%>
+<%settings["check_f"]["users_from_field_ids"] = [] if settings["check_f"]["users_from_field_ids"].nil?%>
+
+<%settings["close_f"]["author"] = [] if settings["close_f"]["author"].nil?%>
+<%settings["check_f"]["author"] = [] if settings["check_f"]["author"].nil?%>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th align="center">Issue In Close Status</th>
+      <th align="center">Issue In Check Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Author of Issue</td>
+      <td align="center">
+        <%=check_box_tag "settings[close_f[author]][]", true, (settings["close_f"]["author"].include?("true"))%>
+      </td>
+      <td align="center">
+        <%=check_box_tag "settings[check_f[author]][]", true, (settings["check_f"]["author"].include?("true"))%>
+      </td>
+    </tr>
+    <%custom_fields.each do |custom_field|%>
+      <tr>
+        <td><%=custom_field.name%></td>
+        <td align="center">
+          <%=check_box_tag "settings[close_f[users_from_field_ids]][]", custom_field.id, (settings["close_f"]["users_from_field_ids"].include?("#{custom_field.id}"))%>
+        </td>
+        <td align="center">
+          <%=check_box_tag "settings[check_f[users_from_field_ids]][]", custom_field.id, (settings["check_f"]["users_from_field_ids"].include?("#{custom_field.id}"))%>
+        </td>
+      </tr>
+    <%end%>
+  </tbody>
+</table>

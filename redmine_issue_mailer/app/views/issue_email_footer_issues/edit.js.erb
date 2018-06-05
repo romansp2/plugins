@@ -1,0 +1,28 @@
+<%unless @footers.blank?%>
+  default_footer_dialog = $("<div id='default_footer_form'></div>").html("<%=j render partial: 'form', locals: {issue: @issue, footers: @footers, default_issue_footer: @default_issue_footer}%>");
+<%else%>
+  default_footer_dialog = $("<div id='default_footer_form'></div>").html("Footer list had not been created");
+<%end%>
+default_footer_dialog.dialog();
+
+default_footer_dialog.dialog({
+  autoOpen: false,
+  height: 500,
+  width: "100%",
+  "position": "left",
+  modal: true,
+  buttons: {
+    "<%=l(:set_default_footer, scope: [:redmine_issue_mailer])%>": function() {
+      $("div#default_footer_form form").submit();
+      default_footer_dialog.dialog( "close" );  
+    },
+    "<%=l(:close_dialog_window, scope: [:redmine_issue_mailer])%>": function() {
+      default_footer_dialog.dialog( "close" );	
+    }
+  },
+  close: function() {
+  	$(this).dialog('destroy');    
+  }
+});
+
+default_footer_dialog.dialog( "open" );

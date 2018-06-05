@@ -1,0 +1,27 @@
+part_001:
+  id: 1
+  name: footer
+  part_type: footer
+  is_cached: true
+  content: <b>CopyRight</b>
+  description: 'Page 1 footer'
+  page_id: 1
+  status_id: 1
+part_002:
+  id: 2
+  name: header
+  part_type: header
+  is_cached: true
+  content: <b>HEAD</b>
+  description: 'Page 2 header'
+  page_id: 2
+  status_id: 1
+part_003:
+  id: 3
+  name: existed_part
+  part_type: header
+  is_cached: true
+  content: 'existed part content'
+  description:
+  page_id: 4
+  status_id: 1

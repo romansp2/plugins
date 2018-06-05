@@ -1,0 +1,18 @@
+<% helpdesk_tabs = [
+    {:name => 'general', :partial => 'settings/helpdesk_general', :label => :label_helpdesk_general},
+    {:name => 'public', :partial => 'settings/helpdesk_public', :label => :label_helpdesk_settings_public},
+    {:name => 'templates', :partial => 'settings/helpdesk_template', :label => :label_helpdesk_template},
+    {:name => 'votes', :partial => 'settings/helpdesk_vote', :label => :label_helpdesk_vote},
+    {:name => 'canned_responses', :partial => 'settings/helpdesk_canned_responses', :label => :label_helpdesk_canned_response_plural},
+    {:name => 'widget', :partial => 'settings/helpdesk_widget', :label => :label_helpdesk_widget}
+  ] %>
+
+<% helpdesk_tabs.push({:name => 'hidden', :partial => 'settings/helpdesk_hidden', :label => :label_crm_contacts_hidden}) if params[:hidden] %>
+
+<%= render_tabs helpdesk_tabs %>
+
+<% html_title(l(:label_settings), l(:label_helpdesk)) -%>
+
+<% content_for(:header_tags) do %>
+  <%= javascript_include_tag :redmine_helpdesk, :plugin => 'redmine_contacts_helpdesk'  %>
+<% end %>

@@ -1,0 +1,17 @@
+<script type="text/javascript">
+  $(document).ready(function () {
+  	// body...
+    <%unless @issues.blank?%>
+    	<%@issues.each do |issue|%>
+    	  <%if issue.block && issue.block_all_actions?%>
+    	    $("tr#issue-<%=issue.id%>").css('background-color', '#FFDAB9').attr('title', 'Issue Blocked');
+          $("input:checkbox[value=<%=issue.id%>]").attr('disabled', true);
+        <%end%>
+        <%if issue.block && issue.block_only_watchers?%>
+    	    $("tr#issue-<%=issue.id%>").css('background-color', '#E6E6FA').attr('title', 'Watchers Blocked');
+        <%end%>
+    	<%end%>
+    <%end%> 
+  })
+
+</script>

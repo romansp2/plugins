@@ -1,0 +1,26 @@
+<% if @parts.any? %>
+  <table class="list">
+    <thead>
+      <tr>
+        <th><%= l(:label_cms_name) %></th>
+        <th><%= l(:label_cms_description) %></th>
+        <th style="width:15%;"></th>
+        <th style="width:10%;"> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @parts.each do |page_part| -%>
+        <tr class="part <%= cycle("odd", "even") %>" id="page_part_<%= page_part.id %>">
+          <td class="name"><%= link_to h(page_part.name), edit_cms_part_path(page_part) %></td>
+          <td class="name"><%= link_to h(page_part.description), edit_cms_part_path(page_part) %></td>
+          <td><%= cms_reorder_links('part', {:controller => 'cms_parts', :action => 'update', :id => page_part}, :put) %></td>
+          <td class="buttons">
+            <%= cms_change_status_link('part', page_part) %>
+            <%= link_to l(:label_history), cms_object_history_path(page_part, :object_type => page_part.class.name.underscore), :class => 'icon icon-history' if page_part.version > 1 %>
+            <%= delete_link cms_part_path(page_part) if User.current.admin? %>
+          </td>
+        </tr>
+      <% end -%>
+  </tbody>
+</table>
+<% end %>

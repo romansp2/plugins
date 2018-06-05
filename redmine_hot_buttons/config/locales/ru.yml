@@ -1,0 +1,34 @@
+# English strings go here for Rails i18n
+ru:
+  label_hot_buttons: Горячие Кнопки
+  permission_edit_hot_buttons: Редактировать Горячие Кнопки
+  permission_use_hot_buttons: Использовать Горячие Кнопки
+  edit_hot_buttons: Редактировать Горячие Кнопки
+  hot_buttons:
+    name: Наименование
+    edit: Редактировать
+    delete: Удалить
+    hot_button_list_is_empty: Список Горячих Кнопок пуст
+    add_hot_button: Добавить Горячую Кнопку
+    field_create:  Создать
+    field_delete: Удалить
+    field_hot_buttons_list: Список Горячих Кнопок
+    field_for_tracker: Для трекера
+    link_hot_buttons_list:  Список
+    link_hot_buttons_list_open: Открыть
+    link_hot_buttons_list_close: Закрыть
+    confirm_link_delete_hot_button: "Вы уверены, что хотите удалить Горячую Кнопку - %{hot_button}"
+    button_create: Создать
+    button_update: Обновить
+    author_of_issue: Автор задачи
+    error_can_not_find_roles_in_project: Не могу найти Роли в проекте %{project}
+    error_can_not_find_tracker_in_project: Не могу найти Трекер в проекте %{project}
+    error_can_not_find_role_in_project: "Не могу найти Роль(%{role}) в Проекте(%{project})"
+    error_can_not_find_tracker_in_project: "Не могу найти Трекер(%{tracker}) в Проекте(%{project})"
+    error_can_not_find_hot_button_for_project:   "Не могу найти Горячую Кнопку для Проекта - %{project}"
+    error_you_have_not_role_that_in_hot_button: "Вы не можете использовать эту Горячую Кнопку. У Вас иная Роль в Проекте"
+    error_check_settings_in_hot_buttons_role_tracker_status: "Проверьте настройки в Горячей Кнопке (Роль-Трекер-Статус)"
+    error_you_can_not_update_form: "Не могу обновить форму"
+    error_you_can_not_update_form_check_settings_for_status: "Горячая Кнопка %{hot_button}. Нарушена последовательность действий (смотрите настройки Последовательность дейсвий). Нельзя переключать с Роль(%{project_user_roles}) - Трекер(%{tracker}) - Статус(%{status})  на Роль(%{hot_button_role}) - Трекер(%{hot_button_tracker}) - Статус(%{hot_button_status})"  
+    success_create_hot_button: "Успешно создана: Наименование: %{name}, Проект: %{project}, Роль: %{role}, Трекер: %{tracker}, Статус: %{status}, Приоритет: %{priority}"
+    success_update_hot_button: "Успешно обновлена: Name: %{name}, Project: %{project}, Role: %{role}, Tracker: %{tracker}, Status: %{status}, Priority %{priority}" 

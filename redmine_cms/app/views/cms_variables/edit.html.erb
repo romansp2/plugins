@@ -1,0 +1,11 @@
+<h2><%=l(:label_cms_variable)%></h2>
+
+<%= labelled_form_for :cms_variable, @cms_variable, :url => { :action => 'update', :id => @cms_variable},
+  :html => { :id => 'cms_variable-form', :method => :put } do |f| %>
+<%= render :partial => 'form', :locals => { :f => f } %>
+<%= submit_tag l(:button_save) %>
+<% end %>
+
+<% content_for :sidebar do %>
+  <% render :partial => 'cms_settings/menu' %>
+<% end %>

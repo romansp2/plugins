@@ -1,0 +1,5 @@
+# English strings go here for Rails i18n
+en:
+  # my_label: "My label"
+  redmine_create_watcher_group_with_issue:
+    label_issue_watcher_groups: Watcher groups

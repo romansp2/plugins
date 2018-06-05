@@ -1,0 +1,56 @@
+<h3 class="title"><%= l(:permission_add_issue_watchers) %></h3>
+
+<%= form_tag({:controller => 'context_menu_watcher_groups', 
+              :action => 'create', 
+              :ids => issues, 
+              :from => ((params.include?(:from) && params[:from] == "bulk_edit") ? "bulk_edit" : "")},
+              :remote => true,
+              :method => :post,              
+              :id => 'new-watcher-group-form') do %>
+<div style="height: 200px; overflow-y: scroll;">
+  <ul id="bulk-selection">
+    <%issues.each do |issue| %>
+      <%= content_tag 'li', link_to_issue(issue) %>
+    <%end%>
+  </ul>
+</div>
+  <p><%= label_tag 'group_search', l(:label_group_search) %><%= text_field_tag 'group_search', nil %></p>
+  <%= javascript_tag "observeSearchfield('group_search', 'groups_for_watcher', '#{ escape_javascript url_for(:controller => 'context_menu_watcher_groups',
+                 :action => 'autocomplete_for_group',
+                 :ids => issues) }')" %>
+
+  <div id="groups_for_watcher">
+    <%=principals_check_box_tags 'watcher_group[group_ids][]', watcher_groups %>
+  </div>
+
+  <p class="buttons">
+    <%= submit_tag l(:button_add), :name => nil, :onclick => "hideModal(this);" %>
+    <%= submit_tag l(:button_cancel), :name => nil, :onclick => "hideModal(this);", :type => 'button' %>
+  </p>
+<% end %>
+
+<style type="text/css">
+  #watcher_groups ul {margin: 0;  padding: 0;}
+  #watcher_groups li {list-style-type:none;margin: 0px 2px 0px 0px; padding: 0px 0px 0px 0px;}
+  #watcher_groups select {width: 95%; display: block;}
+  #watcher_groups a.delete {opacity: 0.4;}
+  #watcher_groups a.delete:hover {opacity: 1;}
+  #watcher_groups img.gravatar {margin: 0 4px 2px 0;}
+
+  span#watcher_groups_inputs {overflow:auto; display:block;}
+  span.search_for_watcher_groups {display:block;}
+  span.search_for_watcher_groups, span.add_attachment {font-size:80%; line-height:2.5em;}
+  span.search_for_watcher_groups a, span.add_attachment a {padding-left:16px; background: url(../../../images/bullet_add.png) no-repeat 0 50%; } 
+
+  #groups_for_watcher {height: 200px; overflow:auto;}
+  #groups_for_watcher label {display: block;} 
+
+  input#group_search {width:100%}
+  input#group_search {
+    background: url(../../../images/magnifier.png) no-repeat 2px 50%; padding-left:20px;
+    border:1px solid #9EB1C2; border-radius:3px; height:1.5em; width:95%;
+  }
+  input#group_search.ajax-loading {
+    background-image: url(../../../images/loading.gif);
+  } 
+</style>

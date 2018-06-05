@@ -1,0 +1,16 @@
+<tr class="metrics">
+  <td colspan="<%= @collector.columns.count / 2 %>">
+    <p><%= l(:label_helpdesk_busiest_time_of_day_new_tickets) %></p>
+    <div class="num"><%= @collector.issues_count %></div>
+    <div class="change" title="<%= process_deviation(@collector.previous_issues_count, @collector.issues_count, false) %>">
+      <%= progress_in_percents(-@collector.issue_count_progress) %>
+    </div>
+  </td>
+  <td colspan="<%= @collector.columns.count / 2 %>">
+    <p><%= l(:label_helpdesk_busiest_time_of_day_new_contacts) %></p>
+    <div class="num"><%= @collector.contacts_count %></div>
+    <div class="change" title="<%= process_deviation(@collector.previous_contacts_count, @collector.contacts_count, false) %>">
+      <%= progress_in_percents(-@collector.total_contacts_count_progress) %>
+    </div>
+  </td>
+</tr>

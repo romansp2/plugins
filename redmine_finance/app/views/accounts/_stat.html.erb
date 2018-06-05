@@ -1,0 +1,40 @@
+<div id="accounts_stat">
+  <div class="contextual">
+    <%= link_to l(:label_new), new_project_account_path(@project) if User.current.allowed_to?(:edit_accounts, @project) %>
+  </div>
+
+  <h3><%= l(:label_account_plural) %></h3>
+
+
+  <table class="accounts-stat">
+    <% @accounts.each do |account| %>
+    <tr>
+      <th><%= link_to account.name, account_path(account) %></th>
+      <td class="sum"><%= price_to_currency(@approved_amount_by_account[account.id],  account.currency) if @approved_amount_by_account[account.id] %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>
+
+<% if RedmineFinance.operations_approval? && (!@disapproved_income.blank? || !@disapproved_expense.blank?) %>
+<div id="disapproved_operations">
+  <h3><%= l(:label_finance_disapproved) %></h3>
+
+
+  <table class="accounts-stat">
+      <% unless @disapproved_income.blank? %>
+      <tr class="disapproved income">
+        <th><%= link_to l(:label_finance_disapproved_income), disapproved_operations_url(true) %></th>
+        <td class="sum"><%= prices_collection_by_currency(@disapproved_income).join('<br/>').html_safe -%></td>
+      </tr>
+      <% end %>
+      <% unless @disapproved_expense.blank? %>
+      <tr class="disapproved expense">
+        <th><%= link_to l(:label_finance_disapproved_expense), disapproved_operations_url(false) %></th>
+        <td class="sum"><%= prices_collection_by_currency(@disapproved_expense).join('<br/>').html_safe -%></td>
+      </tr>
+      <% end %>
+
+  </table>
+</div>
+<% end %>

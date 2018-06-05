@@ -1,0 +1,16 @@
+<div class="contextual">
+<%= link_to l(:label_cms_snippet_new), new_cms_snippet_path, :class => 'icon icon-add' %>
+<%= link_to l(:button_import), cms_import_path(:object_type => CmsSnippet.name.underscore), :class => 'icon icon-duplicate' %>
+</div>
+
+<h2><%= l(:label_cms_snippet_plural) %></h2>
+
+<div class="autoscroll"  id="cms_snippets">
+  <%= render 'list' %>
+</div>
+
+<% content_for :sidebar do %>
+  <% render :partial => 'cms_settings/menu' %>
+<% end %>
+
+<% html_title(l(:label_cms_snippet_plural)) -%>

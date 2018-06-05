@@ -1,0 +1,35 @@
+<div class="contextual">
+  <%= link_to(l(:button_edit), send("edit_#{@cms_object.class.name.underscore}_path", @cms_object), :class => 'icon icon-edit') %>
+  <%= link_to(l(:label_history),
+              {:action => 'history', :id => @cms_object}, :class => 'icon icon-history') %>
+</div>
+
+
+<%= cms_title [@cms_object.name, send("#{@cms_object.class.name.underscore}_path", @cms_object,  :version => nil)], l(:label_history) %>
+
+<p>
+  <em><%= @annotate.content.author ? link_to_user(@annotate.content.author) : l(:label_user_anonymous)
+       %>, <%= format_time(@annotate.content.updated_at) %> </em><br />
+  <%= @annotate.content.comments %>
+</p>
+
+<% colors = Hash.new {|k,v| k[v] = (k.size % 12) } %>
+
+<table class="filecontent annotate">
+  <tbody>
+    <% line_num = 1 %>
+    <% @annotate.lines.each do |line| -%>
+      <tr class="bloc-<%= colors[line[0]] %>">
+          <th class="line-num"><%= line_num %></th>
+          <td class="revision"><%= link_to line[0], send("#{@cms_object.class.name.underscore}_path", @cms_object,  :version => line[0])  %></td>
+          <td class="author"><%= line[1] %></td>
+          <td class="line-code"><pre><%= line[2] %></pre></td>
+      </tr>
+    <% line_num += 1 %>
+    <% end -%>
+  </tbody>
+</table>
+
+<% content_for :header_tags do %>
+<%= stylesheet_link_tag 'scm' %>
+<% end %>

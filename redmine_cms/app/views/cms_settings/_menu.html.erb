@@ -1,0 +1,30 @@
+<div id="cms-settings-menu">
+  <h3><%= l(:label_cms) %></h3>
+  <ul>
+    <li><%= link_to l(:label_settings), cms_settings_path, :class => "icon icon-settings #{'selected' if params[:controller] == 'cms_settings' && params[:action] == 'index'}" %></li>
+    <li><%= link_to l(:label_cms_page_plural), cms_pages_path, :class => "icon icon-page #{'selected' if params[:controller] == 'cms_pages'}" %></li>
+    <li><%= link_to l(:label_cms_snippet_plural), cms_snippets_path, :class => "icon icon-snippet #{'selected' if params[:controller] == 'cms_snipets'}" %></li>
+    <li><%= link_to l(:label_cms_menu_plural), cms_menus_path, :class => "icon icon-menu #{'selected' if params[:controller] == 'cms_menus'}" %></li>
+    <li><%= link_to l(:label_cms_layout_plural), cms_layouts_path, :class => "icon icon-layout #{'selected' if params[:controller] == 'cms_layouts'}" %></li>
+    <li><%= link_to l(:label_cms_redmine_layout_plural), cms_redmine_layouts_path, :class => "icon icon-redmine-layout #{'selected' if params[:controller] == 'cms_redmine_layouts'}" %></li>
+    <li><%= link_to l(:label_cms_redmine_hook_plural), redmine_hooks_cms_settings_path, :class => "icon icon-redmine-hooks #{'selected' if params[:controller] == 'cms_settings' && params[:action] == 'redmine_hooks'}" %></li>
+    <li><%= link_to l(:label_cms_redirect_plural), cms_redirects_path, :class => "icon icon-redirect #{'selected' if params[:controller] == 'cms_redirects'}" %></li>
+    <li><%= link_to l(:label_cms_asset_plural), cms_assets_path, :class => "icon icon-package #{'selected' if params[:controller] == 'cms_assets'}" %></li>
+    <li><%= link_to l(:label_cms_variable_plural), cms_variables_path, :class => "icon icon-vars #{'selected' if params[:controller] == 'cms_variables'}" %></li>
+  </ul>
+
+  <h3><%= l(:label_cms_page_plural) %></h3>
+  <%= render_page_jump_box %>
+
+  <h3><%= l(:label_cms_page_tags) %></h3>
+  <ul class="page-tags">
+      <% CmsPage.tags_cloud.each do |tag| %>
+          <li>
+            <%= link_to tag, cms_pages_path(:tag => tag.name, :status_id => "") %>
+            <span class="count"><%= tag.count %></span>
+          </li>
+      <% end %>
+  </ul>
+
+</div>
+

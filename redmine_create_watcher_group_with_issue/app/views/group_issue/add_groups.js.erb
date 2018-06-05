@@ -1,0 +1,7 @@
+$("#issue_groups ul").html("<%= escape_javascript(render :partial => 'group_issue/add_groups', :locals => {:project => @project, :groups => @groups, :group_ids => @group_ids}) %>");
+
+<%@groups.each do |group|%>
+  $("form#add_group_form input[type='checkbox']:checked").parent().remove();
+<%end%>
+
+$("div#link_add_groups").html("<%=escape_javascript(link_to l(:button_add), new_group_issue_path(project_id: @project.identifier, groups_issue: {group_ids: @group_ids}), remote: true)%>")

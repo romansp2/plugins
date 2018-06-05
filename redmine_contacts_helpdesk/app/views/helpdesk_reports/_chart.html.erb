@@ -1,0 +1,33 @@
+<% if @collector.issues_count.zero? %>
+  <p class="nodata"><%= l(:label_no_data) %></p>
+<% else %>
+  <div class="helpdesk_chart">
+    <table class="chart_table">
+      <tr class="header">
+        <% @collector.columns.each do |column| %>
+          <td class="column_data">
+            <p class="issues_count"><%= column[:issues_count] %></p>
+            <p><%= [column[:issues_percent], '%'].join %></p>
+          </td>
+        <% end %>
+      </tr>
+      <tr class="main_block">
+        <% @collector.columns.each do |column| %>
+          <td class="column_data">
+            <% if column[:issues_count] > 0 %>
+              <div class="percents" style='height: <%= (column[:issues_count] * @collector.issue_weight).ceil %>px'></div>
+            <% end %>
+          </td>
+        <% end %>
+      </tr>
+      <tr class="footer">
+        <% @collector.columns.each do |column| %>
+          <td class="column_data">
+            <%= l("label_helpdesk_#{@report}_interval_#{column[:name]}") %>
+          </td>
+        <% end %>
+      </tr>
+      <%= render :partial => "#{@report}_metrics" %>
+    </table>
+  </div>
+<% end %>

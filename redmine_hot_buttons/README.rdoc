@@ -1,0 +1,43 @@
+= redmine_hot_buttons
+
+Description goes here
+
+
+  Установка
+
+    1. Клонировать плагин из репозитория. (Необходим коммит с меткой v_._._).  git@gitlab.qazz.pw:a.kondratenko/redmine_hot_buttons.git
+
+    2. Копировать папку redmine_hot_buttons в папку plugins приложения (redmine).
+  
+    3. Запустить миграции. 
+                 
+                 !!!Перед запуском миграций необходимо сделать резервное копирование БД!!!
+
+                 RAILS_ENV=production NAME=redmine_hot_buttons rake redmine:plugins:migrate
+
+    4.  Перезапустить сервер
+
+
+!!! Для ознакомления с правилами установки версий плагина
+!!! Semantic Versioning 2.0.0 http://semver.org/
+
+Changelog
+  v0.1.0 - 23 June 2016
+    redmine:issue:487685
+
+  v0.2.0 - 23 June 2016
+    redmine:issue:487685 - fix bug
+    redmine:issue:715478
+
+  v0.3.0 - 24 July 2016
+    redmine:issue:721576
+
+  v0.4.0 - 11 August 2016
+    redmine:issue:729920
+    redmine:issue:729910
+    redmine:issue:729804
+    redmine:issue:721576
+
+  v1.0.0 - 19 December 2016
+    redmine:issue:868632
+    Version for redmine320

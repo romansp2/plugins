@@ -1,0 +1,26 @@
+<div class="contextual">
+<%= link_to l(:label_operation_category_new), {:controller => "operation_categories", :action => 'new'}, :class => 'icon icon-add' %>
+</div>
+
+<h3><%=l(:label_operation_category_plural)%></h3>
+ 
+<table class="list">
+  <thead><tr>
+  <th><%=l(:field_operation_category)%></th>
+  <th><%=l(:field_operation_category_code)%></th>
+  <th></th>
+  </tr></thead>
+  <tbody>
+    <% OperationCategory.category_tree(OperationCategory.order('lft')) do |category, level| %>
+      <tr class="<%= cycle("odd", "even") %> project <%= category.css_classes %> <%= level > 0 ? "idnt idnt-#{level}" : nil %>">
+      <td class="name"><span><%= link_to category.name, edit_operation_category_path(category) %></span></td>
+      <td class="code"><span><%= category.code %></span></td>
+      <td class="buttons">
+        <%= delete_link operation_category_path(category) %>
+      </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+

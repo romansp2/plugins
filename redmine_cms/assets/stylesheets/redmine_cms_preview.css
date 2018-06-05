@@ -1,0 +1,65 @@
+body {
+  font-family: "helvetica neue", helvetica, arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+iframe {
+    position: fixed;
+    border: none;
+    top: 40px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#cms-top-menu {
+  background-color: #29333a;
+  color: #fff;
+  height: 39px;
+  font-size: 14px;
+  border-bottom: 1px solid white;
+}
+#cms-top-menu ul {margin: 0;  padding: 0 10px;}
+#cms-top-menu li {
+  float: left;
+  list-style-type: none;
+  margin: 0px 0px 0px 0px;
+  padding: 10px 5px;
+  white-space: nowrap;
+}
+#cms-top-menu a {color: #f8f8f8; margin-right: 8px; font-weight: bold;text-decoration: none;}
+
+#cms-top-menu li ul.menu-children {
+  display: none;
+  position: absolute;
+  clear: both;
+  top: 30px;
+  border: 1px solid #e4e4e4;
+  background-color: #fff;
+  color: #505050;
+  max-width: 230px;
+}
+
+#cms-top-menu ul.menu-children > li {
+  padding: 5px;
+  float: none;
+  display: block;
+  border-bottom: 1px solid #e4e4e4;
+  margin: 0 6px;
+}
+
+#cms-top-menu ul.menu-children > li:last-child {
+  border-bottom: 0px;
+}
+
+#cms-top-menu ul.menu-children > li a {
+  color: inherit;
+}
+
+#cms-top-menu li:hover ul.menu-children {
+  display: block;
+  z-index: 1000;
+}

@@ -1,0 +1,26 @@
+<%= form_for @block, local: true do |form| %>
+
+  <%= render :partial => 'errors' if @block.errors.any? %>
+
+  <p>
+    <label><%= l('html_block.label.content') %></label> <br><br>
+    <%= form.text_area  :text %>
+  </p>
+
+  <p>
+    <label><%= l('html_block.label.address') %></label> <br><br>
+    <%= form.text_field :address %>
+  </p>
+
+  <p>
+    <%= form.label :type %> <br>
+    <%= form.radio_button :link_type, :link %> <label><%= l('html_block.label.link') %></label>
+    <%= form.radio_button :link_type, :regexp %> <label><%= l('html_block.label.regexp') %></label>
+  </p>
+
+  <p>
+    <%= form.submit l('button_submit') %>
+  </p>
+<% end %>
+
+<%= link_to l('button_back'), blocks_path %>

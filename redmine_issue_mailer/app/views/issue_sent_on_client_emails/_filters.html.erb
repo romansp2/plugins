@@ -1,0 +1,134 @@
+<div id="query_form_content" class="hide-when-print">
+  <fieldset id="filters" class="collapsible">
+    <legend onclick="toggleFieldset(this);">Фильтры</legend>
+    <div style="display: block;">
+      <%=form_tag({:controller => 'issue_sent_on_client_emails', :action => 'index'}, :method => "get", :id => "form_filter") do%>
+        <%=hidden_field_tag "project_id", @project.identifier %>
+        <table style="width:100%">
+          <tbody>
+            <tr>
+              <td>
+                <table id="filters-table">
+                  <tbody>
+                    <tr id="" class="filter">
+                      <td class="field"><b><%=l :who_send, scope: [:redmine_issue_mailer]%></b></td>
+                      <td class="operator"></td>
+                      <td class="values"><%=select_tag "filter[who_send_id]", options_from_collection_for_select(users_list, "id", "name", filter_form["who_send_id"]), include_blank: true%> </td>
+                    </tr> 
+                    <tr id="" class="filter">
+                      <td class="field"><b><%=l :to, scope: [:redmine_issue_mailer]%></b></td>
+                      <td class="operator"></td>
+                      <td class="values"><%= email_field_tag('filter[to]', filter_form["to"], id: "to") %></td>
+                    </tr>
+                    <tr id="" class="filter">
+                      <td class="field"><b><%=l :send_letter_bcc, scope: [:redmine_issue_mailer]%></b></td>
+                      <td class="operator"></td>
+                      <td class="values"><%= email_field_tag('filter[bcc]', filter_form["bcc"], id: "bcc") %></td>
+                    </tr> 
+                    <tr id="" class="filter">
+                      <td class="field"><b><%=l :subject, scope: [:redmine_issue_mailer]%></b></td>
+                      <td class="operator"></td>
+                      <td class="values"><%= text_field_tag('filter[subject]', filter_form["subject"], id: "subject") %></td>
+                    </tr>
+                    <tr id="" class="filter">
+                      <td class="field"><b>IssueID</b></td>
+                      <td class="operator"></td>
+                      <td class="values"><%= text_field_tag('filter[issue_id]', filter_form["issue_id"], id: "issue_id") %></td>
+                    </tr>
+                    <tr id="" class="filter">
+                      <td class="field"><b><%=t(:message_id, scope: [:redmine_issue_mailer])%></b></td>
+                      <td class="operator"></td>
+                      <td class="values"><%= text_field_tag('filter[message_id]', filter_form["message_id"], id: "message_id") %></td>
+                    </tr>
+                    <tr id="" class="filter">
+                      <td class="field"><b><%=l(:included_attachments, scope: [:redmine_issue_mailer])%></b></td>
+                      <td class="operator"></td>
+                      <td class="values">
+                        <%=label_tag do%>
+                          Yes
+                          <%=radio_button_tag("filter[included_attachments]", "1", filter_form["included_attachments"] == "1")%>
+                        <%end%>
+                        <%=label_tag do%>
+                          No
+                          <%=radio_button_tag("filter[included_attachments]", "0", filter_form["included_attachments"] == "0")%>
+                        <%end%>
+                        <%=label_tag do%>
+                          Do not use
+                          <%=radio_button_tag("filter[included_attachments]", "", filter_form["included_attachments"] == "")%>
+                        <%end%>
+
+                      </td>
+                    </tr>
+                    <tr id="" class="filter">
+                      <td class="field"><b><%=l :start_date, scope: [:redmine_issue_mailer]%></b></td>
+                      <td class="operator"></td>
+                      <td class="values"> 
+                        <%= text_field_tag('filter[start_date]', (filter_form["start_date"] || ""), {id: "start_date"}) %>
+                      </td>
+                    </tr>  
+                    <tr id="" class="filter">
+                      <td class="field"> <b><%=l :end_date, scope: [:redmine_issue_mailer]%></b></td>
+                      <td class="operator"></td>
+                      <td class="values">
+                        <%= text_field_tag('filter[end_date]', (filter_form["end_date"] || ""), {id: "end_date"}) %>
+                      </td>
+                    </tr>  
+                    <tr id="" class="filter">
+                      <td class="field"></td>
+                      <td class="operator"></td>
+                      <td class="values"></td>
+                    </tr>    
+                    <tr id="" class="filter">
+                      <td class="field"></td>
+                      <td class="operator"></td>
+                      <td class="values"></td>
+                    </tr>    
+                    <tr id="" class="filter">
+                      <td class="field"><b><%=l :order_by_start_date, scope: [:redmine_issue_mailer]%></b></td>
+                      <td class="operator"></td>
+                      <td class="values">
+                        <%=label_tag do%>
+                          <%=l(:order_by_start_date_asc, scope: [:redmine_issue_mailer])%>
+                          <%=radio_button_tag("filter[order_by_start_date]", "ASC", order_by_start_date == "ASC")%>
+                        <%end%>
+                        <%=label_tag do%>
+                          <%=l(:order_by_start_date_desc, scope: [:redmine_issue_mailer])%>
+                          <%=radio_button_tag("filter[order_by_start_date]", "DESC", order_by_start_date == "DESC")%>
+                        <%end%>
+                      </td>
+                    </tr> 
+                    <tr class="filter"></tr>                
+                              
+                  </tbody>
+                </table> 
+              </td> 
+              <td class="add-filter">
+                
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <%= submit_tag l(:button_apply), :class => 'button-small' %>
+      <%end%>
+    </div>
+  </fieldset> 
+</div>
+
+
+
+<script type="text/javascript">
+  $(function() {
+    window.finded = [];
+    $( "#start_date" ).datepicker({
+      dateFormat: 'yy-mm-dd',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#end_date" ).datepicker({
+      dateFormat: 'yy-mm-dd',
+      changeMonth: true,
+      changeYear: true
+    });
+  });
+
+</script>

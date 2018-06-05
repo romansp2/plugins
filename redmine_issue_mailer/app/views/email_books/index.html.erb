@@ -1,0 +1,24 @@
+<%=project_menu_settings(@project, selected = email_books_path)%>
+<br><br><br>
+
+
+<table class="list">
+  <thead>
+  	<tr>
+  	  <th><%=l(:email_name, scope: [:redmine_issue_mailer])%></th>
+  	  <th><%=l(:email, scope: [:redmine_issue_mailer])%></th>
+  	  <th><%=l(:edit_delete_email_book, scope: [:redmine_issue_mailer])%></th>
+  	</tr>
+  </thead>
+  <tbody>
+    <%@email_books.each do |email_book|%>
+  	  <tr>
+  	    <td><%=h email_book.name%></td>
+  	    <td><%=h email_book.email%></td>
+  	    <td><%=link_to l(:edit_emaile_in_book , scope: [:redmine_issue_mailer]), edit_email_book_path(project_id: @project.identifier , id: email_book.id )%> / <%=link_to( l(:delete_emaile_in_book , scope: [:redmine_issue_mailer]), { controller: "email_books", action: "destroy", project_id: @project.identifier , id: email_book.id }, method: "DELETE", confirm: 'Are you sure?' )%></td>
+  	  </tr>
+  	<%end%>
+  </tbody>
+</table>
+
+<%=link_to l(:add_emaile_in_book, scope: [:redmine_issue_mailer]), new_email_book_path(project_id: @project.identifier)%>

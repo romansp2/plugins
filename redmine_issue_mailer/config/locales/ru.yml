@@ -1,0 +1,151 @@
+ru:
+  label_issue_mail_settings: Задача-Почта
+  project_module_issue_mailer: Задача-Почта
+  permission_issue_mail_server_settings: Настройка почтового ящика
+  permission_issue_mail_settings: Задача-Почта
+  permission_write_letter_to_clients: Написать письмо
+  permission_issue_sent_on_client_emails: Список писем отправленных из проекта
+  permission_see_information_about_letter_from_issue: Просмотр отправленного письма из задачи
+  permission_issue_email_from_clients: Просмотр списка писем от клиентов
+  permission_show_email_from_client_from_issue: Просмотр письма от клиента из задачи
+  permission_issue_mailer_standard_fields: Настройка стандартных полей задачи
+  permission_issue_mailer_custom_fields: Настройка настраиваемых полей задачи
+
+  permission_write_letter_to_client: Право писать клиенту
+  permission_write_letter_to_email_from_book_of_e_mail_address: Право писать на эл. адреса из книги эл. адресов
+  permission_write_letter_without_restriction: Право писать на эл. адреса без ограничения
+  permission_issue_email_footers: Право на редактирование Подстрочного примечания письма
+  permission_issue_email_footer_issues: Право на установку Подстрочного примечания письма для задачи
+  permission_edit_email_books: Право на редактирование книги эл. адресов
+  
+  activerecord:
+    errors:
+      models:
+        issue_sent_on_client_email:
+          attributes:
+            to:
+              blank: Не указан получатель (Кому)
+            from:
+              blank: From can't be blank
+        email_book:
+          attributes:
+            project_id: 
+              blank: Добавте взаимосвязь с проектом
+            name: 
+              blank: Заполните Поле Имя 
+              taken: Имя уже существует в проекте
+            email: 
+              blank: Заполните поле Эл. Адрес
+
+
+  helpers:
+    submit:
+      issue_mail_server_setting:
+        create: Создать
+        update: Обновить
+      issue_mailer_standard_field:
+        create: Создать стандартные поля
+        update: Обновить стандартные поля
+      issue_email_footer:
+        create: Создать
+        update: Обновить
+      issue_email_footer_issue:
+        create: Установить
+        update: Установить
+      email_book:
+        create: Добавить Эл. Адрес
+        update: Обновить Эл. Адрес
+    label:
+      issue_mail_server_setting:
+        protocol: Protocol
+      email_book:
+        name: Имя
+        email: Эл. Адрес
+
+  redmine_issue_mailer:
+    issue_mail_server_settings: Настройки почтового сервера
+    issue_mail_settings: Задача-Почта
+    issue_mail_server_setting_new: New
+    issue_mail_server_setting_edit: Edit
+    issue_mail_server_setting_delete: Delete
+    sett_user_name: user name
+    sett_password: password
+    sett_adress: adress
+    sett_domain: domain
+    sett_port: Port
+    sett_protocol: Protocol
+    sett_authentication: authentication
+    sett_openssl_verify_mode: openssl_verify_mode
+    sett_enable_starttls_auto: enable_starttls_auto
+    sett_ssl: ssl
+    sett_tls: tls
+    sett_edit: edit
+    sett_delete: delete
+    write_letter_to_client: Написать письмо
+    letter_to_client: Письмо клиенту
+    send_letter_to: Кому
+    send_letter_from: От
+    close_send_letter: Закрыть
+    letter_body_txt: Сообщение
+    letter_subject: Тема
+    send_letter_bcc: Скрытая копия
+    use_letter_html: Use Html
+    list_of_letters: Отправленные письма
+    message_id: "ID письма 'Message-ID'"
+    list_of_letters_from_clients: Входящие письма
+    from: От
+    to: Кому
+    cc: Копия
+    subject: Тема
+    macros_information_about_letter: Информация о письме
+    macros_view_information_about_sent_letter: 'Информация об отправленном письме JournalID#%{journal_id}'
+    deliver: Отправлено
+    yes: Да
+    no: Нет
+    body: Содержание письма
+    undelivered_to: Не доставлено для %{mail}
+    write_letter_to_client_permission_denied: Доступ Запрещен
+    list_standard_fields: Стандартные поля
+    list_custom_fields: Пользовательские поля
+    include_attachments: Прикрепить файлы к письму
+    included_attachments: Файлы
+    list_email_footers: Email Footers 
+    create_email_footer: Create Email Footer
+    edit_footer: Редактировать
+    delete_footer: Удалить
+    edit_default_issue_footer: Установить Подстрочное примечание письма
+    close_dialog_window: Закрыть
+    set_default_footer: Установить
+    error_message_can_not_find_footer: "Не могу найти Подстрочное примечание письма"
+    error_message_can_not_find_footer_for_issue: Can not find footer for issue
+    error_message_you_have_to_choose_footer: Вам необходимо выбрать Подстрочное примечание письма
+    email_issue_footer: Подстрочное примечание письма
+    choose_email_issue_footer: Выбрать другое подстрочное примечание письма
+    set_footer: Set Footer
+    choose: Выбрать
+    author_of_request: Автор заявки
+    email_from_book_of_email_address: Электронный адрес из адресной книги
+    write_email_adress: Написать
+    option_for_entering_the_recipient: Варианта для ввода получателя
+    letter: Письмо
+    letter_attached: Прикреплены файлы
+    check_settings: Проверьте настройки
+    error_send_letter: Ошибка
+    email_book: Адресная книга
+    email_name: Имя Эл. Адреса
+    email: Эл. Адрес
+    edit_delete_email_book: 'Редактировать/Удалить'
+    add_emaile_in_book: Добавить эл. адрес
+    edit_emaile_in_book: Редактировать эл. адрес
+    delete_emaile_in_book: Удалить эл. адрес
+    client_email_was_not_found: Эл. адрес клиента не найден
+    who_send: Who send
+    start_date: Start date
+    end_date: End date
+    order_by_start_date: Order by start date
+    order_by_start_date_asc: Order by start date asc
+    order_by_start_date_desc: Order by start date desc
+
+    error:
+      can_not_find_email_in_book: Не могу найти Эл. Адрес
+

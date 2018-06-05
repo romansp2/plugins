@@ -1,0 +1,50 @@
+<%whatchers = issues.map(&:watcher_users).flatten.uniq{|rec| rec.id}%>
+  <div class="contextual">
+    <%= link_to l(:button_add), new_context_menu_watcher_path(ids: issues.map(&:id), from: "bulk_edit"), :remote => true%>
+  </div>
+  <h3><%=l(:label_issue_watchers)%></h3>
+  <div class="warning"><%=l(:warning_list_watchers_from_bulk_edit)%></div>
+
+  <div>
+    <ul id="watchers">
+      <%whatchers.each do |watcher_user|%>
+	      <li id="<%=watcher_user.id%>">
+	        <%=link_to_user(watcher_user, :class => 'user')%>
+          <%if allow_delete%>
+            <%=link_to image_tag('delete.png'), context_menu_watchers_path(ids: issues.map(&:id), user_id: watcher_user.id) , :remote => true, :method => 'delete', :class => "delete" %>
+          <%end%> 
+	      </li>
+      <%end%>
+    </ul>
+  </div>
+
+
+<style type="text/css">  
+  .info, .success, .warning, .error, .validation {
+    border: 1px solid;
+    margin: 10px 0px;
+    padding:15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+  }
+  .info {
+    color: #00529B;
+    background-color: #BDE5F8;
+    background-image: url('../images/info.png');
+  }
+  .success {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+    background-image:url('../images/success.png');
+  }
+  .warning {
+    color: #9F6000;
+    background-color: #FEEFB3;
+    background-image: url('../images/warning.png');
+  }
+  .error {
+    color: #D8000C;
+    background-color: #FFBABA;
+    background-image: url('../images/error.png');
+  }
+</style>

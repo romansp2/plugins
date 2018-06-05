@@ -1,0 +1,21 @@
+# Russian strings go here for Rails i18n
+ru:
+  html_block:
+    blocks: "Блоки"
+    activerecord:
+      errors:
+        create: "Возникла ошибка при создании блока!"
+        update: "Возникла ошибка при изменении блока!"
+        length: "%{count} максимально допустимая длинна"
+        form: "%{count} ошибка помешала сохранению блока"
+    header:
+      index: "Все блоки:"
+      edit: "Изменение блока:"
+      new: "Создание блока:"
+    label:
+      content: "Содержимое"
+      address: "Страница"
+      link: "Ссылка"
+      regexp: "Регулярное выражение"
+    button:
+      create: "Создать блок"

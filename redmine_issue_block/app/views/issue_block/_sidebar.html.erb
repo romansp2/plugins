@@ -1,0 +1,108 @@
+<%if !@issue.nil? && !@issue.new_record? && User.current.allowed_to?(:issue_block, @project)%>
+  <div id="issue_block">
+    <p>
+      <div class="contextual">
+        <%=link_to l(:link_issue_block), edit_issue_block_path(project_id: @project.identifier, id: @issue.id), remote: true%> / 
+        <%=link_to l(:link_issue_unblock), edit_issue_block_path(project_id: @project.identifier, id: @issue.id), remote: true%> 
+      </div>
+      <h3><%=l(:field_issue_block_unblock)%></h3>
+    </p>
+  </div>
+
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      <%if @issue.block && @issue.block_all_actions?%>
+        $("div.subject").css('background-color', '#FFDAB9').attr('title', 'Issue Blocked');
+        $("div.subject div").append('<span style="color: red;">Issue Blocked<span>');
+        $("div#update").remove();
+        $("a.icon-edit").click(function(event) {
+        	// body...
+        	event.preventDefault();
+        	alert("Issue Blocked");
+        	return false
+        });
+
+        $("#watcher_groups a").click(function(event) {
+        	event.preventDefault();
+        	alert("Issue Blocked");
+        	return false
+        });
+
+        $("#watchers a").click(function(event) {
+        	// body...
+        	event.preventDefault();
+        	alert("Issue Blocked");
+        	return false
+        });
+
+        $("#issue_contacts a").click(function(event) {
+        	// body...
+        	event.preventDefault();
+        	alert("Issue Blocked");
+        	return false
+        });
+
+        $("a.icon-time-add").click(function(event) {
+        	// body...
+        	event.preventDefault();
+        	alert("Issue Blocked");
+        	return false
+        });
+
+        $("a.icon-del").click(function(event) {
+        	// body...
+        	event.preventDefault();
+        	alert("Issue Blocked");
+        	return false
+        });
+
+        $("div#issue_tree div.contextual a").click(function(event) {
+        	// body...
+        	event.preventDefault();
+        	alert("Issue Blocked");
+        	return false
+        });
+
+        $("div.description div.contextual a").click(function(event) {
+        	// body...
+        	event.preventDefault();
+        	alert("Issue Blocked");
+        	return false
+        });
+
+        $("div#history div.contextual a").prop('onclick',null).off('click');
+        $("div#history div.contextual a").click(function(event) {
+        	// body...
+        	event.preventDefault();
+        	alert("Issue Blocked");
+        	return false
+        });
+        $("div#change_author div.contextual a").click(function(event) {
+            // body...
+            event.preventDefault();
+            alert("Issue Blocked");
+            return false
+        });
+        
+      <%end%>   
+      <%if @issue.block && @issue.block_only_watchers?%>
+        $("div.subject").css('background-color', '#FFDAB9').attr('title', 'Issue Blocked');
+        $("div.subject div").append('<span style="color: red;">Watchers Blocked<span>');
+
+        $("#watcher_groups a").click(function(event) {
+            event.preventDefault();
+            alert("Watchers Blocked");
+            return false
+        });
+
+        $("#watchers a").click(function(event) {
+            // body...
+            event.preventDefault();
+            alert("Watchers Blocked");
+            return false
+        });
+      <%end%> 	
+    });
+  </script>
+<%end%>

@@ -1,0 +1,49 @@
+== Redmine CMS plugin changelog
+
+Redmine CMS plugin - content management system for Redmine
+Copyright (C) 2011-2016  Kirill Bezrukov
+http://www.redmineup.com/
+
+== 2016-12-06 v1.0.0
+
+* New Page hierarchy structure
+* New Parts model based on radiand CMS
+* New Liquid filters and tags
+* Global variables 
+* Global assets 
+* Pages, Parts, Layouts, Snippets history 
+* Import/export hole site or separate entities 
+* Page fields
+* Snippets
+* Page layouts
+* Ability to select custom layout for Redmine actions
+* Regisrtaion and login forms
+* Public page search methods
+* Sass, Scss and Textile filters
+* Handling Liquid exceptions
+* Show child menu permissions
+* HTML menu captions (for images)
+* Redirects
+* Group permission for edit pages
+
+== 2013-08-28 v0.0.3
+
+* Width for long setting fields as 98%
+* Fixed redirect to landing page for project with disabled cms module
+
+== 2013-08-28 v0.0.3
+
+* Show overview and activity tabs for projects without project_tab module
+* CMS plugin settings with pages/menus/parts tabs
+* Copyright info settings for CMS and Default with meta templates
+* Top menu child fixes for default themes
+* Menu visibility fixes
+* Attachments delete routing error fixed
+* Apply menu on the top of page
+
+== 2013-04-07 v0.0.2
+
+* Redmine 2.3 support
+* View menu permissions
+* Fixed bug with menu updates in multi redmine instanses
+

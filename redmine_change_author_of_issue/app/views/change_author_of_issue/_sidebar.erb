@@ -1,0 +1,10 @@
+<%if !@issue.nil? && !@issue.new_record? && User.current.allowed_to?(:change_author_of_issue, @project)%>
+  <div id="change_author">
+    <p>
+      <div class="contextual">
+        <%=link_to l(:link_change_author_of_issue), edit_change_author_of_issue_path(project_id: @project.identifier, issue_id: @issue.id), remote: true%>
+      </div>
+      <h3><%=l(:field_change_author_of_issue)%></h3>
+    </p>
+  </div>
+<%end%>

@@ -1,0 +1,44 @@
+<div class='contextual'>
+  <%= link_to l(:label_checklist_new_checklist_template), new_checklist_template_path, :class => 'icon icon-add' if User.current.allowed_to?(:manage_checklist_templates, nil, { :global => true }) %>
+</div>
+
+<h3><%=l(:label_checklist_templates)%></h3>
+
+<% if ChecklistTemplate.any? %>
+  <table class="list">
+    <thead><tr>
+    <th><%= l(:field_name) %></th>
+    <th><%= "#{l(:field_visible)} #{l(:label_visibility_public)}" %></th>
+    <th><%= l(:field_project) %></th>
+    <th></th>
+    </tr></thead>
+    <tbody>
+    <% previous_group = false %>
+    <% ChecklistTemplate.eager_load(:category).each do |checklist_template| %>
+    <% if checklist_template.category != previous_group %>
+      <% reset_cycle %>
+      <% unless checklist_template.category.blank? %>
+      <tr class="group open">
+        <td colspan="4">
+          <span class="expander" onclick="toggleRowGroup(this);">&nbsp;</span>
+          <%= checklist_template.category.name %>
+        </td>
+      </tr>
+      <% end %>
+      <% previous_group = checklist_template.category %>
+    <% end %>
+    <tr class="checklist-template <%= cycle 'odd', 'even' %>">
+      <td class="name"><%= checklist_template.name  %></td>
+      <td class="tick"><%= checked_image checklist_template.is_public? %></td>
+      <td class="project"><%= checklist_template.project ? checklist_template.project.name : l(:field_is_for_all) %></td>
+      <td class="buttons">
+        <%= link_to l(:button_edit), edit_checklist_template_path(checklist_template), :class => 'icon icon-edit' %>
+        <%= delete_link checklist_template_path(checklist_template, :project_id => checklist_template.project) %>
+      </td>
+    </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p class="nodata"><%= l(:label_no_data) %></p>
+<% end %>

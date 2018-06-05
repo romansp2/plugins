@@ -1,0 +1,19 @@
+<tr>
+  <th><%=l(:name, scope: [:hot_buttons])%></th>
+  <th><%=l(:field_project)%></th>
+  <th><%=l(:field_for_tracker, scope: [:hot_buttons])%></th>
+  <th><%=l(:field_role)%></th>
+  <th><%=l(:field_tracker)%></th>
+  <th><%=l(:field_status)%></th>
+  <th><%=l(:field_priority)%></th>
+  <th><%=l(:field_category)%></th>
+
+  <%if issue.safe_attribute? 'custom_field_values' %>
+    <th><%=l(:field_assigned_to)%></th>
+    <%custom_fields_split.each_key do |cf|%>
+      <%unless cf == "assigned_to"%>
+        <th><%=cf.name%></th>
+      <%end%>
+    <%end%>
+  <%end%>
+</tr>

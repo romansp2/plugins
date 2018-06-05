@@ -1,0 +1,8 @@
+<div class="next-prev-links contextual">
+  <%if User.current.allowed_to?(:write_letter_to_clients, @project)%>
+    <%=link_to l(:write_letter_to_client, scope: [:redmine_issue_mailer]), new_write_letter_to_client_path(issue_id: @issue.id), remote: true%>
+    <%=link_to l(:edit_default_issue_footer, scope: [:redmine_issue_mailer]), edit_issue_email_footer_issue_path(issue_id: @issue.id, id: @issue.id), remote: true%>
+  <%else%>
+    <%=link_to l(:write_letter_to_client, scope: [:redmine_issue_mailer]), '###', onclick: "alert('#{l(:write_letter_to_client_permission_denied, scope: [:redmine_issue_mailer])}')"%>
+  <%end%>
+</div>

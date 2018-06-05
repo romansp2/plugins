@@ -1,0 +1,17 @@
+<div class="contextual">
+<%= link_to l(:label_cms_variable_new), new_cms_variable_path, :class => 'icon icon-add' %>
+</div>
+
+<h2><%=l(:label_cms_variable_plural)%></h2>
+
+<div class="autoscroll" id="cms-variables">
+  <%= render :partial => 'cms_variables/variables' %>
+</div>
+
+
+<% content_for :sidebar do %>
+  <% render :partial => 'cms_settings/menu' %>
+<% end %>
+
+
+<% html_title(l(:label_cms_variable_plural)) -%>

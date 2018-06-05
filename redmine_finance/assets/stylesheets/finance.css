@@ -1,0 +1,46 @@
+/**********************************************************************/
+/* ICONS
+/**********************************************************************/
+.icon-finance { background-image: url(../images/bank.png); }
+.icon-operation { background-image: url(../images/money-coin.png); }
+.icon-approve { background-image: url(../images/stamp.png); }
+.icon-operation-income { background-image: url(../images/money-income.png); }
+.icon-operation-expense { background-image: url(../images/money-arrow.png); }
+
+
+/**********************************************************************/
+/* OPERATION LIST
+/**********************************************************************/
+.operation_list .list td.description {white-space: normal;}
+.operation_list .list td.contact {white-space: normal;}
+.operation_list .list .money,
+.operation_list .list td.income,
+.operation_list .list td.expense {text-align: right;}
+.operation_list .list td.category {text-align: left;}
+.operation_list .list tr.operation a {color: #666;}
+
+table.list.operations tr.operation a {color: #666;}
+
+.operation_list tr.odd.not-approved, .operation_list table.list tbody tr.odd.not-approved:hover { color: #900; }
+.operation_list tr.odd.not-approved { background: #FEE; }
+.operation_list tr.even.not-approved, .operation_list table.list tbody tr.even.not-approved:hover { color: #900; }
+.operation_list tr.even.not-approved { background: #FFF2F2; }
+.operation_list tr.not-approved a { color: #900; }
+.operation_list tr.odd.not-approved td, .operation_list tr.even.not-approved td { border-color: #FCC;}
+.operation_list tr.operation.planned-operation,
+.operation_list tr.operation.planned-operation a { color: #999; }
+.operation_list tr.operation.planned-operation.last { border-bottom: 2px solid red; }
+
+/**********************************************************************/
+/* ACCOUNTS STAT
+/**********************************************************************/
+table.accounts-stat {padding-right: 10px; width: 100%;}
+table.accounts-stat th {text-align: left; vertical-align: top; padding-bottom: 10px;font-weight: normal;}
+table.accounts-stat td.sum {text-align: right; padding-bottom: 10px;white-space: nowrap;font-weight: bold;}
+
+/**********************************************************************/
+/* ACCOUNT
+/**********************************************************************/
+div.account.details div.operation_list {margin-top: 20px;}
+div.account, div.operation { background: rgb(236, 250, 241);}
+div.operation.expense { background: rgb(250, 225, 227);}

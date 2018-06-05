@@ -1,0 +1,11 @@
+<%= error_messages_for 'operation_object' %>
+
+<p>
+<%= l(:label_invoice) %> #<%= f.text_field :operationable_id, :size => 10 %>
+<%= submit_tag l(:button_add) %>
+<%= link_to_function l(:button_cancel), '$("#new-operation-invoice-form").hide();'%>
+</p>
+
+<%= javascript_tag "observeAutocompleteField('operation_object_operationable_id', '#{escape_javascript auto_complete_invoices_path }')" %>
+
+<%= javascript_tag "setPredecessorFieldsVisibility();" %>

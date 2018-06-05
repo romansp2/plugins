@@ -1,0 +1,71 @@
+<%=project_menu_settings(@project, selected = issue_sent_on_client_emails_path)%>
+<br><br><br>
+
+<%=render partial: "filters", locals: {users_list: @users_list, filter_form: @filter_form, order_by_start_date: @order_by_start_date}%>
+<%=render partial: "unique_emails_list", locals: {unique_emails_list: @unique_emails_list, unique_emails_list_count: @unique_emails_list_count}%>
+
+<br><br><br>
+<div class="autoscroll">
+  <table class="list">
+    <thead>
+    	<tr>
+    	  <th><%=t(:issue)%></th>
+    	  <th>Journal ID</th>
+    	  <th><%=t(:message_id, scope: [:redmine_issue_mailer])%></th>
+    	  <th><%=t(:from, scope: [:redmine_issue_mailer])%></th>
+    	  <th><%=t(:to, scope: [:redmine_issue_mailer])%></th>
+    	  <th><%=t(:send_letter_bcc, scope: [:redmine_issue_mailer])%></th>
+    	  <th><%=t(:subject, scope: [:redmine_issue_mailer])%></th>
+    	  <th><%=t(:body, scope: [:redmine_issue_mailer])%></th>
+        <th><%=l(:included_attachments, scope: [:redmine_issue_mailer])%></th>
+        <th><%=t(:deliver, scope: [:redmine_issue_mailer])%></th>
+        <th></th>
+    	</tr>
+    </thead>
+    <tbody>
+      <%@list_of_letters.each do |letter|%>
+        <%undelivered_messages = letter.undelivered_messages%>
+    	  <tr <%="bgcolor='#ffcc00'" unless undelivered_messages.blank?%> >
+    	      <td><%=link_to "##{letter.issue_id}", {controller: "issues", action: "show", id: letter.issue_id}%></td>
+    	      <td>
+              <%=link_to("##{letter.journal_id}", {controller: "issues", action: "show", id: letter.issue_id, :anchor => "change-#{letter.journal_id}" })%>
+            </td>
+    	      <td><%=letter.message_id%></td>
+    	      <td><%=letter.from%></td>
+    	      <td>
+              <ul>
+                <%(letter.to || "").split(',').each do |mail|%>
+                  <li><%=h mail%></li>
+                <%end%>
+              </ul>
+            </td>
+    	      <td>
+              <ul>
+                <%(letter.bcc || "").split(',').each do |mail|%>
+                  <li><%=h mail%></li>
+                <%end%>
+              </ul>
+            </td>
+    	      <td><%=letter.subject%></td>
+    	      <td><%=link_to t(:body, scope: [:redmine_issue_mailer]), issue_sent_on_client_email_path(id: letter.id, project_id: @project.identifier)%></td>
+            <td><%=letter.attachments ? 'Да': 'Нет' %></td>
+            <td><%=letter.deliver ? t(:yes, scope: [:redmine_issue_mailer]) : t(:no, scope: [:redmine_issue_mailer])%></td>
+            <td>
+              <%unless undelivered_messages.blank?%>
+                <ul>
+                  <%undelivered_messages.each do |undelivered_message|%>
+                    <li>
+                      <%=link_to t(:undelivered_to, mail: undelivered_message.to_original_recipient, scope: [:redmine_issue_mailer]), undelivered_messages_path(project_id: @project.identifier, sent_email_id: letter.id)%>
+                    </li>
+                  <%end%>
+                </ul>
+              <%end%>
+            </td>
+    	  </tr>
+    	<%end%>
+    </tbody>
+  	
+  </table>
+</div>
+<span class="pagination"><%= pagination_links_full @list_of_letter_pages, @list_of_letters_count %></span>
+ 

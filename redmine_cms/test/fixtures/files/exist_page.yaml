@@ -1,0 +1,18 @@
+---
+name: existed_page
+title: Exist page
+content: Updated page content
+filter_id: ''
+status_id: 1
+visibility: public
+is_cached: false
+parent_name:
+layout_name: bad_layout
+parts:
+- name: existed_part
+  part_type: header
+  is_cached: true
+  content: 'updated part content'
+  description:
+  page_id: 4
+  status_id: 1

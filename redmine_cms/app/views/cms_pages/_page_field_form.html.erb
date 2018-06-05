@@ -1,0 +1,5 @@
+<tr class="page-field">
+  <td class="name"><%= f.text_field :name, :no_label => true, :size => 8, :placeholder => l(:label_cms_name) %></td>
+  <td class="content"><%= f.text_field :content, :no_label => true, :size => 8, :placeholder => l(:label_cms_field_value) %></td>
+  <td class="buttons"><%= link_to_remove_page_fields "", f, :class => "icon icon-del"  %></td>
+</tr>

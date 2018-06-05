@@ -1,0 +1,19 @@
+<%
+session[:recent_projects] ||= []
+if project
+  session[:recent_projects].delete(project.id)
+  session[:recent_projects].unshift(project.id).slice!(5)
+end
+
+if session[:recent_projects].any? && progressive_setting?(:show_recent_projects) %>
+<div class="progressive-recently-viewed-projects">
+<h3><%= l(:label_recent_projects) %></h3>
+<ul>
+	<% session[:recent_projects].each do |recent_project_id| %>
+	<% recent_project = Project.where(:id => recent_project_id).first  %>
+	<% next unless recent_project %>
+	<li><%= link_to_project recent_project, {:jump => current_menu_item} %></li>
+	<% end %>
+</ul>
+</div>
+<% end %>

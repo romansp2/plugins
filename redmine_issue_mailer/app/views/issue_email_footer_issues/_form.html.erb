@@ -1,0 +1,11 @@
+<%=form_for default_issue_footer do |f|%>
+  <%=hidden_field_tag(:issue_id, issue.id) %>
+  <table class="list">
+    <%@footers.each do |footer|%>
+  	  <tr>
+  	    <td style="vertical-align: middle" ><%=f.radio_button("issue_email_footer_id", footer.id, :checked => (default_issue_footer.issue_email_footer_id == footer.id))%></td>
+  	    <td><pre><%=h footer.footer%></pre></td>
+  	  </tr>
+  	<%end%>
+  </table>
+<%end%>

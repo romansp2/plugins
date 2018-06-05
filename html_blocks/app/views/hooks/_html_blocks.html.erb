@@ -1,0 +1,5 @@
+<% if @current_page_blocks %>
+  <% @current_page_blocks.each do |block| %>
+    <%= block.text.html_safe %>
+  <% end %>
+<% end %>

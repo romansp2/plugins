@@ -1,0 +1,10 @@
+--- 
+issues_015:
+  id: 15
+  project_id: 1
+  priority_id: 5
+  subject: Test Custom Field
+  description: Test Custom Field
+  tracker_id: 3
+  author_id: 1
+  status_id: 1

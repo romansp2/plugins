@@ -1,0 +1,39 @@
+= redmine_watcher_groups_in_more_than_one_issue
+
+Description goes here
+
+Plugin adds watcher groups in more than one issue (redmine:issue:284122)
+
+  Installing a plugin (http://www.redmine.org/projects/redmine/wiki/Plugins)
+    
+    1. Clone from git@gitlab.qazz.pw:a.kondratenko/redmine_watcher_groups_in_more_than_one_issue.git
+    
+    2. Tag v_._._ is required
+    
+    3. Copy redmine_watcher_groups_in_more_than_one_issue to plugins folder of redmine
+    
+    4. Plugin doesn't require a migration
+    
+    5. Restart app (redmine)
+    
+
+  Uninstalling a plugin (http://www.redmine.org/projects/redmine/wiki/Plugins)
+    
+    1. Remove your plugin from the plugins folder: #{RAILS_ROOT}/plugins
+    
+    2. Restart app (redmine)
+
+
+
+ Changelog
+  v0.0.1 - 05 May 2015
+    First release. redmine:issue:284122
+  v0.0.2 - 29 July 2015
+    redmine:issue:428232 Add sorted for users list. Add limit 100 users in list
+  v0.0.3 - 15 September 2015
+    redmine:issue:461889
+    Delete limit count of users in list
+
+  v0.1.0 - 27 December 2016
+    redmine:issue:875362
+    Version for redmine320

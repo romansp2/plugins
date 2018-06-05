@@ -1,0 +1,141 @@
+# English strings go here for Rails i18n
+en:
+  label_cms: CMS
+
+  label_project_tab: "Project tab"
+  label_project_tab_caption: "Project tab %{index}"
+  label_project_tab_page: "Page"
+
+  label_cms_menu: Menu
+  label_cms_menu_new: New menu
+  label_cms_menu_plural: Menus
+  label_cms_menu_name: Name
+  label_cms_menu_caption: Caption
+  label_cms_menu_type: Type
+  label_cms_menu_path: Path
+  label_cms_menu_status: Status
+  label_cms_menu_parent: Parent menu
+  label_cms_position: Position
+  label_cms_account_settings: Account settings
+
+  label_cms_page_plural: Pages
+  label_cms_page: Page
+  label_cms_page_new: New page
+  label_cms_page_summary: Summary
+  label_cms_status: Status
+  label_cms_content: Content
+  label_cms_filter: Filter
+  label_cms_page_parent: Parent page
+  label_cms_use_localization: Localization
+  label_cms_home_page: Home page
+  label_cms_landing_page: Landing page
+  label_cms_projects_page: Projects page
+  label_cms_my_page: My page
+  label_cms_is_cached: Is cached
+
+  label_cms_part_plural: Parts
+  label_cms_part: Part
+  label_cms_part_new: New part
+  label_cms_part_type: Type
+  label_cms_is_global: Is global
+  label_cms_refresh_cache: Refresh cache
+  label_cms_redmine_layout: Redmine layout
+  label_cms_seo: SEO
+  label_cms_keywords: Keywords
+  label_cms_description: Description
+
+  label_cms_layout_content: Layout content
+  label_cms_apply: Apply
+  label_cms_visibility: Visibility
+  label_cms_show_activity_tab: Show activity tab
+  label_cms_show_overview_tab: Show overview tab
+
+  label_cms_redmine_top_menu: Default top menu items
+  label_cms_copyright: Copyright info
+
+  project_module_cms: CMS
+  label_cms_custom_layout: Custom layout
+
+  label_cms_cache_expires_in: Cache expires in
+  label_cms_minute_plural: minutes
+  label_cms_edit_permissions: Edit permissions
+  label_cms_source_path: Source path
+  label_cms_destination_path: Destination path
+  label_cms_redirect_plural: Redirects
+  label_cms_redirect: Redirect
+  label_cms_redirect_new: New redirect
+  label_cms_variable_plural: Global variables
+  label_cms_variable: Global variable
+  label_cms_variable_new: New global variable
+  label_cms_variable_name: Name
+  label_cms_variable_value: Value
+  label_cms_version_cannot_destroy_current: Cannot destroy current version
+  label_cms_version_comment: Changes comment
+  field_layout: Layout
+  label_cms_layout_plural: Layouts
+  label_cms_layout: Layout
+  label_cms_slug: Slug
+  label_cms_name: Name
+  label_cms_title: Title
+  label_cms_layout_new: New layout
+  label_cms_content_type: Content‑Type
+  label_cms_no_layout: Layout not found
+  label_cms_settings: CMS general settings
+  label_cms_field_plural: Fields
+  label_cms_field_value: Field value
+  label_cms_field: Page field
+  label_cms_add_field: Add field
+  label_cms_default_fields: Default page fields
+  label_cms_snippet_new: New snippet
+  label_cms_snippet_edit: Edit snippet
+  label_cms_snippet_plural: Snippets
+  label_cms_snippet: Snippet
+  label_cms_redmine_layout_plural: Redmine action layouts
+  label_cms_redmine_action: Redmine action
+  label_cms_redmine_layout_new: New redmine action layout
+  label_cms_redmine_layout_edit: Edit redmine action layout
+  label_cms_status_locked: Locked
+  label_cms_status_active: Active
+  label_cms_asset_plural: Assets
+  label_cms_thumbnail: Thumbnail
+  label_cms_edit_assets: Edit assets
+  label_cms_default_layout: Default layout
+  label_cms_redmine_hook_plural: Redmine hooks
+  label_cms_layout_edit: Edit layout
+  label_cms_part_edit: Edit part
+  label_cms_page_edit: Edit page
+  label_cms_redirect_edit: Edit redirect
+  label_cms_part_edit_plural: Edit parts
+  label_cms_preview: Preview
+  label_cms_sub_pages: Sub pages
+  label_cms_preview_page: Preview page
+  label_cms_show_site: Show site
+  label_cms_jump_to_a_page: "Jump to a page..."
+  label_cms_section: Section
+  label_cms_page_tags: Page tags
+  label_cms_tags: Tags
+  label_cms_diff_with_current: Diff with current version
+
+  label_cms_exports_new: Export CSM object
+  label_cms_exported_object: Exported CMS object
+  label_cms_exports_attachment_content: Export attachments content
+  button_import: Import
+  label_cms_imports_new: Import CMS object
+  label_crm_import_file: Imported file
+  label_cms_import_rewrite_existed: Rewrite existed
+  label_crm_import_page_exist: Imported page already exists
+  label_crm_import_layout_exist: Imported layout already exists
+  label_crm_import_snippet_exist: Imported snippet already exists
+  label_crm_import_result: Import result
+  label_crm_import_success: Object imported successfully
+  label_crm_import_failed: Import failed
+  error_cms_parent_not_found: "Parent page with name %{parent_page} not found"
+  error_cms_layour_not_found: "Layout with name %{layout_name} not found"
+  label_cms_error_page: Error page
+
+  label_cms_export_website: Export website
+  label_cms_import_website: Import website
+  label_cms_website_exports_new: Export CMS website
+  label_cms_website_imports_new: Import CMS website
+  label_crm_import_asset_exist: Imported asset already exists
+  label_cms_page_date: Date

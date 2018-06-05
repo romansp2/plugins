@@ -1,0 +1,90 @@
+# Spanish strings go here for Rails i18n
+es:
+  label_finance: Finanza
+  label_finance_plural: Finanzas
+  label_finance_thousands_delimiter: Delimitador de miles
+  label_finance_decimal_separator: Separador decimal
+  label_finance_default_currency: Moneda por defecto
+  project_module_finance: Finanza
+
+  label_account: Cuenta
+  label_account_plural: Cuentas
+  label_account_debit: Debito
+  label_account_credit: Credito
+  label_account_new: Nueva cuenta
+  label_account_edit: Editar cuenta
+  label_account_balance: Balance
+  label_account_currency: Moneda
+
+  field_account: Cuenta
+  field_account_currency: Moneda
+
+  label_operation: Operación
+  label_operation_plural: Operaciones
+  label_operation_edit: Editar operación
+  label_operation_new: Nueva operación
+  label_operation_date: Fecha
+  label_operation_income: Ingreso
+  label_operation_expense: Egreso
+  label_operation_category: Categoría
+  label_operation_amount: Monto
+
+  field_operation_category: Categoría
+  field_operation_date: Fecha de la operación
+  field_operation_amount: Monto
+
+  label_operation_category_plural: Categorías de operaciones
+  label_operation_category_new: Nueva categoría de operación
+  label_operation_category_is_income: Es un ingreso
+
+  label_finance_show_in_top_menu: Mostrar en el menu superior
+  label_finance_show_in_app_menu: Mostrar en el menu de la app
+
+  permission_view_finances: Ver finanzas
+  permission_edit_operations: Editar operaciones
+  permission_edit_own_operations: Editar operaciones propias
+  permission_delete_operations: Eliminar operaciones
+  permission_comment_operations: Comentar operaciones
+  permission_import_operations: Importar operaciones
+  permission_edit_accounts: Editar cuentas
+  permission_delete_accounts: Eliminar cuentas
+  permission_manage_operation_invoices: Administrar comprobantes de operaciones
+  permission_manage_operation_relations: Administrar relaciones de operaciones
+
+  label_related_operations: Operaciones relacionadas
+  text_account_updated: "La cuenta %{name} fue actualizada por %{author}."
+  text_account_amount_changed: "El monto cambió de %{old} a %{new}"
+  label_finance_account_updated: Cuenta de finanzas actualizada
+  label_finance_total: Total
+
+  #1.0.3
+  permission_delete_operation_comments: Eliminar comentarios
+
+  #1.0.4
+  label_finance_cross_project_contacts: Permitir relaciones de contacto entre proyectos
+  label_finance_filter_companies: Filtrar companias
+
+  #1.0.7
+  label_finance_operation_comment_added: Comentario agregado a una operación financiera
+
+  #1.0.8
+  label_finance_can_not_delete_account: "Esta cuenta contiene operaciones y no puede ser eliminada."
+  label_finance_can_not_delete_category: "Esta categoría de operación esta en uso y no puede ser eliminada"
+
+  #1.2.0
+  permission_add_operations: Agregar operaciones
+  label_finance_is_approved: Está aprobada
+  label_finance_operations_approval: Aprobar operaciones
+  label_finance_disapproved: Desaprobada
+  permission_approve_operations: Aprobar operaciones
+  label_finance_disapproved_income: Desaprobar ingreso
+  label_finance_disapproved_expense: Desaprobar egreso
+  label_operation_type: Tipo de operación
+  label_finance_approve: Aprobar
+  label_finance_disapprove: Desaprobar
+
+  #1.2.1
+  permission_manage_public_operations_queries: Administrar consultas públicas
+  permission_save_operations_queries: Guardar consultas
+  text_finance_planned_operation_changed: Las operaciones planeadas cambiaron
+  text_finance_account_amount_has_not_changed: Monto de la cuenta no ha cambiado

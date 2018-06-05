@@ -1,0 +1,95 @@
+<%unless @footers.blank?%>
+	list_footers_dialog = $("<div id='dialog_list_email_footers'></div>").html("<%=j render partial: 'list_email_footers', locals: {issue: @issue, footers: @footers, default_footer: @default_footer}%>");
+
+	
+	list_footers_dialog.dialog({
+	  autoOpen: false,
+	  height: 500,
+	  width: "100%",
+	  "position": "left",
+	  modal: true,
+	  buttons: {
+	    "<%=l(:close_dialog_window, scope: [:redmine_issue_mailer])%>": function() {
+	      list_footers_dialog.dialog( "close" );	
+	    }
+	  },
+	  close: function() {
+	  	$(this).dialog("close");    
+	  }
+	});
+
+<%end%>
+
+$("fieldset#send_letter").remove();
+
+form_fieldset = $("<%=j( render partial: 'form' )%>");
+
+$("fieldset textarea#issue_notes").parent().before(form_fieldset);
+
+select_to          = form_fieldset.find("select#send_letter_permission_for_to");
+input_to_field     = form_fieldset.find("input#send_letter_to");
+input_bcc_field    = form_fieldset.find("input#send_letter_bcc");
+select_email_books_to = form_fieldset.find("select#send_letter_email_books_to_");
+//select_email_books = $("<%=j select_tag( 'email_books', options_from_collection_for_select( @email_books, 'id', 'email') )%>");
+
+select_to.change(function() {
+  var selected = $(this).val()
+  
+  switch(selected){
+  	case "": 
+  	  input_to_field.val("");
+  	  input_to_field.get(0).type = "text";
+  	  input_to_field.attr("disabled", true);
+
+  	  input_bcc_field.val("");
+  	  input_bcc_field.get(0).type = "text";
+  	  input_bcc_field.attr("disabled", true);
+
+      select_email_books_to.css("display", "none")
+
+  	  alert("Pleas Select option for entering the recipient");
+  	  break
+  	case "1":
+  	  input_to_field.get(0).type = "text";
+  	  input_to_field.val("Recipient is client")
+  	  input_to_field.attr("disabled", true);
+
+  	  input_bcc_field.get(0).type = "text";
+  	  input_bcc_field.val("");
+  	  input_bcc_field.attr("disabled", true);
+
+      select_email_books_to.removeAttr("required")
+      select_email_books_to.css("display", "none")
+  	  break
+  	case "2":
+  	  input_to_field.get(0).type = "text";
+  	  input_to_field.val("")
+  	  input_to_field.attr("disabled", true);
+  	  
+  	  input_bcc_field.get(0).type = "text";
+  	  input_bcc_field.val("");
+  	  input_bcc_field.attr("disabled", true);
+      
+
+      select_email_books_to.attr("required", true)
+      select_email_books_to.css("display", "inline")
+  	  break
+  	case "3":
+  	  input_to_field.val("");
+  	  input_to_field.removeAttr("disabled");
+  	  input_to_field.get(0).type = "email";
+
+  	  input_bcc_field.val("");
+  	  input_bcc_field.removeAttr("disabled");
+  	  input_bcc_field.get(0).type = "email"
+
+      select_email_books_to.removeAttr("required")
+      select_email_books_to.css("display", "none")
+  	  break
+  	default:
+  	  alert("Pleas Select option for entering the recipient")
+  }
+})
+
+showAndScrollTo("update", "issue_notes")
+

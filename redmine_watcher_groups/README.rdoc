@@ -1,0 +1,51 @@
+= Redmine Watcher Groups
+
+Plugin for Redmine that adds functionality to have Watcher Groups in additioan to Watchers.
+
+Adds new list in the showed Issue sidebar which lists added Watcher Groups and allows to add/remove groups to that list.
+
+All notifications to invovled in a issue users (watchers + involved) are sent also to the current members of all added groups.
+
+  Установка
+
+    1. Клонировать плагин из репозитория. (Необходим коммит с меткой v_._._).  git@gitlab.qazz.pw:a.kondratenko/redmine_watcher_groups.git
+
+    2. Копировать папку redmine_watcher_groups в папку plugins приложения (redmine).
+  
+    3. Запускать миграции не надо. 
+                 
+    4.  Перезапустить сервер
+
+Changelog
+  v0.0.1 - 11. Jun 2015
+    redmine:issue:369954
+    add visible issue for watcher groups
+  v0.0.2 - 25 Jun 2015
+    Fix bug for visible?  users that not in groups can saw issue
+  v0.0.3 - 24 July 2015
+    Fix bug. Add check if user is not in groups
+  v0.0.4 - 21 August 2015
+    redmine:issue:450372
+    Changes for performance
+    Chaged request to DB
+    Replaced method def visible_condition for issue for performance
+    performance
+  v0.0.5 - 03 September 2015
+    fix bug in visible_condition method
+  v0.0.6 - 08 September 2015
+    Delete alias_method_chain for visible condition
+    Added alias_method for visible_condition
+    (redmine:issue:473058:comment:1) 
+  v0.0.7 - 15 December 2015
+    redmine:issue:548182
+    Изменения затрагивают запрос к БД для формирования задач видимых для пользователя из группы добавленной как наблюдатель в задачу 
+  
+  v0.0.8 - 08 November 2016
+    redmine:issue:819060
+    redmine:issue:816606
+    fix bug
+    method was moved into another plugin (redmine:issue:819068)
+
+  v0.1.0 - 27 December 2016
+    redmine:issue:856218
+    Version for redmine320

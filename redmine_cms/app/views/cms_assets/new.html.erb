@@ -1,0 +1,11 @@
+<% html_title(l(:label_attachment_new)) -%>
+<h2><%=l(:label_attachment_new)%></h2>
+
+<%= error_messages_for 'attachment' %>
+<%= form_tag(cms_assets_path, :multipart => true, :class => "tabular") do %>
+<div class="box">
+
+<p><label><%=l(:label_attachment_plural)%></label><%= render :partial => 'attachments/form' %></p>
+</div>
+<%= submit_tag l(:button_add) %>
+<% end %>

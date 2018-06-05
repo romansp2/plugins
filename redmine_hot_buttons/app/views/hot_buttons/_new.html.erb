@@ -1,0 +1,24 @@
+<%=form_tag({:controller => "hot_buttons", :action => "create"}, :method => "post", :id => "hot-buttons-form") do %>
+  <%if request.xhr?%>
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" form="hot-buttons-form"/>
+  <%end%>
+  <%if !project.nil? %>
+    <input name="project_id" type="hidden" value="<%= project.identifier %>" form="hot-buttons-form"/>
+  <%end%>
+  <tr>
+    <%=render partial: 'attributes', locals: { issue:                  issue, 
+                                               roles:                  roles, 
+                                               role:                   role,
+                                               trackers:               trackers,
+                                               for_tracker_id:         for_tracker_id,
+                                               disabled_core_fields:   disabled_core_fields,
+                                               allowed_statuses:       allowed_statuses,
+                                               priorities:             priorities,
+                                               custom_fields_split:    custom_fields_split,
+                                               custom_fields_split_selected: custom_fields_split_selected,
+                                               identification_of_form: "hot-buttons-form" }%>
+  </tr>
+  <tr>
+    <td style="border: 0;"> <%=submit_tag l(:button_create, scope: [:hot_buttons]), :form => "hot-buttons-form"%> </td>
+  </tr>
+<%end%>

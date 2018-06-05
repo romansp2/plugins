@@ -1,0 +1,3 @@
+$('#ajax-modal').html("<%= escape_javascript(render :partial => 'context_menu_watcher_groups/new', :locals => {:issues => @issues, :watcher_groups => @watcher_groups}) %>");
+showModal('ajax-modal', '400px');
+$('#ajax-modal').addClass('new-watcher-group');

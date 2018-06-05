@@ -1,0 +1,23 @@
+<%= error_messages_for 'cms_snippet' %>
+
+<div class="box tabular">
+
+  <p><%= f.text_field :name, :size => 30, :required => true, :label => l(:label_cms_name)  %></p>
+  <p><%= f.text_field :description, :size => "100%", :label => l(:label_cms_description)  %></p>
+  <p><%= f.select :filter_id, filter_options_for_select(@cms_snippet.filter_id), {:label => l(:label_cms_filter)}, {:id => "text_filter_select", :onchange => "editor.setOption('mode', $('option:selected', this).data('mode'));return false;"} %></p>
+
+
+<p id="attachments_form"><label><%= l(:label_attachment_plural) %></label><%= render :partial => 'attachments/form', :locals => {:container => @cms_snippet} %></p>
+
+<%= text_area_tag 'cms_snippet[content]', @cms_snippet.content, :cols => 100, :rows =>  30, :class => 'wiki-edit' %>
+
+<%= javascript_tag "editor = activateCodeMirror('cms_snippet_content', '#{@cms_snippet.filter.class.mine_type}');" %>
+<%= javascript_tag "$('.contextual.page-edit').draggable();" %>
+
+</div>
+
+
+<% content_for :header_tags do %>
+  <%= code_mirror_tags %>
+  <%= javascript_include_tag 'redmine_cms', :plugin => 'redmine_cms'  %>
+<% end %>

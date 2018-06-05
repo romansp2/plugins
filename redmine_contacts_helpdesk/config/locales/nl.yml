@@ -1,0 +1,145 @@
+# English strings go here for Rails i18n
+nl:
+  label_helpdesk: Helpdesk
+  label_helpdesk_auto_answer_template: Sjabloon voor automatisch bericht
+  text_helpdesk_answer_macros: Beschikbare macros %{macro}
+  label_is_send_mail: Verzenden naar contact
+  label_send_auto_answer: Verzend automatisch antwoord
+  label_received_from: Ontvangen van
+  label_sent_to: Verzonden naar
+  project_module_contacts_helpdesk: Helpdesk
+  permission_send_response: Zend antwoord naar contact
+  permission_edit_helpdesk_settings: Bewerk hepldesk eigenschappen
+  label_not_create_contacts: Toegelaten contacten
+  field_created_contact_tags: Tags toevoegen na creatie
+  label_helpdesk_save_as_attachment: Bewaar de emails als bijlagen
+
+#1.0.2
+  label_helpdesk_assign_author: Zet auteur op basis van contact
+
+#1.0.3
+  label_helpdesk_answered_status: Status voor een beantwoord ticket
+  label_helpdesk_reopen_status: Status bij reactie van klant
+  label_helpdesk_tracker: Tracker
+  label_helpdesk_assigned_to: Ticket toekennen aan
+  label_helpdesk_lifetime: Levensduur van een ticket
+  label_helpdesk_server_settings: Eigenschappen van de mail server
+  label_helpdesk_protocol: Protocol
+  label_helpdesk_host: Server
+  label_helpdesk_port: Poort
+  label_helpdesk_username: Gebruiker
+  label_helpdesk_password: Wachtwoord
+  label_helpdesk_ssl: SSL
+  label_helpdesk_imap_folder: IMAP folder
+  label_helpdesk_move_on_success: Indien gelukt, verplaatsen naar
+  label_helpdesk_move_on_failure: Indien mislukt, verplaatsen naar
+  label_helpdesk_apop: APOP
+  label_helpdesk_delete_unprocessed: Verwijder niet verwerkte boodschappen
+  label_helpdesk_first_answer_template: Sjlaboon
+  label_helpdesk_test_connection: Test connectie
+  label_helpdesk_get_mail: Mails ophalen
+  label_helpdesk_get_mail_success: "%{count} email(s) verwerkt"
+  label_helpdesk_css: Email stylesheet (CSS)
+  label_helpdesk_original: Origineel
+
+#1.0.4
+  label_helpdesk_blacklist: Zwarte lijst van email adressen
+  label_helpdesk_previous_issues: Voorgaande tickets van het contact
+  permission_view_helpdesk_tickets: De helpdesk tickets bekijken
+  label_helpdesk_last_message: Voorgaande boodschap
+  label_helpdesk_enable_modules: De module contacten en issues moet geactiveerd zijn voor dit project
+  label_helpdesk_customer_profile: Profiel van het contact
+  label_helpdesk_show_contact_card: Profielen van de contacten tonen
+
+#2.0.0
+  label_helpdesk_send_note_by_default: De nota altijd verzenden
+  label_helpdesk_ticket_attributes: Ticket eigenschappen
+  label_helpdesk_to_address: Geadresseerde
+  label_helpdesk_from_address: Verzender
+  label_helpdesk_ticket_date: Datum van ticket
+  label_helpdesk_customer: Klant
+  label_helpdesk_from: Van
+  label_helpdesk_cc: Cc
+  label_helpdesk_bcc: Bcc
+  label_helpdesk_ticket_plural: Helpdesk tickets
+  label_helpdesk_template: Helpdesk sjabloon
+  label_helpdesk_general: Algemeen
+  permission_edit_helpdesk_tickets: Ticket info bewerken
+
+#2.1.0
+  label_helpdesk_ticket: Helpdesk ticket
+  label_helpdesk_spam: Spam
+  label_helpdesk_add_cc: Cc/Bcc toevoegen
+  label_helpdesk_add_contact_notes: Voeg eerste email aan nota's van de klant
+  text_helpdesk_customer_count: "%{count} klant(en)"
+  text_helpdesk_ticket_count: "%{count} ticket(s)"
+  label_helpdesk_tickets_report: Rapport van tickets
+  label_helpdesk_staff_report: Rapport van medewerkers
+  label_helpdesk_tickets_email: Email
+  label_helpdesk_tickets_phone: Telefoon
+  label_helpdesk_tickets_web: Website
+  label_helpdesk_tickets_twitter: Twitter
+  label_helpdesk_ticket_source: Ticket bron
+  label_helpdesk_ticket_time: Tijdstip van het ticket
+  label_helpdesk_save_cc: Bewaar CC als contacten
+  permission_view_helpdesk_reports: Bekijk rapporten
+
+#2.1.2
+  label_helpdesk_answer_template: Antwoord sjabloon
+
+#2.1.3
+  label_helpdesk_previous_tickets: Voorgaande tickets
+  label_helpdesk_public_tickets: Activeer publieke tickets
+  label_helpdesk_public_title: Titel van de publieke pagina
+  label_helpdesk_settings_public: Publieke tickets
+  label_helpdesk_public_comments: Het toevoegen van commentaar toelaten
+  label_helpdesk_public_show_spent_time: Toon gespendeerde tijd
+  label_helpdesk_public_link: Publieke link
+
+#2.1.4
+  label_helpdesk_ticket_new: Nieuw ticket
+  label_helpdesk_report_plural: Helpdesk rapporten
+
+#2.2.0
+  label_helpdesk_customer_company: Klant bedrijf
+  label_helpdesk_canned_response_plural: Standaard antwoorden
+  label_helpdesk_new_canned_response: Nieuw standaard antwoord
+  label_helpdesk_canned_response: Standaard antwoord
+  permission_manage_public_canned_responses: Beheer publieke standaard antwoorden
+  permission_manage_canned_responses: Beheer standaard antwoorden
+
+#2.2.1
+  my_helpdesk_tickets: Mijn helpdesk tickets
+  label_helpdesk_view_all_tickets: Bekijk alle tickets
+
+#2.2.3
+  label_helpdesk_tickets_conversation: Conversatie
+
+#2.2.4
+  label_helpdesk_required_custom_fields_error: Contacten zouden geen verplichte niet-standaard eigenschappen hebben
+
+#2.2.6
+  label_helpdesk_last_message_date: Ticket aangepast op
+  label_helpdesk_ago: "%{value} geleden"
+
+#2.2.8
+  label_helpdesk_to: Naar
+  label_helpdesk_send_as: Verzend als
+  label_helpdesk_not_send: "(Niet verzonden)"
+  label_helpdesk_send_as_notification: Verzonden als notificatie
+  label_helpdesk_send_as_message: Verzonden als eerste boodschap
+
+#2.2.9
+  label_helpdesk_incoming_mail_server: Binnenkomende mail server
+  label_helpdesk_outgoing_mail_server: Uitgaande mail server
+  label_helpdesk_smtp_use_default_settings: Gebruik standaard eigenschappen
+  label_helpdesk_smtp_server: SMTP server
+  label_helpdesk_smtp_tls: TLS
+  label_helpdesk_authentication: Authenticatie methode
+  label_helpdesk_authentication_plain: Plain
+  label_helpdesk_authentication_login: Login
+  label_helpdesk_authentication_cram_md5: MD5 Challenge-Response
+  label_helpdesk_smtp_domain: Domein
+
+ #2.2.10
+  label_helpdesk_email_sending_problems: Een fout is opgetreden tijdens het verzenden van een email

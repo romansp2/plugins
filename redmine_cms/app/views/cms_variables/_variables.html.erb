@@ -1,0 +1,20 @@
+<div class="autoscroll">
+<table class="list">
+  <thead><tr>
+    <th><%= l(:label_cms_variable_name) %></th>
+    <th><%= l(:label_cms_variable_value) %></th>
+    <th></th>
+  </tr></thead>
+  <tbody>
+<% @cms_variables.each do |var| -%>
+  <tr class="page project <%= cycle("odd", "even") %>">
+  <td class="name"><span><%= link_to h(var.name), edit_cms_variable_path(var) %></span></td>
+  <td class="name"><%= var.value %></td>
+    <td class="buttons">
+      <%= delete_link cms_variable_path(var, :back_url => cms_variables_path) %>
+    </td>
+  </tr>
+<% end -%>
+  </tbody>
+</table>
+</div>

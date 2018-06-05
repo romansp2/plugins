@@ -1,0 +1,18 @@
+<table>
+  <tbody>
+    <th colspan="2">MAILER-DAEMON</th>
+    <tr>
+      <th></th>
+      <td style="width: 100%">
+        <%=email_field_tag 'settings[mailer_daemon]', settings["mailer_daemon"], style: "width: 100%", :multiple => true %>
+      </td>
+    </tr> 
+    <th colspan="2">Filters Regexp scan (Example:  'corp.mail.ru=>/(.*@.*), mail.mouse.qazz.pw=>/<(.*@.*)>')</th>
+    <tr>
+      <th></th>
+      <td style="width: 100%">
+        <%=text_field_tag 'settings[regexp_scan]', settings["regexp_scan"], style: "width: 100%" %>
+      </td>
+    </tr> 
+  </tbody>
+</table>

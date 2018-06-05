@@ -1,0 +1,8 @@
+<%=form_tag({controller: :change_author_of_issue, action: :update, project_id: @project.identifier, id: @issue.id}, {method: :put, id: "change_author_of_issue", :confirm => 'Are you sure that you want change Author of Issue'}) do%>
+        
+        <%=select_tag :author_id, principals_options_for_select(authors, @issue.author), {label: "Change Author", include_blank: false}%>
+        <p class="buttons">
+          <%=submit_tag l(:button_change_author_of_issue), :confirm => 'Are you sure that you want change Author of Issue'%>
+          <%=submit_tag l(:button_cancel), :name => nil, :onclick => "$('#ajax-modal').dialog('close');", :type => 'button' %>
+        </p>
+<%end%>

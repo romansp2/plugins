@@ -1,0 +1,7 @@
+<h2><%=l(:label_cms_redmine_layout_new)%></h2>
+
+<%= labelled_form_for :cms_redmine_layout, @cms_redmine_layout, :url => { :action => 'create'},
+  :html => { :id => 'cms_redmine_layout-form', :method => :post } do |f| %>
+<%= render :partial => 'form', :locals => { :f => f } %>
+<%= submit_tag l(:button_create) %>
+<% end %>

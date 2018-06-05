@@ -1,0 +1,7 @@
+<%= page_breadcrumb(@page) unless @project %>
+
+<%= @page.process(self) %>
+
+<%= render 'cms_pages/context_menu' %>
+
+<% html_title(@page.title) -%>

@@ -1,0 +1,14 @@
+<% groups.each do |group| %>
+  <li id="group_<%=group.id%>">
+    <%=hidden_field_tag 'groups_issue[group_ids][]', group.id%>
+    <%= "#{group.lastname} "%>
+    <%= link_to(image_tag('delete.png'), group_issue_path(project_id: project.identifier, 
+                                                                  groups_issue: {group_ids: group_ids },
+                                                                  id: group.id), 
+                                                                  remote: true, 
+                                                                  method: :delete, 
+                                                                  confirm: l(:text_are_you_sure), 
+                                                                  :class  => "delete", 
+                                                                  title: l(:button_delete) ) %>
+  </li>
+<%end%>

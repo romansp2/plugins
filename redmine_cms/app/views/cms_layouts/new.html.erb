@@ -1,0 +1,9 @@
+<h2><%= link_to l(:label_cms_layout_plural), cms_layouts_path %> &#187; <%=l(:label_cms_layout_new)%></h2>
+
+<%= labelled_form_for :cms_layout, @cms_layout, :url => { :action => 'create', :project_id => @project },
+  :html => { :id => 'layout-form', :multipart => true }  do |f| %>
+<%= render :partial => 'form', :locals => { :f => f } %>
+<%= submit_tag l(:button_create) %>
+<% end %>
+
+<% html_title(l(:label_cms_layout_new)) -%>

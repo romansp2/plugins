@@ -1,0 +1,37 @@
+<%if issue.new_record? and User.current.allowed_to?(:edit_contacts, project)%>  
+    <div id="issue_contacts" style="padding-left: 180px;">
+      <style type="text/css">
+        #issue_contacts ul {margin: 0;  padding: 0;}
+        #issue_contacts li {list-style-type:none; margin: 0px 2px 0px 0px; padding: 0px 0px 0px 0px;}
+        #issue_contacts select {width: 95%; display: block;}
+        #issue_contacts a.delete {opacity: 0.4;}
+        #issue_contacts a.delete:hover {opacity: 1;}
+        #issue_contacts img.gravatar {vertical-align: middle; margin: 0 4px 2px 0;}
+      </style>
+
+      <div class="contextual"></div>
+      
+      <%=label_tag l(:label_contact_plural) %>
+      <div id="link_add_contacts" style="display: inline-block;">
+        <%=link_to l(:ccwi_add_contact), new_ccwi_contacts_issue_path(project_id: @project.identifier, contacts_issue: {contact_ids: contacts_ids}), remote: true%>
+      </div>
+      <ul>
+        <% contacts.each do |contact| %>
+          <li id="contact_<%=contact.id%>">
+            <%=hidden_field_tag 'contacts_issue[contact_ids][]', contact.id%>
+            <%= contact_tag(contact) %>
+            <%= "(#{contact.job_title}) " unless contact.job_title.blank? %>
+            <%= link_to(image_tag('delete.png'), ccwi_contacts_issue_path(project_id: project.identifier, 
+                                                                          contacts_issue: {contact_ids: contacts_ids },
+                                                                          id: contact.id), 
+                                                                          remote: true, 
+                                                                          method: :delete, 
+                                                                          confirm: l(:text_are_you_sure), 
+                                                                          :class  => "delete", 
+                                                                          title: l(:button_delete) ) %>
+          </li>
+        <%end%>
+      </ul>
+    </div>
+    <div id="dialog_add_contacts" style="dispay: none;"></div>
+<%end%>

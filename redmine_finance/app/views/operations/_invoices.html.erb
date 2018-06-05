@@ -1,0 +1,37 @@
+<div class="contextual">
+<% if User.current.allowed_to?(:manage_operation_invoices, @project) %>
+  <%= toggle_link l(:button_add), 'new-operation-invoice-form', {:focus => 'relation_object_invoice_id'} %>
+<% end %>
+</div>
+
+<p><strong><%=l(:label_invoice_plural)%></strong></p>
+
+<% for invoice in @invoices %>
+<p><%= link_to "##{invoice.number} - #{format_date(invoice.invoice_date)}", invoice_path(invoice), :class => 'icon icon-invoice' -%>
+        <%= link_to image_tag('page_white_acrobat_context.png', :plugin => "redmine_contacts_invoices"), invoice_path(invoice, :format => 'pdf') %>
+  <span class="amount"><strong><%=  invoice.amount_to_s %></strong></span>
+  <%= " - #{invoice.subject}" unless invoice.subject.blank? %>
+  <% if invoice.contact %>
+    <span class="contact">(<%= invoice.contact.name %>)</span>
+  <% end %>
+
+    <%= link_to image_tag('link_break.png'), {:controller => 'operation_invoices',
+                                          :action => 'destroy',
+                                          :id => invoice.id,
+                                          :object_id => invoice.id,
+                                          :operation_id => @operation},
+                                :remote => true,
+                                :method => :delete,
+                                :data => {:confirm => l(:text_are_you_sure)},
+                                :title => l(:label_relation_delete) if User.current.allowed_to?(:manage_operation_invoices, @project) %>
+  </p>
+<% end %>
+
+<%= form_for @operation_object, {
+                 :as => :operation_object, :remote => true,
+                 :url => {:controller => 'operation_invoices', :action => 'create', :operation_id => @operation},
+                 :method => :post,
+                 :html => {:id => 'new-operation-invoice-form', :style => 'display: none;'}
+               } do |f| %>
+<%= render :partial => 'operation_invoices/form', :locals => {:f => f}%>
+<% end %>

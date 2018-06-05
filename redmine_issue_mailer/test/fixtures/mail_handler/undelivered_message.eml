@@ -1,0 +1,146 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: menager1@somenet.foo
+Received: by mail.mouse.qazz.pw (Postfix)
+	id 8886A22BF1B; Fri, 11 Mar 2016 07:21:11 +0100 (CET)
+Date: Fri, 11 Mar 2016 07:21:11 +0100 (CET)
+From: MAILER-DAEMON@mail.mouse.qazz.pw (Mail Delivery System)
+Subject: Undelivered Mail Returned to Sender
+To: menager1@somenet.foo
+Auto-Submitted: auto-replied
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="6D5A422B633.1457677271/mail.mouse.qazz.pw"
+Message-Id: <20160311062111.8886A22BF1B@mail.mouse.qazz.pw>
+
+This is a MIME-encapsulated message.
+
+--6D5A422B633.1457677271/mail.mouse.qazz.pw
+Content-Description: Notification
+Content-Type: text/plain; charset=us-ascii
+
+This is the mail system at host mail.mouse.qazz.pw.
+
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients. It's attached below.
+
+For further assistance, please send mail to postmaster.
+
+If you do so, please include this problem report. You can
+delete your own text from the attached returned message.
+
+                   The mail system
+
+<alekseykond1sddgfhhsduujn@gmail.com>: host
+    gmail-smtp-in.l.google.com[74.125.133.27] said: 550-5.1.1 The email account
+    that you tried to reach does not exist. Please try 550-5.1.1
+    double-checking the recipient's email address for typos or 550-5.1.1
+    unnecessary spaces. Learn more at 550 5.1.1
+    https://support.google.com/mail/answer/6596 c2si9169509wjb.214 - gsmtp (in
+    reply to RCPT TO command)
+
+<alekseykond2sddgfhhsduujn@gmail.com>: host
+    gmail-smtp-in.l.google.com[74.125.133.27] said: 550-5.1.1 The email account
+    that you tried to reach does not exist. Please try 550-5.1.1
+    double-checking the recipient's email address for typos or 550-5.1.1
+    unnecessary spaces. Learn more at 550 5.1.1
+    https://support.google.com/mail/answer/6596 c2si9169509wjb.214 - gsmtp (in
+    reply to RCPT TO command)
+
+<alekseykond3sddgfhhsduujn@gmail.com>: host
+    gmail-smtp-in.l.google.com[74.125.133.27] said: 550-5.1.1 The email account
+    that you tried to reach does not exist. Please try 550-5.1.1
+    double-checking the recipient's email address for typos or 550-5.1.1
+    unnecessary spaces. Learn more at 550 5.1.1
+    https://support.google.com/mail/answer/6596 c2si9169509wjb.214 - gsmtp (in
+    reply to RCPT TO command)
+
+--6D5A422B633.1457677271/mail.mouse.qazz.pw
+Content-Description: Delivery report
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; mail.mouse.qazz.pw
+X-Postfix-Queue-ID: 6D5A422B633
+X-Postfix-Sender: rfc822; menager1@somenet.foo
+Arrival-Date: Fri, 11 Mar 2016 07:21:10 +0100 (CET)
+
+Final-Recipient: rfc822; alekseykond1sddgfhhsduujn@gmail.com
+Original-Recipient: rfc822;alekseykond1sddgfhhsduujn@gmail.com
+Action: failed
+Status: 5.1.1
+Remote-MTA: dns; gmail-smtp-in.l.google.com
+Diagnostic-Code: smtp; 550-5.1.1 The email account that you tried to reach does
+    not exist. Please try 550-5.1.1 double-checking the recipient's email
+    address for typos or 550-5.1.1 unnecessary spaces. Learn more at 550 5.1.1
+    https://support.google.com/mail/answer/6596 c2si9169509wjb.214 - gsmtp
+
+Final-Recipient: rfc822; alekseykond2sddgfhhsduujn@gmail.com
+Original-Recipient: rfc822;alekseykond2sddgfhhsduujn@gmail.com
+Action: failed
+Status: 5.1.1
+Remote-MTA: dns; gmail-smtp-in.l.google.com
+Diagnostic-Code: smtp; 550-5.1.1 The email account that you tried to reach does
+    not exist. Please try 550-5.1.1 double-checking the recipient's email
+    address for typos or 550-5.1.1 unnecessary spaces. Learn more at 550 5.1.1
+    https://support.google.com/mail/answer/6596 c2si9169509wjb.214 - gsmtp
+
+Final-Recipient: rfc822; alekseykond3sddgfhhsduujn@gmail.com
+Original-Recipient: rfc822;alekseykond3sddgfhhsduujn@gmail.com
+Action: failed
+Status: 5.1.1
+Remote-MTA: dns; gmail-smtp-in.l.google.com
+Diagnostic-Code: smtp; 550-5.1.1 The email account that you tried to reach does
+    not exist. Please try 550-5.1.1 double-checking the recipient's email
+    address for typos or 550-5.1.1 unnecessary spaces. Learn more at 550 5.1.1
+    https://support.google.com/mail/answer/6596 c2si9169509wjb.214 - gsmtp
+
+--6D5A422B633.1457677271/mail.mouse.qazz.pw
+Content-Description: Undelivered Message
+Content-Type: message/rfc822
+
+Return-Path: <menager1@somenet.foo>
+Received: from mail.smileexpo.ru (localhost.localdomain [127.0.0.1])
+	by mail.mouse.qazz.pw (Postfix) with ESMTPA id 6D5A422B633;
+	Fri, 11 Mar 2016 07:21:10 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.9.2 mail.mouse.qazz.pw 6D5A422B633
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=smileexpo.ru;
+	s=smileexpo.ru; t=1457677270;
+	bh=jQakeZ1Vz0PEzg05NpB74+B2RF66cLc5ZrOX1OmT6EY=;
+	h=Date:From:To:Subject;
+	b=szcShCMwprZhIBup/do1NPWwoaM3qHyosv0j8UfzqmOaSl2wICv9aPSCeXLzg+B23
+	 saSyFSJsqPoKbnx5yHHoI8zx74RA9dP+2SKmGpfaHZNQO62/L7qSaLVlM42OT6PJwO
+	 Hdn2uPW1VDdZUZqa0Nc4rBGPbPOB/QlMgLx3tA2I=
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="=_06145e35f14bb8853a7b480397575146"
+Date: Fri, 11 Mar 2016 08:21:10 +0200
+From: menager1@somenet.foo
+To: alekseykond1@gmail.com, alekseykond1sddgfhhsduujn@gmail.com,
+ alekseykond2sddgfhhsduujn@gmail.com, alekseykond3sddgfhhsduujn@gmail.com
+Subject: vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+Message-ID: <redmine.c676a0c2087bbcf8e4aa8c96575cb9cb@smileexpo.ru>
+X-Sender: menager1@somenet.foo
+User-Agent: Roundcube Webmail/1.1.4
+X-Virus-Scanned: clamav-milter 0.98.7 at mouse-ovh
+X-Virus-Status: Clean
+
+--=_06145e35f14bb8853a7b480397575146
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+
+  
+--=_06145e35f14bb8853a7b480397575146
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=UTF-8
+
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3DUTF-8" /></head><body style=3D'font-size: 10pt; font-family: Verdana,Gen=
+eva,sans-serif'>
+<p>vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv</p>
+<div>&nbsp;</div>
+</body></html>
+
+--=_06145e35f14bb8853a7b480397575146--
+
+--6D5A422B633.1457677271/mail.mouse.qazz.pw--

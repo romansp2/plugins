@@ -1,0 +1,151 @@
+# English strings go here for Rails i18n
+en:
+  # my_label: "My label"
+  label_issue_mail_settings: Issue-Mail
+  project_module_issue_mailer: Issue-Mail
+  permission_issue_mail_server_settings: Settings of Mailer
+  permission_issue_mail_settings: Issue-Mailer
+  permission_write_letter_to_clients: Write Letter
+  permission_issue_sent_on_client_emails: List of leters sent from project
+  permission_see_information_about_letter_from_issue: Review from issue sent letter
+  permission_issue_email_from_clients: Review list of received letters from clients
+  permission_show_email_from_client_from_issue: Review received letter from client from issue
+  permission_issue_mailer_standard_fields: Settings standard fields of issue
+  permission_issue_mailer_custom_fields: Settings custom fields of issue
+
+  permission_write_letter_to_client: Write Letter to Client
+  permission_write_letter_to_email_from_book_of_e_mail_address: Write Letter to email from book of e-mail address
+  permission_write_letter_without_restriction: Write letter without restriction
+  permission_issue_email_footers: Issue email footers
+  permission_issue_email_footer_issues: Edit default footer in issue
+
+  helpers:
+    submit:
+      issue_mail_server_setting:
+        create: Create
+        update: Update
+      issue_mailer_standard_field:
+        create: Create Standard Fields
+        update: Update Create Standard Fields
+      issue_email_footer:
+        create: Create
+        update: Update
+      issue_email_footer_issue:
+        create: Set
+        update: Set
+      email_book:
+        create: Add Email
+        update: Update Email
+    label:
+      issue_mail_server_setting:
+        protocol: Protocol
+      email_book:
+        name: Name
+        email: Email
+  
+  activerecord:
+    errors:
+      models:
+        issue_sent_on_client_email:
+          attributes:
+            to:
+              blank: To can't be blank
+            from:
+              blank: From can't be blank
+        email_book:
+          attributes:
+            project_id: 
+              blank: Add relationship with project
+            name: 
+              blank: Fill out Name Field 
+              taken: Name exists in project
+            email: 
+              blank: Fill out Email Field
+
+
+  redmine_issue_mailer:
+    issue_mail_server_settings: Issue mail server settings
+    issue_mail_settings: Issue-Mail
+    issue_mail_server_setting_new: New
+    issue_mail_server_setting_edit: Edit
+    issue_mail_server_setting_delete: Delete
+    sett_user_name: user name
+    sett_password: password
+    sett_adress: adress
+    sett_domain: domain
+    sett_port: Port
+    sett_protocol: Protocol
+    sett_authentication: authentication
+    sett_openssl_verify_mode: openssl_verify_mode
+    sett_enable_starttls_auto: enable_starttls_auto
+    sett_ssl: ssl
+    sett_tls: tls
+    sett_edit: edit
+    sett_delete: delete
+    write_letter_to_client: Write Letter
+    letter_to_client: Letter to client
+    send_letter_to: To
+    send_letter_from: From
+    close_send_letter: Close
+    letter_body_txt: Text
+    letter_subject: Subject
+    send_letter_bcc: Blind carbon copy
+    use_letter_html: Use Html
+    list_of_letters: Sent letters
+    message_id: "ID of letter 'Message-ID'"
+    list_of_letters_from_clients: Inbox
+    from: From
+    to: To
+    cc: Carbon Copy
+    subject: Subject
+    macros_information_about_letter: Information about letter
+    macros_view_information_about_sent_letter: 'Information about sent letter JournalID#%{journal_id}'
+    deliver: Deliver
+    yes: Yes
+    no: No
+    body: Content of Body
+    undelivered_to: Undelivered to %{mail}
+    write_letter_to_client_permission_denied: Permission Denied
+    list_standard_fields: Standard fields
+    list_custom_fields: Custom Fields
+    include_attachments: Attach a files to letter
+    included_attachments: Files
+    list_email_footers: Email Footers 
+    create_email_footer: Create Email Footer
+    edit_footer: Edit Footer
+    delete_footer: Delete
+    edit_default_issue_footer: Set Default Issue
+    close_dialog_window: Close
+    set_default_footer: Set
+    error_message_can_not_find_footer: "Can not find footer"
+    error_message_can_not_find_footer_for_issue: Can not find footer for issue
+    error_message_you_have_to_choose_footer: You have to choose footer
+    email_issue_footer: Email Footer
+    choose_email_issue_footer: Выбрать другое подстрочное примечание письма
+    set_footer: Set Footer
+    choose: Choose
+    author_of_request: Author of request
+    email_from_book_of_email_address: E-mail from book
+    write_email_adress: Write email adress
+    option_for_entering_the_recipient: Варианта для ввода получателя
+    letter: Letter
+    letter_attached: Attached Files
+    check_settings: Check Settings
+    error_send_letter: Error
+    email_book: Email Book
+    email_name: Email Name
+    email: Email
+    edit_delete_email_book: 'Edit/Delete'
+    add_emaile_in_book: Add Email in Book
+    edit_emaile_in_book: Edit Email
+    delete_emaile_in_book: Delete Email
+    client_email_was_not_found: Client email was not found
+    who_send: Who send
+    start_date: Start date
+    end_date: End date
+    order_by_start_date: Order by start date
+    order_by_start_date_asc: Order by start date asc
+    order_by_start_date_desc: Order by start date desc
+
+    error:
+      can_not_find_email_in_book: Can not find email in book

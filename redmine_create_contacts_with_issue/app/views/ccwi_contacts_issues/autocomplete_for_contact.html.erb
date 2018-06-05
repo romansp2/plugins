@@ -1,0 +1,5 @@
+<%= contacts_check_box_tags 'contacts_issue[contact_ids][]', @contacts %>
+<%@contact_ids.each do |cintact_id|%>
+  <%=hidden_field_tag 'contacts_issue[contact_ids][]', cintact_id%>
+<%end%>
+

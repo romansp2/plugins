@@ -1,0 +1,48 @@
+operation_1:
+  id: 1
+  amount: 100
+  category_id: 1
+  account_id: 1
+  contact_id: 1
+  comments_count: 0
+  operation_date: <%= 10.days.ago.to_s(:db) %>
+  author_id: 1
+  is_approved: true
+  description: 'Operation #1 description'
+  income: true
+operation_2:
+  id: 2
+  amount: 50
+  category_id: 2
+  account_id: 1
+  contact_id: 2
+  comments_count: 0
+  operation_date: <%= 9.days.ago.to_s(:db) %>
+  author_id: 1
+  is_approved: true
+  description: 'Operation #2 description'
+  income: false
+operation_3:
+  id: 3
+  amount: 20
+  category_id: 2
+  account_id: 1
+  contact_id: 1
+  comments_count: 0
+  operation_date: <%= 8.days.ago.to_s(:db) %>
+  author_id: 2
+  is_approved: false
+  description: 'Operation #3 description'
+  income: false
+operation_4:
+  id: 4
+  amount: 120
+  category_id: 1
+  account_id: 2
+  contact_id: 1
+  comments_count: 0
+  operation_date: <%= Date.today.to_s(:db) %>
+  author_id: 2
+  is_approved: true
+  description: 'Operation #4 description'
+  income: true

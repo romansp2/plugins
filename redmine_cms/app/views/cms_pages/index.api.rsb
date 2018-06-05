@@ -1,0 +1,52 @@
+api.array :cms_pages, api_meta(:total_count => @pages.count) do
+  @pages.each do |cms_page|
+    api.cms_page do
+      api.id cms_page.id
+      api.name cms_page.name
+      api.title cms_page.title
+      api.content cms_page.content
+      api.filter_id cms_page.filter_id
+      api.status_id cms_page.status_id
+      api.visibility cms_page.visibility
+      api.is_cached cms_page.is_cached
+      api.parent(:id => cms_page.parent_id, :name => cms_page.parent.name) unless cms_page.parent.nil?
+      api.layout(:id => cms_page.layout_id, :name => cms_page.layout.name) unless cms_page.layout.nil?
+      api.version cms_page.version
+
+      api.created_at cms_page.created_at
+      api.updated_at cms_page.updated_at
+
+      api.array :parts do
+        cms_page.parts.each do |cms_part|
+          api.cms_part do
+            api.id cms_part.id
+            api.name cms_part.name
+            api.description cms_part.description
+            api.content cms_page.content
+            api.filter_id cms_page.filter_id
+            api.status_id cms_page.status_id
+            api.visibility cms_page.visibility
+            api.is_cached cms_page.is_cached
+
+            api.created_at cms_part.created_at
+            api.updated_at cms_part.updated_at
+          end
+        end
+      end if include_in_api_response?('parts') && cms_page.parts.any?
+
+      api.array :fields do
+        cms_page.fields.each do |page_field|
+          api.field do
+            api.id page_field.id
+            api.name page_field.name
+            api.content page_field.content
+
+            api.created_at page_field.created_at
+            api.updated_at page_field.updated_at
+          end
+        end
+      end if include_in_api_response?('fields') && cms_page.fields.any?
+
+    end
+  end
+end

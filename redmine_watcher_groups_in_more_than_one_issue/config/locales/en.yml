@@ -1,0 +1,8 @@
+# English strings go here for Rails i18n
+en:
+  # my_label: "My label"
+  permission_delete_watcher_groups_in_more_than_one_issue: "Delete Watcher Groups from more than one issue"
+  permission_add_watcher_groups_in_more_than_one_issue: "Add Watcher Groups in more than one issue"
+  warning_list_watcher_groups_from_bulk_edit: "Not necessarily all these groups are watchers in all the selected tasks."  
+  rawimtoi_added: "Added"
+  rawimtoi_watcher_groups: "Watcher Groups"

@@ -1,0 +1,68 @@
+<%=form_for server_setting do |f|%>
+  <%= hidden_field_tag(:project_id, project.identifier) %>
+  <table>
+  	 <tr>
+  	 	<td><%= f.label :user_name %><span class="required"> *</span></td>
+  	 	<td><%= f.email_field :user_name, :required => true %></td>
+  	 </tr>
+  	 <tr>
+  	 	<td><%= f.label :password %></td>
+  	 	<td><%= f.password_field :password %></td>
+  	 </tr>
+  	 <tr>
+  	 	<td><%= f.label :password_confirmation %></td>
+  	 	<td><%= f.password_field :password_confirmation %></td>
+  	 </tr>
+  	 <tr>
+  	 	<td><%= f.label :adress %><span class="required"> *</span></td>
+  	 	<td><%= f.text_field :adress, :required => true %></td>
+  	 </tr>
+     <tr>
+      <td><%= f.label :domain %></td>
+      <td><%= f.text_field :domain %></td>
+     </tr>
+  	 <tr>
+  	 	<td><%= f.label :port %></td>
+  	 	<td><%= f.number_field :port %></td>
+  	 </tr>
+     <tr>
+      <td><%= f.label :protocol %></td>
+      <td><%= f.select :protocol, ['smtp'] %></td>
+     </tr>
+  	 <tr>
+  	 	<td><%= f.label :authentication %></td>
+  	 	<td><%= f.select :authentication, ['plain', 'login', 'cram_md5'] %></td>
+  	 </tr>
+     
+     <tr>
+      <td><%= f.label :openssl_verify_mode %></td>
+      <td><%= f.select :openssl_verify_mode, ['none', 'peer', 'client_once', 'fail_if_no_peer_cert'] %></td>
+     </tr>
+     <tr>
+      <td><%= f.label :enable_starttls_auto %></td>
+      <td><%= f.check_box :enable_starttls_auto %></td>
+     </tr>
+     <tr>
+      <td><%= f.label :ssl %></td>
+      <td><%= f.check_box :ssl %></td>
+     </tr>
+     <tr>
+      <td><%= f.label :tls %></td>
+      <td><%= f.check_box :tls %></td>
+     </tr>
+
+  	 <tr>
+  	 	<td></td>
+  	 	<td><%=f.submit%></td>
+  	 </tr>
+  </table>
+    
+<%end%>
+<p><b>Example</b></p>
+<p>user_name:            'username@gmail.com',</p>
+<p>password:             '<password>',</p>
+<p>address:              'smtp.gmail.com',</p>
+<p>domain:               'example.com',</p>
+<p>port:                 587,</p>
+<p>authentication:       'plain',</p>
+

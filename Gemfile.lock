@@ -1,0 +1,18 @@
+GEM
+  specs:
+    redmine_crm (0.0.23)
+    ruby-ole (1.2.12.1)
+    spreadsheet (0.6.9)
+      ruby-ole (>= 1.0)
+    vcard (0.2.15)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  redmine_crm
+  spreadsheet (~> 0.6.8)
+  vcard (~> 0.2.8)
+
+BUNDLED WITH
+   1.16.1

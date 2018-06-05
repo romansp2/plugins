@@ -1,0 +1,32 @@
+= redmine_change_author_of_issue
+
+Description goes here
+
+  Установка (http://www.redmine.org/projects/redmine/wiki/Plugins)
+
+    1. Клонировать плагин из репозитория. (Необходим коммит с меткой v_._._).  git@gitlab.qazz.pw:a.kondratenko/redmine_change_author_of_issue.git
+
+    2. Копировать папку redmine_change_author_of_issue в папку plugins приложения (redmine).
+  
+    3. Запустить миграции не надо. 
+            
+    4.  Перезапустить сервер
+
+
+  Uninstalling a plugin (http://www.redmine.org/projects/redmine/wiki/Plugins)
+    
+    1. Remove plugin redmine_change_author_of_issue from the plugins folder: #{RAILS_ROOT}/plugins
+    
+    2. Restart app (redmine)
+
+Changelog
+  v0.0.1 - 17 Jun 2015
+    redmine:issue:359181  First releas
+  
+  v0.0.2 - 06 October 2015
+    redmine:issue:528608
+    Perfomance. Fix bug in list of authors
+
+  v0.1.0 - 26 December 2016
+    redmine:issue:868638
+    Version for redmine320

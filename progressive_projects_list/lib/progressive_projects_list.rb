@@ -1,0 +1,2 @@
+class ProgressiveProjectsList
+end

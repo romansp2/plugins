@@ -1,0 +1,34 @@
+# English strings go here for Rails i18n
+en:
+  label_hot_buttons: Hot Buttons
+  permission_edit_hot_buttons: Edit Hot Buttons
+  permission_use_hot_buttons: Use Hot Buttons
+  edit_hot_buttons: Edit Hot Buttons
+  hot_buttons:
+    name: Name
+    edit: Edit
+    delete: Delete
+    hot_button_list_is_empty: Hot Button list is empty
+    add_hot_button: Add Hot Button
+    field_create:  Create
+    field_delete: Delete
+    field_hot_buttons_list: Hot Buttons List
+    field_for_tracker: For Tracker
+    link_hot_buttons_list:  List
+    link_hot_buttons_list_open: Open
+    link_hot_buttons_list_close: Close
+    confirm_link_delete_hot_button: Are you shour that you want Delete Hot Button - %{hot_button}
+    button_create: Create
+    button_update: Update
+    author_of_issue: Author of issue
+    error_can_not_find_roles_in_project: Can not find Roles in project %{project}
+    error_can_not_find_tracker_in_project: Can not find Tracker in project %{project}
+    error_can_not_find_role_in_project: "Can not find Role(%{role}) in Project (%{project})"
+    error_can_not_find_tracker_in_project: "Can not find Tracker(%{tracker}) in Project (%{project})"
+    error_can_not_find_hot_button_for_project:   "Can not find Hot Button for Project - %{project}"
+    error_you_have_not_role_that_in_hot_button: "You can not use this Hot Button. You have not role in project that in Hot Button"
+    error_check_settings_in_hot_buttons_role_tracker_status: "Check Settings in Hot Buttons (role-tracker-status)"
+    error_you_can_not_update_form: "Can not Update Form"
+    error_you_can_not_update_form_check_settings_for_status: "Горячая Кнопка %{hot_button}. Нарушена последовательность действий (смотрите настройки Последовательность дейсвий). Нельзя переключать с Роль(%{project_user_roles}) - Трекер(%{tracker}) - Статус(%{status})  на Роль(%{hot_button_role}) - Трекер(%{hot_button_tracker}) - Статус(%{hot_button_status})"  
+    success_create_hot_button: "Succes created: Name: %{name}, Project: %{project}, Role: %{role}, Tracker: %{tracker}, Status: %{status}, Priority %{priority}" 
+    success_update_hot_button: "Succes updated: Name: %{name}, Project: %{project}, Role: %{role}, Tracker: %{tracker}, Status: %{status}, Priority %{priority}" 
